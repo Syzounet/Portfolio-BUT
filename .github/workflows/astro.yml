@@ -79,8 +79,8 @@ jobs:
 
   deploy:
     environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      name: portfolio-BUT
+      url: ${{ https://syzounet.github.io/portfolio-BUT }}
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
