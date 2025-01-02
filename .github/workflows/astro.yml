@@ -80,7 +80,7 @@ jobs:
   deploy:
     environment:
       name: portfolio-BUT
-      url: ${{ https://syzounet.github.io/Prortfolio-BUT/ }}
+      url: ${{ https://syzounet.github.io/Portfolio-BUT/ }}
     needs: build
     runs-on: ubuntu-latest
     name: Deploy
