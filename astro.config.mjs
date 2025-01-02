@@ -5,6 +5,14 @@ import { defineConfig, squooshImageService } from 'astro/config';
 
 export default defineConfig({
   site: 'https://syzounet.github.io/Portfolio-BUT/',
-  base: 'Portfolio-BUT'
+  base: 'Portfolio-BUT',
+  integrations: [tailwind(), mdx(), icon({
+    include: {
+      mdi: ["*"]
+    }
+  })],
+  image: {
+    service: squooshImageService()
+  }
 
 });
