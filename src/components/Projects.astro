@@ -19,18 +19,21 @@ const projects = await getCollection('projects');
 			title={projects[0].data.title}
 			description={projects[0].data.description}
 			tags={projects[0].data.tags}
+			url={projects[0].data.url}
 			imageUrl={imagetrain}
 		/>
 		<Card
 			title={projects[1].data.title}
 			description={projects[1].data.description}
 			tags={projects[1].data.tags}
+			url={projects[1].data.url}
 			imageUrl={projects[1].data.imageUrl}
 		/>
 		<Card
 			title={projects[2].title}
 			description={projects[2].data.description}
 			tags={projects[2].data.tags}
+			url={projects[2].data.url}
 			imageUrl={projects[2].data.imageUrl}
 		/>
 	</div>
