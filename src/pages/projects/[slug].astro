@@ -13,11 +13,13 @@ const { slug } = Astro.params;
 const projects = await getCollection('projects');
 const project = projects.find((p) => p.slug === slug);
 
-import imageUrl from '@assets/images/' + project.data.imageUrl;
+
 
 if (!project) {
   throw new Error(`Project not found for slug: ${slug}`);
 }
+
+import imageUrl from '@assets/images/' + project.data.imageUrl;
 ---
 
 <Layout>
