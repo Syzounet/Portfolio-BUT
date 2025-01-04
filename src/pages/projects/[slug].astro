@@ -24,7 +24,8 @@ if (!project) {
       <div class="flex flex-col lg:flex-row items-center gap-8">
         <!-- Project Image -->
         <div class="flex-shrink-0 w-full lg:w-1/2">
-          <img src={project.data.imageUrl} alt={project.data.img_alt} class="rounded-xl shadow-lg" />
+          <!-- Dynamically render the image based on the project data -->
+          <img src={project.data.imageUrl || '/assets/images/project.png'} alt={project.data.img_alt} class="rounded-xl shadow-lg" />
         </div>
         
         <!-- Project Details -->
