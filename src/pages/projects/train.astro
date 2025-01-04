@@ -1,7 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import image from '@assets/images/train_gui.png'
-
+import image from '@assets/images/train_gui.png';
+import { Image } from 'astro:assets';
 const tags = ['Java', 'JavaFX', 'Game']
 ---
 
@@ -12,7 +12,12 @@ const tags = ['Java', 'JavaFX', 'Game']
         <!-- Project Image -->
         <div class="flex-shrink-0 w-full lg:w-1/2">
           <!-- Static image based on the project data -->
-          <img src={image} alt='train image' class="rounded-xl shadow-lg" />
+          <Image src={image} alt='train image' 
+          class="rounded-xl shadow-lg" 
+          format="png" 
+          width={500}
+          height={500}
+          loading="eager"/>  
         </div>
         
         <!-- Project Details -->
