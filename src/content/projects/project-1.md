@@ -1,8 +1,7 @@
 ---
-inProgress: false
 title: Train
-description: test
-img_alt: project image alt text
-link: https://github.com/veranikabarel?tab=repositories
+description: Une application de gestion de trains interactive développée avec React, CSS et Typescript.
+img_alt: Project image alt text
 tags: ['React', 'CSS', 'Typescript']
+url: /projects/train
 ---

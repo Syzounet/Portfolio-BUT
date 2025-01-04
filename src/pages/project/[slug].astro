@@ -1,0 +1,22 @@
+---
+import { getEntryBySlug } from 'astro:content';
+import Layout from '@layouts/Layout.astro';
+
+const { slug } = Astro.params;
+const project = await getEntryBySlug('projects', slug);
+---
+
+<Layout>
+	<main>
+		<section class="p-4">
+			<h1 class="text-3xl font-bold text-orange">{project.data.title}</h1>
+			<p class="my-4 text-lg">{project.data.description}</p>
+			<h2 class="mt-4 text-2xl">Tags:</h2>
+			<ul class="flex flex-wrap gap-2">
+				{project.data.tags.map((tag) => (
+					<li class="rounded bg-orange p-2 text-white">{tag}</li>
+				))}
+			</ul>
+		</section>
+	</main>
+</Layout>
