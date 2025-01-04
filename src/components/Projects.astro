@@ -1,6 +1,7 @@
 ---
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
+import imagetrain from '@assets/images/train_gui.png';
 
 const projects = await getCollection('projects');
 ---
@@ -17,14 +18,14 @@ const projects = await getCollection('projects');
 	title={projects[0].title}
 	description={projects[0].description}
 	tags={projects[0].tags}
-	imageUrl="/assets/images/train_gui.png"
+	imageUrl= {imagetrain}
 />
 
 	<Card
 		title={projects[1].title}
 		description={projects[1].description}
 		tags={projects[1].tags}
-		imageUrl={projects[1].imageUrl}  
+		imageUrl={projects[1].imageUrl}
 	/>	
 	<Card
 		title={projects[2].title}
