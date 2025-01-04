@@ -1,6 +1,7 @@
 ---
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
+import imagetrain from '@assets/images/train_gui.png';
 
 const projects = await getCollection('projects');
 ---
@@ -12,15 +13,25 @@ const projects = await getCollection('projects');
 >
 	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Projets</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
+	<!-- Ajouter les projets un par un sans utiliser .map -->
 	<div class="flex flex-col lg:flex-row gap-8">
-		{
-			projects.map((project) => (
-				<Card
-					title={project.title}
-					description={project.description}
-					tags={project.tags}
-					imageUrl={project.imageUrl}
-				/>
-			))
-		}
+		<Card
+			title={projects[0].data.title}
+			description={projects[0].data.description}
+			tags={projects[0].data.tags}
+			imageUrl={imagetrain}
+		/>
+		<Card
+			title={projects[1].data.title}
+			description={projects[1].data.description}
+			tags={projects[1].data.tags}
+			imageUrl={projects[1].data.imageUrl}
+		/>
+		<Card
+			title={projects[2].title}
+			description={projects[2].data.description}
+			tags={projects[2].data.tags}
+			imageUrl={projects[2].data.imageUrl}
+		/>
+	</div>
 </section>
