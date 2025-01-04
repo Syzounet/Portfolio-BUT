@@ -6,7 +6,8 @@ const projectsCollection = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		tags: z.array(z.string()),
-		link: z.string(),
+		link: z.string().optional(), // Optional external link
+		url: z.string().optional(), // URL for internal project pages
 		img_alt: z.string().optional(),
 	}),
 });
