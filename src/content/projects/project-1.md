@@ -1,9 +1,10 @@
 ---
 title: Train
-description: Une application de gestion de trains interactive développée avec React, CSS et Typescript.
-tags: ['React', 'CSS', 'Typescript']
+description: Un jeu de société retranscrit en une applicattion programmer en java et javaFX.
+tags: ['Java', 'JavaFX', 'Typescript']
 url: Portfolio-BUT/projects/train
 slug: train
-img_alt: Train project screenshot
+img_alt: "Image du projet Train"
+imageUrl: "/assets/images/train_gui.png"
 inProgress: false
 ---
