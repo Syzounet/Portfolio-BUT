@@ -13,6 +13,8 @@ const { slug } = Astro.params;
 const projects = await getCollection('projects');
 const project = projects.find((p) => p.slug === slug);
 
+import imageUrl from '@assets/images/' + project.data.imageUrl;
+
 if (!project) {
   throw new Error(`Project not found for slug: ${slug}`);
 }
@@ -25,7 +27,7 @@ if (!project) {
         <!-- Project Image -->
         <div class="flex-shrink-0 w-full lg:w-1/2">
           <!-- Dynamically render the image based on the project data -->
-          <img src={project.data.imageUrl || '/assets/images/project.png'} alt={project.data.img_alt} class="rounded-xl shadow-lg" />
+          <img src={imageUrl || '/assets/images/project.png'} alt={project.data.img_alt} class="rounded-xl shadow-lg" />
         </div>
         
         <!-- Project Details -->
