@@ -15,7 +15,7 @@ const projects = await getCollection('projects');
 	<div class="mb-10 flex w-full flex-col flex-wrap items-center md:flex-row">
 		{projects.map((project) => (
 			<Card
-				url={project.data.url}
+				url={`/projects/${project.slug}`}
 				title={project.data.title}
 				description={project.data.description}
 				alt={project.data.img_alt}
