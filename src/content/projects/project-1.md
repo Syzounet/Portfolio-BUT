@@ -5,6 +5,6 @@ tags: ['Java', 'JavaFX']
 url: projects/train
 slug: train
 img_alt: "Image du projet Train"
-imageUrl: "assets/images/train_gui.png"
+imageUrl: "/assets/images/train_gui.png"
 inProgress: false
 ---
