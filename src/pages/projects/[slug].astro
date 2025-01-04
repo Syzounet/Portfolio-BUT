@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -13,13 +14,12 @@ const { slug } = Astro.params;
 const projects = await getCollection('projects');
 const project = projects.find((p) => p.slug === slug);
 
-
-
 if (!project) {
   throw new Error(`Project not found for slug: ${slug}`);
 }
 
-import imageUrl from '@assets/images/' + project.data.imageUrl;
+// Import the image using astro:assets
+const image = await import(`@assets/images/${project.data.imageUrl}`);
 ---
 
 <Layout>
@@ -29,7 +29,7 @@ import imageUrl from '@assets/images/' + project.data.imageUrl;
         <!-- Project Image -->
         <div class="flex-shrink-0 w-full lg:w-1/2">
           <!-- Dynamically render the image based on the project data -->
-          <img src={imageUrl || '/assets/images/project.png'} alt={project.data.img_alt} class="rounded-xl shadow-lg" />
+          <Image src={image} alt={project.data.img_alt} width={400} height={400} class="rounded-xl shadow-lg" />
         </div>
         
         <!-- Project Details -->
