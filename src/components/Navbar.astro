@@ -7,15 +7,15 @@ import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 const menuitems = [
 	{
 		title: 'Présentation',
-		URL: '/presentation',
+		URL: '/presentation', // URL absolue
 	},
 	{
 		title: 'Projets',
-		URL: '/pages/projects',
+		URL: '/projects', // URL absolue corrigée
 	},
 	{
 		title: 'Contact',
-		URL: '/pages/contact',
+		URL: '/contact', // URL absolue corrigée
 	},
 ];
 ---
@@ -40,7 +40,7 @@ const menuitems = [
 							<li>
 								<button
 									aria-label="navigation button"
-									onclick = {() => (window.location.href = item.URL)}
+									onclick = {() => (window.location.href = item.URL)} // Redirige vers l'URL absolue
 									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
 								>
 									{item.title}
