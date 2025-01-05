@@ -2,21 +2,22 @@
 import cvFile from '@assets/cv-gauthier-souquet.pdf'
 import Button from '@components/ui/Button.astro';
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
+import Presentation from '@pages/presentation.astro';
 import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 
 
 const menuitems = [
 	{
 		title: 'Présentation',
-		path: 'presentation',
+		URL: 'pages/presentation',
 	},
 	{
 		title: 'Projets',
-		path: 'pages/projects',
+		URL: 'pages/projects',
 	},
 	{
 		title: 'Contact',
-		path: 'pages/contact',
+		URL: 'pages/contact',
 	},
 ];
 ---
