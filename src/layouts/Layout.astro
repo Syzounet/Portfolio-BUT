@@ -7,15 +7,15 @@ export interface LayoutProps {
 	title: string;
 }
 
-const { title = 'John Doe | Web developer' } = Astro.props as LayoutProps;
+const { title = 'Gauthier Souquet | Portfolio' } = Astro.props as LayoutProps;
 ---
 
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth" data-testid="html">
 	<head>
 		<SEO
-			title="A Very Descriptive Title"
-			description="A heavily optimized description full of well-researched keywords."
+			title= {title}
+			description="Portfolio de Gauthier Souquet, étudiant en informatique sur Montpellier"
 		/>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
