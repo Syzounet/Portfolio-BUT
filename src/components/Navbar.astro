@@ -11,11 +11,11 @@ const menuitems = [
 	},
 	{
 		title: 'Projets',
-		URL: '/projects', // URL absolue corrigée
+		URL: '/projects', // URL absolue
 	},
 	{
 		title: 'Contact',
-		URL: '/contact', // URL absolue corrigée
+		URL: '/contact', // URL absolue
 	},
 ];
 ---
@@ -32,25 +32,16 @@ const menuitems = [
 				<MenuIcon class="h-4 w-4 text-black dark:text-white" />
 			</div>
 		</div>
-		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
-			<ul class="flex flex-col lg:flex-row lg:gap-3">
-				{
-					menuitems.map((item) => (
-						<>
-							<li>
-								<button
-									aria-label="navigation button"
-									onclick = {() => (window.location.href = item.URL)} // Redirige vers l'URL absolue
-									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
-								>
-									{item.title}
-								</button>
-							</li>
-						</>
-					))
-				}
-				<li><ToggleTheme /></li>
-			</ul>
+		<MenuItems>
+			{menuitems.map((item) => (
+				<a href={
+					item.URL
+				} class="block px-4 py-2 text-black dark:text-white hover:bg-gray-200 dark:hover:bg-gray-800">
+					{item.title}
+				</a>
+			))}
 		</MenuItems>
+		<ToggleTheme />
+	
 	</Astronav>
 </header>
