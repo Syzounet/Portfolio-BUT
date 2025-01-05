@@ -1,22 +1,93 @@
 ---
 import Layout from '@layouts/Layout.astro';
-
 ---
 
 <Layout>
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h2 {
+            color: #ff7f50; /* Coral color for headings */
+            font-size: 2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ff7f50;
+            display: inline-block;
+        }
+        p {
+            color: #333; /* Darker gray for text */
+            margin-bottom: 20px;
+        }
+        strong {
+            color: #0073e6; /* Blue for key emphasis */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f9f9f9;
+            margin: 5px 0;
+            padding: 10px;
+            border-left: 5px solid #ff7f50;
+            color: #444;
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            background: #ff7f50;
+            color: white;
+        }
+        footer p {
+            margin: 0;
+        }
+        #contact a {
+            word-wrap: break-word;
+        }
+    </style>
+
     <main>
         <section id="about">
             <div class="container">
                 <h2>À propos de moi</h2>
-                <p>Je suis un étudiant passionné par l'informatique, actuellement en deuxième année d'IUT Informatique. Mes intérêts incluent le développement web et le développement de jeux vidéo. J'aime relever des défis techniques et apprendre de nouvelles technologies.</p>
-                <p>Mes expériences incluent la création d'un chatbot lors de la Nuit de l'Info et le développement d'un site web pour donner des retours sur les poursuites d'études.</p>
+                <p>
+                    Je suis un étudiant passionné par l'<strong>informatique</strong>, actuellement en 
+                    <strong>deuxième année d'IUT Informatique</strong>. Mes intérêts incluent le 
+                    <strong>développement web</strong> et le <strong>développement de jeux vidéo</strong>. 
+                    J'aime relever des défis techniques et apprendre de nouvelles technologies.
+                </p>
+                <p>
+                    Mes expériences incluent la <strong>création d'un chatbot</strong> lors de la 
+                    <strong>Nuit de l'Info</strong> et le développement d'un site web pour 
+                    <strong>donner des retours sur les poursuites d'études</strong>.
+                </p>
             </div>
         </section>
 
         <section id="internship">
             <div class="container">
                 <h2>Stage chez MindAI</h2>
-                <p>Je débuterai un stage de 12 semaines chez <strong>MindAI</strong> à Montpellier, à partir du 13 janvier 2025. Ce stage consistera à développer une application innovante traduisant les pensées des animaux et des plantes en messages compréhensibles par l'humain.</p>
+                <p>
+                    Je débuterai un stage de <strong>12 semaines</strong> chez <strong>MindAI</strong> à Montpellier, 
+                    à partir du <strong>13 janvier 2025</strong>. Ce stage consistera à développer une application 
+                    innovante traduisant les pensées des <strong>animaux</strong> et des <strong>plantes</strong> en 
+                    messages compréhensibles par l'humain.
+                </p>
             </div>
         </section>
 
@@ -24,10 +95,10 @@ import Layout from '@layouts/Layout.astro';
             <div class="container">
                 <h2>Compétences</h2>
                 <ul>
-                    <li>Développement web : HTML, CSS, JavaScript, PHP, MySQL</li>
-                    <li>Développement logiciel : Java, Python</li>
-                    <li>Frameworks : React, JavaFX</li>
-                    <li>Gestion de projet : Git, GitHub, GitHub Actions</li>
+                    <li><strong>Développement web :</strong> HTML, CSS, JavaScript, PHP, MySQL</li>
+                    <li><strong>Développement logiciel :</strong> Java, Python</li>
+                    <li><strong>Frameworks :</strong> React, JavaFX</li>
+                    <li><strong>Gestion de projet :</strong> Git, GitHub, GitHub Actions</li>
                 </ul>
             </div>
         </section>
@@ -35,7 +106,11 @@ import Layout from '@layouts/Layout.astro';
         <section id="goals">
             <div class="container">
                 <h2>Objectifs professionnels</h2>
-                <p>À long terme, je souhaite devenir développeur web ou développeur de jeux vidéo, en contribuant à des projets innovants et captivants.</p>
+                <p>
+                    À long terme, je souhaite devenir <strong>développeur web</strong> ou 
+                    <strong>développeur de jeux vidéo</strong>, en contribuant à des projets 
+                    <strong>innovants</strong> et <strong>captivants</strong>.
+                </p>
             </div>
         </section>
 
@@ -43,7 +118,12 @@ import Layout from '@layouts/Layout.astro';
             <div class="container">
                 <h2>Contact</h2>
                 <p>Email : <a href="mailto:Gauthier.34m@gmail.com">Gauthier.34m@gmail.com</a></p>
-                <p>LinkedIn : <a href="https://www.linkedin.com/in/gauthier-souquet-878aab202/" target="_blank">linkedin.com/in/souquet-gauthier</a></p>
+                <p>
+                    LinkedIn : 
+                    <a href="https://www.linkedin.com/in/gauthier-souquet-878aab202/" target="_blank">
+                        linkedin.com/in/souquet-gauthier
+                    </a>
+                </p>
             </div>
         </section>
     </main>
