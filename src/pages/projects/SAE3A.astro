@@ -1,0 +1,54 @@
+---
+import Layout from '@layouts/Layout.astro';
+import image from '@assets/images/sae3a.png'; // Remplace l'image par celle de ton projet
+import { Image } from 'astro:assets';
+
+const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
+---
+<Layout>
+  <main class="py-12 px-6">
+    <section class="max-w-screen-lg mx-auto">
+      <div class="flex flex-col lg:flex-row items-center gap-8">
+        <!-- Project Image -->
+        <div class="flex-shrink-0 w-full lg:w-1/2">
+          <!-- Static image based on the project data -->
+          <Image src={image} 
+          alt='Image du projet SAE 3A' 
+          class="rounded-xl shadow-lg" 
+          format="png" 
+          width={500}
+          height={500}
+          loading="eager"/>  
+        </div>
+        
+        <!-- Project Details -->
+        <div class="w-full lg:w-1/2">
+          <h1 class="text-4xl font-semibold text-orange mb-4">SAE 3A - Site d'avis de poursuite d'études</h1>
+          <p class="text-lg text-black dark:text-white mb-6">
+            Ce projet consistait à créer un site web permettant aux étudiants de donner leur avis sur les universités vers lesquelles ils souhaitaient postuler. 
+            Les professeurs pouvaient également ajouter un avis favorable ou non, influençant ainsi le choix des étudiants.
+          </p>
+
+          <h2 class="text-xl font-semibold text-black mb-4">Mon rôle : Scrum Master</h2>
+          <p class="text-lg text-black dark:text-white mb-6">
+            En tant que Scrum Master, ma mission principale était de gérer l'organisation de l'équipe, en assurant une communication fluide entre les membres et en facilitant les processus agiles. 
+            J'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.
+          </p>
+
+          <h2 class="text-xl font-semibold text-black mb-4">Motivation de l'équipe</h2>
+          <p class="text-lg text-black dark:text-white mb-6">
+            Afin de motiver l'équipe, j'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini. 
+            J'ai organisé des réunions régulières pour vérifier l'avancement des tâches et résoudre les problèmes rapidement. Cela a permis de maintenir une bonne ambiance et de respecter les délais du projet.
+          </p>
+
+          <!-- Tags Section -->
+          <div class="flex flex-wrap gap-2 mb-6">
+            {tags.map((tag) => (
+              <span class="px-2 py-1 bg-orange text-white rounded-lg text-sm">{tag}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

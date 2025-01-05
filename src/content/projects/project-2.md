@@ -1,8 +1,8 @@
 ---
 inProgress: false
-title: Project title
+title: Avis de poursuite d'étude
 description: Project description
 img_alt: project image alt text
-tags: ['React', 'CSS', 'Typescript']
+tags: ['PHP', 'HTML', 'CSS', 'PL/SQL', 'BDD']
 imageUrl: "/assets/images/train_gui.png"
 ---
