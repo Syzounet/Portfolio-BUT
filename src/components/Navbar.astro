@@ -7,15 +7,15 @@ import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 const menuitems = [
 	{
 		title: 'Présentation',
-		URL: '/presentation', // URL absolue
+		URL: 'Portfolio-BUT/presentation', // URL absolue
 	},
 	{
 		title: 'Projets',
-		URL: '/projects', // URL absolue
+		URL: 'Portfolio-BUT/projects', // URL absolue
 	},
 	{
 		title: 'Contact',
-		URL: '/contact', // URL absolue
+		URL: 'Portfolio-BUT/contact', // URL absolue
 	},
 ];
 ---
@@ -33,6 +33,8 @@ const menuitems = [
 			</div>
 		</div>
 		<MenuItems>
+			<ul class="flex flex-col lg:flex-row lg:gap-8">
+			
 			{menuitems.map((item) => (
 				<a href={
 					item.URL
@@ -40,6 +42,7 @@ const menuitems = [
 					{item.title}
 				</a>
 			))}
+			</ul>
 		</MenuItems>
 		<ToggleTheme />
 	
