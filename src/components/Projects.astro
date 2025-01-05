@@ -2,6 +2,7 @@
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
 import imagetrain from '@assets/images/train_gui.png';
+import imageSAE from '@assets/images/SAE3A.png';
 
 const projects = await getCollection('projects');
 ---
@@ -27,7 +28,7 @@ const projects = await getCollection('projects');
 			description={projects[1].data.description}
 			tags={projects[1].data.tags}
 			url={projects[1].data.url}
-			imageUrl={projects[1].data.imageUrl}
+			imageUrl={imageSAE}
 		/>
 		<Card
 			title={projects[2].title}
