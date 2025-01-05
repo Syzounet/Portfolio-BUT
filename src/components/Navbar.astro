@@ -1,23 +1,21 @@
 ---
-import cvFile from '@assets/cv-gauthier-souquet.pdf'
+import cvFile from '@assets/cv-gauthier-souquet.pdf';
 import Button from '@components/ui/Button.astro';
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
-import Presentation from '@pages/presentation.astro';
 import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
-
 
 const menuitems = [
 	{
 		title: 'Présentation',
-		URL: 'presentation',
+		URL: '/presentation',
 	},
 	{
 		title: 'Projets',
-		URL: 'pages/projects',
+		URL: '/pages/projects',
 	},
 	{
 		title: 'Contact',
-		URL: 'pages/contact',
+		URL: '/pages/contact',
 	},
 ];
 ---
@@ -40,13 +38,13 @@ const menuitems = [
 					menuitems.map((item) => (
 						<>
 							<li>
-								<a
-									aria-label="navigation link"
-									href={item.URL}
+								<button
+									aria-label="navigation button"
+									onclick = {() => (window.location.href = item.URL)}
 									class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
 								>
 									{item.title}
-								</a>
+								</button>
 							</li>
 						</>
 					))
