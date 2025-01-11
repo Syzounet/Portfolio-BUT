@@ -1,5 +1,8 @@
 ---
 import Layout from '@layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import Contact from '@components/Contact.astro';
+import BackToTop from '@components/ui/BackToTop.astro';
 ---
 
 <Layout>
@@ -126,5 +129,7 @@ import Layout from '@layouts/Layout.astro';
                 </p>
             </div>
         </section>
+        <Contact />
+        <BackToTop />
     </main>
 </Layout>
