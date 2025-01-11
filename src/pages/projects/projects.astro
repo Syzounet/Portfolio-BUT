@@ -5,7 +5,8 @@ import { getCollection } from 'astro:content';
 import Card from '@components/ui/Card.astro';
 import train from '@assets/images/train_gui.png';
 import SAE from '@assets/images/SAE3A.png';
-
+import Contact from '@components/Contact.astro';
+import BackToTop from '@components/ui/BackToTop.astro';
 const projects = await getCollection('projects');
 
 ---
@@ -14,8 +15,9 @@ const projects = await getCollection('projects');
     <main>
         <section id="projects" class="py-10 bg-gray-50 dark:bg-gray-900">
             <div class="container mx-auto px-4">
-                <h2 class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-8 text-center">Mes Projets</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+                <h2 class="font-monospace text-2xl text-orange lg:text-4xl">Mes projets</h2>
+                <span class="mb-10 h-1 w-10 bg-orange"></span>
+                <div class="flex flex-col lg:flex-row gap-8">
                     <Card
                         title={projects[0].data.title}
                         description={projects[0].data.description}
@@ -40,5 +42,7 @@ const projects = await getCollection('projects');
                 </div>
             </div>
         </section>
+        <Contact />
+		<BackToTop />
     </main>
 </Layout>
