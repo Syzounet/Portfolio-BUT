@@ -1,7 +1,12 @@
 ---
 
 import Layout from '@layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 import Card from '@components/ui/Card.astro';
+import train from '@assets/images/train_gui.png';
+import SAE from '@assets/images/SAE3A.png';
+
+const projects = await getCollection('projects');
 
 ---
 
@@ -12,18 +17,25 @@ import Card from '@components/ui/Card.astro';
                 <h2 class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-8 text-center">Mes Projets</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                     <Card
-                        title="Train"
-                        description="Un jeu de société retranscrit en une applicattion programmer en java et javaFX."
-                        tags={['Java', 'JavaFX', 'Game']}
-                        url="/Portfolio-BUT/projects/train"
-                        imageUrl="@assets/images/train_gui.png"
+                        title={projects[0].data.title}
+                        description={projects[0].data.description}
+                        tags={projects[0].data.tags}
+                        url={projects[0].data.url}
+                        imageUrl={train}
                     />
                     <Card
-                        title="SAE3A"
-                        description="Un site web pour une entreprise de vente de pièces automobiles."
-                        tags={['HTML', 'CSS', 'JavaScript', 'PHP', 'PL/SQL']}
-                        url="/Portfolio-BUT/projects/sae3a"
-                        imageUrl="@assets/images/SAE3A.png"
+                        title={projects[1].data.title}
+                        description={projects[1].data.description}
+                        tags={projects[1].data.tags}
+                        url={projects[1].data.url}
+                        imageUrl={SAE}
+                    />
+                    <Card
+                        title={projects[2].data.title}
+                        description={projects[2].data.description}
+                        tags={projects[2].data.tags}
+                        url={projects[2].data.url}
+                        imageUrl={projects[2].data.imageUrl}
                     />
                 </div>
             </div>
