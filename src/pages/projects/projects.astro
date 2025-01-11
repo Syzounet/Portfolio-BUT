@@ -1,6 +1,8 @@
 ---
+
 import Layout from '@layouts/Layout.astro';
-import { projects } from '@data/projects';
+import Card from '@components/ui/Card.astro';
+
 ---
 
 <Layout>
@@ -9,23 +11,20 @@ import { projects } from '@data/projects';
             <div class="container mx-auto px-4">
                 <h2 class="text-3xl font-bold text-orange-600 dark:text-orange-400 mb-8 text-center">Mes Projets</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-                    {
-                        projects.map(project => (
-                            <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
-                                <img src={project.imageUrl} alt={project.img_alt} class="w-full h-48 object-cover" />
-                                <div class="p-6">
-                                    <h3 class="text-xl font-semibold text-gray-800 dark:text-white">{project.title}</h3>
-                                    <p class="text-gray-600 dark:text-gray-300 mb-4">{project.description}</p>
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        {project.tags.map(tag => (
-                                            <span class="bg-orange-100 dark:bg-orange-900 text-orange-600 dark:text-orange-300 text-xs font-medium px-2 py-1 rounded">{tag}</span>
-                                        ))}
-                                    </div>
-                                    <a href={project.url} class="text-orange-600 dark:text-orange-400 hover:underline font-medium">Voir le projet &rarr;</a>
-                                </div>
-                            </div>
-                        ))
-                    }
+                    <Card
+                        title="Train"
+                        description="Un jeu de société retranscrit en une applicattion programmer en java et javaFX."
+                        tags={['Java', 'JavaFX', 'Game']}
+                        url="/Portfolio-BUT/projects/train"
+                        imageUrl="@assets/images/train_gui.png"
+                    />
+                    <Card
+                        title="SAE3A"
+                        description="Un site web pour une entreprise de vente de pièces automobiles."
+                        tags={['HTML', 'CSS', 'JavaScript', 'PHP', 'PL/SQL']}
+                        url="/Portfolio-BUT/projects/sae3a"
+                        imageUrl="@assets/images/SAE3A.png"
+                    />
                 </div>
             </div>
         </section>
