@@ -1,8 +1,9 @@
 ---
 inProgress: false
-title: Project title
-description: Project description
+title: NDI
+description: Participation à l'évènement de la Nuit De l'Info, projet web avec des défis à effectuer pendant une nuit complète.
 img_alt: project image alt text
-tags: ['React', 'CSS', 'Typescript']
-imageUrl: "/assets/images/train_gui.png"
+url: /Portfolio-BUT/projects/NDI
+tags: ['HTML', 'CSS', 'JS', 'PHP']
+imageUrl: "/assets/images/NDI.png"
 ---
