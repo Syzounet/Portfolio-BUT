@@ -39,14 +39,10 @@ const tags = ['Java', 'JavaFX', 'Game']
           </span>
 
           <div class="border rounded-lg shadow-md bg-gray-100 p-4">
-            <button
-                class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
-                data-accordion-target="#accordion-ac"
-                aria-expanded="false"
-            >
+            <h1 class="text-xl font-semibold text-orange mb-4">
               Apprentissage Critique (AC) Compétence Réaliser🗂️
-            </button>
-            <div id="accordion-ac" class="hidden mt-4">
+            </h1>
+            <div id="accordion-ac">
               <!-- Directly rendering the actions -->
               <div>
                 <h3 class="text-lg font-semibold text-orange">AC 1 : Choisir des structures de données complexes adaptées au problème</h3>
@@ -74,28 +70,7 @@ const tags = ['Java', 'JavaFX', 'Game']
     </section>
     <Contact />
 		<BackToTop />
-    <script>
-      document.addEventListener('DOMContentLoaded', () => {
-        function toggleAccordion(id, button) {
-          const accordion = document.getElementById(id);
-          if (accordion) {
-            const expanded = accordion.getAttribute('aria-expanded') === 'true' || false;
-            
-            accordion.hidden = expanded;
-            accordion.setAttribute('aria-expanded', String(!expanded));
-            
-            button.setAttribute('aria-expanded', !expanded);
-          }
-        }
-    
-        const button = document.querySelector('[data-accordion-target="#accordion-ac"]');
-        if (button) {
-          button.addEventListener('click', function () {
-            toggleAccordion('accordion-ac', this);
-          });
-        }
-      });
-    </script>
+
   </main>
   
 </Layout>
