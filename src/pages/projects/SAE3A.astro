@@ -109,28 +109,4 @@ const actions = [
     <BackToTop />
     
   </main>
-
-  <!-- JavaScript for Accordion -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      function toggleAccordion(id, button) {
-        const accordion = document.getElementById(id);
-        if (accordion) {
-          const expanded = accordion.getAttribute('aria-expanded') === 'true' || false;
-          
-          accordion.hidden = expanded;
-          accordion.setAttribute('aria-expanded', String(!expanded));
-          
-          button.setAttribute('aria-expanded', !expanded);
-        }
-      }
-  
-      const button = document.querySelector('[data-accordion-target="#accordion-ac"]');
-      if (button) {
-        button.addEventListener('click', function () {
-          toggleAccordion('accordion-ac', this);
-        });
-      }
-    });
-  </script>
 </Layout>
