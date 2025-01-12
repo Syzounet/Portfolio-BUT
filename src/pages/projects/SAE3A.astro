@@ -1,11 +1,26 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import image from '@assets/images/SAE3A.png'; // Remplace l'image par celle de ton projet
+import image2 from '@assets/images/SAEA3-agregation.png';
 import BackToTop from '@components/ui/BackToTop.astro';
 import Contact from '@components/Contact.astro';
 import { Image } from 'astro:assets';
 
 const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
+const actions = [
+  {
+    title: "AC 1 : Analyse des besoins",
+    description: "Analyser les besoins des utilisateurs et définir les fonctionnalités principales du site web pour répondre à leurs attentes.",
+  },
+  {
+    title: "AC 2 : Gestion des tâches et priorisation",
+    description: "Organiser les tâches selon leur priorité et veiller à leur réalisation dans les délais fixés grâce à une méthodologie Agile.",
+  },
+  {
+    title: "AC 3 : Résolution de blocages",
+    description: "Faciliter la résolution des problèmes rencontrés par l'équipe en proposant des solutions adaptées et en mobilisant les ressources nécessaires.",
+  },
+];
 ---
 <Layout>
   <main class="py-12 px-6">
@@ -13,38 +28,66 @@ const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
       <div class="flex flex-col lg:flex-row items-center gap-8">
         <!-- Project Image -->
         <div class="flex-shrink-0 w-full lg:w-1/2">
-          <!-- Static image based on the project data -->
-          <Image src={image} 
-          alt='Image du projet SAE 3A' 
-          class="rounded-xl shadow-lg" 
-          format="png" 
-          width={500}
-          height={500}
-          loading="eager"/>  
+          <Image
+            src={image}
+            alt="Image du projet SAE 3A"
+            class="rounded-xl shadow-lg"
+            format="png"
+            width={500}
+            height={500}
+            loading="eager"
+          />
         </div>
-        
+
         <!-- Project Details -->
         <div class="w-full lg:w-1/2">
           <h1 class="text-4xl font-semibold text-orange mb-4">SAE 3A - Site d'avis de poursuite d'études</h1>
-          <p class="text-lg text-black dark:text-white mb-6">
+          <p class="text-lg text-white dark:text-black mb-6">
             Ce projet consistait à créer un site web permettant aux étudiants de donner leur avis sur les universités vers lesquelles ils souhaitaient postuler. 
             Les professeurs pouvaient également ajouter un avis favorable ou non, influençant ainsi le choix des étudiants.
           </p>
 
-          <h2 class="text-xl font-semibold text-black mb-4">Mon rôle : Scrum Master</h2>
-          <p class="text-lg text-black dark:text-white mb-6">
+          <h2 class="text-xl font-semibold text-orange mb-4">Mon rôle : Scrum Master</h2>
+          <p class="text-lg text-white dark:text-black mb-6">
             En tant que Scrum Master, ma mission principale était de gérer l'organisation de l'équipe, en assurant une communication fluide entre les membres et en facilitant les processus agiles. 
             J'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.
           </p>
+          <Image
+            src={image2}
+            alt="Image du projet SAE 3A"
+            class="rounded-xl shadow-lg"
+            format="png"
+            width={500}
+            height={500}
+            loading="eager"
+          />
 
-          <h2 class="text-xl font-semibold text-black mb-4">Motivation de l'équipe</h2>
-          <p class="text-lg text-black dark:text-white mb-6">
+          <h2 class="text-xl font-semibold text-orange mb-4">Motivation de l'équipe</h2>
+          <p class="text-lg text-white dark:text-black mb-6">
             Afin de motiver l'équipe, j'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini. 
             J'ai organisé des réunions régulières pour vérifier l'avancement des tâches et résoudre les problèmes rapidement. Cela a permis de maintenir une bonne ambiance et de respecter les délais du projet.
           </p>
 
+          <!-- Accordion for Actions Clés -->
+          <div class="border rounded-lg shadow-md bg-gray-100 p-4">
+            <button
+              class="w-full text-left py-2 px-4 bg-orange text-white rounded-lg focus:outline-none"
+              onclick="toggleAccordion('accordion-ac')"
+            >
+              Actions Clés (AC) 🗂️
+            </button>
+            <div id="accordion-ac" class="hidden mt-4">
+              {actions.map((action) => (
+                <div class="mb-4">
+                  <h3 class="text-lg font-semibold text-orange">{action.title}</h3>
+                  <p class="text-sm text-white dark:text-black">{action.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
           <!-- Tags Section -->
-          <div class="flex flex-wrap gap-2 mb-6">
+          <div class="flex flex-wrap gap-2 mb-6 mt-8">
             {tags.map((tag) => (
               <span class="px-2 py-1 bg-orange text-white rounded-lg text-sm">{tag}</span>
             ))}
@@ -55,4 +98,12 @@ const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
     <Contact />
     <BackToTop />
   </main>
+
+  <!-- JavaScript for Accordion -->
+  <script>
+    function toggleAccordion(id) {
+      const accordion = document.getElementById(id);
+      accordion.classList.toggle('hidden');
+    }
+  </script>
 </Layout>
