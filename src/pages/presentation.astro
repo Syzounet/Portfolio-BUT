@@ -6,69 +6,12 @@ import BackToTop from '@components/ui/BackToTop.astro';
 ---
 
 <Layout>
-    <style>
-        main {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h2 {
-            color: #ff7f50; /* Coral color for headings */
-            font-size: 2rem;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #ff7f50;
-            display: inline-block;
-        }
-        p {
-            color: white; /* white */
-            margin-bottom: 20px;
-        }
-        strong {
-            color: #0073e6; /* Blue for key emphasis */
-        }
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            background: #f4f4f4;
-            margin: 5px 0;
-            padding: 10px;
-            border-left: 5px solid #ff7f50;
-            color: #333;
-        }
-        a {
-            color: #0073e6;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 10px;
-            background: #ff7f50;
-            color: white;
-        }
-        footer p {
-            margin: 0;
-        }
-        #contact a {
-            word-wrap: break-word;
-        }
-    </style>
 
     <main>
-        <section id="about">
-            <div class="container">
+        <section id="hero" class="bg-gray-50 dark:bg-gray">
+            <div class="container" class="text-center">
                 <h2>À propos de moi</h2>
-                <p>
+                <p class="text-gray">
                     Je suis un étudiant passionné par l'<strong>informatique</strong>, actuellement en 
                     <strong>deuxième année d'IUT Informatique</strong>. Mes intérêts incluent le 
                     <strong>développement web</strong> et le <strong>développement de jeux vidéo</strong>. 
@@ -82,21 +25,9 @@ import BackToTop from '@components/ui/BackToTop.astro';
             </div>
         </section>
 
-        <section id="internship">
-            <div class="container">
-                <h2>Stage chez MindAI</h2>
-                <p>
-                    Je débuterai un stage de <strong>12 semaines</strong> chez <strong>MindAI</strong> à Montpellier, 
-                    à partir du <strong>13 janvier 2025</strong>. Ce stage consistera à développer une application 
-                    innovante traduisant les pensées des <strong>animaux</strong> et des <strong>plantes</strong> en 
-                    messages compréhensibles par l'humain.
-                </p>
-            </div>
-        </section>
-
-        <section id="skills">
-            <div class="container">
-                <h2>Compétences</h2>
+        <section id="skills" class="bg-gray-50 dark:bg-gray">
+            <div class="text-gray">
+                <h2 class="text-center text-2xl font-semibold text-orange">Compétences</h2>
                 <ul>
                     <li><strong>Développement web :</strong> HTML, CSS, JavaScript, PHP, MySQL</li>
                     <li><strong>Développement logiciel :</strong> Java, Python</li>
@@ -108,8 +39,8 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
         <section id="goals">
             <div class="container">
-                <h2>Objectifs professionnels</h2>
-                <p>
+                <h2 class="text-center text-2xl font-semibold text-orange">Objectifs professionnels</h2>
+                <p class="text-gray">
                     À long terme, je souhaite devenir <strong>développeur web</strong> ou 
                     <strong>développeur de jeux vidéo</strong>, en contribuant à des projets 
                     <strong>innovants</strong> et <strong>captivants</strong>.
@@ -119,7 +50,7 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
         <section id="contact">
             <div class="container">
-                <h2>Contact</h2>
+                <h2 class="text-center text-2xl font-semibold text-orange">Contact</h2>
                 <p>Email : <a href="mailto:Gauthier.34m@gmail.com">Gauthier.34m@gmail.com</a></p>
                 <p>
                     LinkedIn : 
