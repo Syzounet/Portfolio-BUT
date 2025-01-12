@@ -40,10 +40,12 @@ const tags = ['Java', 'JavaFX', 'Game']
 
           <div class="border rounded-lg shadow-md bg-gray-100 p-4">
             <button
-              class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
-              onclick="toggleAccordion('accordion-ac')"
+                class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
+                data-accordion-target="#accordion-ac"
+                aria-expanded="false"
+                onclick="toggleAccordion('accordion-ac', this)"
             >
-              Apprentissage Critique (AC) Compétence Optimiser🗂️
+              Apprentissage Critique (AC) Compétence Réaliser🗂️
             </button>
             <div id="accordion-ac" class="hidden mt-4">
               <!-- Directly rendering the actions -->
@@ -73,5 +75,19 @@ const tags = ['Java', 'JavaFX', 'Game']
     </section>
     <Contact />
 		<BackToTop />
+    <script>
+      function toggleAccordion(id, button) {
+      const accordion = document.getElementById(id);
+      const isExpanded = button.getAttribute('aria-expanded') === 'true';
+      
+      if (accordion) {
+        // Toggle visibility
+        accordion.classList.toggle('hidden');
+        
+        // Update button ARIA attributes
+        button.setAttribute('aria-expanded', !isExpanded);
+      }
+    }
+    </script>
   </main>
 </Layout>
