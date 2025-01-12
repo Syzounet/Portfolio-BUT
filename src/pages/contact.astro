@@ -12,20 +12,20 @@ const contactInfo = {
     <main>
         <section id="contact" class="py-16 bg-black">
             <div class="container mx-auto px-6">
-                <h2 class="text-4xl font-semibold text-orange-500 text-center">Contact-moi !</h2>
+                <h2 class="text-4xl font-semibold text-orange text-center">Contact-moi !</h2>
                 <p class="mt-6 text-gray-400 text-center">
                     Vous avez une question ou souhaitez collaborer ? N'hésitez pas à me contacter directement par email.
                 </p>
                     <!-- Informations de Contact -->
-                    <div class="w-full lg:w-1/3 bg-gray-800 p-8 rounded-xl shadow-xl text-center">
-                        <h3 class="text-2xl font-semibold text-orange-500">Mes Coordonnées</h3>
-                        <p class="mt-6 text-gray-400">
-                            <span class="block text-lg font-medium text-gray-300">Email :</span>
-                            <a href={`mailto:${contactInfo.email}`} class="text-orange-400 hover:underline">{contactInfo.email}</a>
+                    <div class="flex flex-col lg:flex-row items-center justify-center gap-8 mt-16">
+                        <h3 class="text-2xl font-semibold text-orange">Mes Coordonnées</h3>
+                        <p class="mt-6 text-gray">
+                            <span class="block text-lg font-medium text-gray">Email :</span>
+                            <a href={`mailto:${contactInfo.email}`} class="text-orange hover:underline">{contactInfo.email}</a>
                         </p>
                         <p class="mt-6 text-gray-400">
-                            <span class="block text-lg font-medium text-gray-300">LinkedIn :</span>
-                            <a href={contactInfo.linkedin} target="_blank" class="text-orange-400 hover:underline">Mon profil LinkedIn</a>
+                            <span class="block text-lg font-medium text-gray">LinkedIn :</span>
+                            <a href={contactInfo.linkedin} target="_blank" class="text-orange hover:underline">Mon profil LinkedIn</a>
                         </p>
                     </div>
                 </div>
