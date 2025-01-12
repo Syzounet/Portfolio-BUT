@@ -74,7 +74,6 @@ const actions = [
                 class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
                 data-accordion-target="#accordion-ac"
                 aria-expanded="false"
-                onclick="toggleAccordion('accordion-ac', this)"
             >
               Apprentissage Critique (AC) Compétence Réaliser🗂️
             </button>
@@ -112,29 +111,30 @@ const actions = [
     </section>
     <Contact />
     <BackToTop />
+    
   </main>
 
   <!-- JavaScript for Accordion -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-    const button = document.querySelector('[data-accordion-target="#accordion-ac"]');
-    if (button) {
-      button.addEventListener('click', function () {
-        toggleAccordion('accordion-ac', this);
-      });
-    }
-  });
-    function toggleAccordion(id, button) {
-      
-      const accordion = document.getElementById(id);
-      if (accordion) {
-        const expanded = accordion.getAttribute('aria-expanded') === 'true' || false;
-        
-        accordion.hidden = expanded;
-        accordion.setAttribute('aria-expanded', String(!expanded));
-        
-        button.setAttribute('aria-expanded', !expanded);
+      function toggleAccordion(id, button) {
+        const accordion = document.getElementById(id);
+        if (accordion) {
+          const expanded = accordion.getAttribute('aria-expanded') === 'true' || false;
+          
+          accordion.hidden = expanded;
+          accordion.setAttribute('aria-expanded', String(!expanded));
+          
+          button.setAttribute('aria-expanded', !expanded);
+        }
       }
-  }
+  
+      const button = document.querySelector('[data-accordion-target="#accordion-ac"]');
+      if (button) {
+        button.addEventListener('click', function () {
+          toggleAccordion('accordion-ac', this);
+        });
+      }
+    });
   </script>
 </Layout>
