@@ -9,7 +9,7 @@ const tags = ['HTML', 'CSS', 'JS', 'PHP']
 
 <Layout>
     <main>
-        <section id="projects" class="py-10 bg-gray-50 dark:bg-gray-900">
+        <section id="projects" class="py-10 bg-gray-50 dark:bg-gray">
             <div class="container mx-auto px-4">
                 <h2 class="font-monospace text-2xl text-orange lg:text-4xl">Nuit De l'Info</h2>
                 <span class="mb-10 h-1 w-10 bg-orange"></span>
@@ -23,15 +23,10 @@ const tags = ['HTML', 'CSS', 'JS', 'PHP']
                         </p>
                     </div>
                 </div>
-                <div class="flex flex-wrap gap-4 mt-8">
-                    {tags.map((tag) => (
-                        <span class="px-3 py-1 bg-orange text-black rounded-full text-sm">{tag}</span>
-                    ))}
-                </div>
-            </div>
-        </section>
+            </div>       
+         </section>
 
-        <section id="critical-learning" class="py-10 bg-white dark:bg-gray">
+        <section id="critical-learning">
             <div class="container mx-auto px-4">
                 <h2 class="font-monospace text-2xl text-orange lg:text-4xl">Apprentissage Critique (AC) Compétence Collaborer </h2>
                 <span class="mb-10 h-1 w-10 bg-orange"></span>
@@ -49,6 +44,11 @@ const tags = ['HTML', 'CSS', 'JS', 'PHP']
                         J'ai développé mes compétences interpersonnelles en travaillant en équipe lors de la Nuit de l'Info. J'ai appris à écouter les idées des autres, à respecter les opinions divergentes et à collaborer efficacement pour atteindre nos objectifs communs. J'ai également pris en compte les retours des autres membres de l'équipe pour améliorer mes propres compétences et contribuer au succès du projet.
                     </p>
                 </div>
+            </div>
+            <div class="flex flex-wrap gap-4 mt-8">
+                {tags.map((tag) => (
+                    <span class="px-3 py-1 bg-orange text-black rounded-full text-sm">{tag}</span>
+                ))}
             </div>
         </section>
 
