@@ -24,14 +24,48 @@ const tags = ['Java', 'JavaFX', 'Game']
         </div>
         
         <!-- Project Details -->
-        <div class="w-full lg:w-1/2">
-          <h1 class="text-4xl font-semibold text-orange mb-4">Train</h1>
-          <p class="text-lg text-black dark:text-white mb-6">Un jeu de société retranscrit en une applicattion programmer en java et javaFX.</p>
+        <div class="flex flex-col w-full lg:w-1/2">
+          <h2 class="font-monospace text-2xl text-orange lg:text-4xl">Train</h2>
+          <span class="mb-10 h-1 w-10 bg-orange"></span>
+          <p class="text-lg text-gray dark:text-gray-400">
+            C'est un jeu de société qui simule la gestion d'une compagnie de train. Nous avons utilisé JavaFX pour la partie graphique et Java pour la partie logique.
+            Pour ce projet, j'ai travaillé en trinôme avec 2 camarades de classe. Nous avons utilisé Git pour gérer le code source.
+          </p>
           
-          <!-- Tags Section -->
-          <div class="flex flex-wrap gap-2 mb-6">
+          <h2 class="text-xl font-semibold text-orange mb-4">Objectifs</h2>
+          <span class="text-lg text-gray dark:text-gray-400">
+            Le but du jeu est de gérer une compagnie de train en achetant des locomotives, des wagons et en construisant des voies ferrées. 
+            Le joueur doit également gérer les finances.
+          </span>
+
+          <div class="border rounded-lg shadow-md bg-gray-100 p-4">
+            <button
+              class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
+              onclick="toggleAccordion('accordion-ac')"
+            >
+              Apprentissage Critique (AC) Compétence Optimiser🗂️
+            </button>
+            <div id="accordion-ac" class="hidden mt-4">
+              <!-- Directly rendering the actions -->
+              <div>
+                <h3 class="text-lg font-semibold text-orange">AC 1 : Choisir des structures de données complexes adaptées au problème</h3>
+                <p class="text-sm text-black dark:text-white mb-4">
+                  j'ai utilisé des structures de données complexes pour gérer les différentes entités du jeu (locomotives, wagons, voies ferrées, etc.).
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-orange">AC 2 : Utiliser des techniques algorithmiques adaptées pour des problèmes complexes</h3>
+                <p class="text-sm text-black dark:text-white mb-4">
+                  j'ai mis en place des algorithmes pour gérer les déplacements des trains, les achats de matériel et les finances. 
+                  Mais aussi pour gérer les différente actions des cartes du jeu.
+                </p>
+              </div>
+            </div>
+          </div>
+          
+          <div class="flex flex-wrap gap-2 mt-4">
             {tags.map((tag) => (
-              <span class="px-2 py-1 bg-orange text-white rounded-lg text-sm">{tag}</span>
+              <span class="px-2 py-1 bg-orange text-white rounded-md text-sm">{tag}</span>
             ))}
           </div>
         </div>

@@ -68,21 +68,34 @@ const actions = [
             J'ai organisé des réunions régulières pour vérifier l'avancement des tâches et résoudre les problèmes rapidement. Cela a permis de maintenir une bonne ambiance et de respecter les délais du projet.
           </p>
 
-          <!-- Accordion for Actions Clés -->
+          <!-- Accordion for Apprentissage Critique -->
           <div class="border rounded-lg shadow-md bg-gray-100 p-4">
             <button
               class="w-full text-left py-2 px-4 bg-orange text-black rounded-lg focus:outline-none"
               onclick="toggleAccordion('accordion-ac')"
             >
-              Actions Clés (AC) 🗂️
+              Apprentissage Critique (AC) Compétence Réaliser🗂️
             </button>
             <div id="accordion-ac" class="hidden mt-4">
-              {actions.map((action) => (
-                <div class="mb-4">
-                  <h3 class="text-lg font-semibold text-orange">{action.title}</h3>
-                  <p class="text-sm text-black dark:text-white">{action.description}</p>
-                </div>
-              ))}
+              <!-- Directly rendering the actions -->
+              <div>
+                <h3 class="text-lg font-semibold text-orange">AC 1 : Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles</h3>
+                <p class="text-sm text-black dark:text-white mb-4">
+                    j'ai analysé les besoins des utilisateurs et défini les fonctionnalités principales du site web pour répondre à leurs attentes.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-orange">AC 2 : Appliquer des principes d’accessibilité et d’ergonomie</h3>
+                <p class="text-sm text-black dark:text-white mb-4">
+                    j'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.
+                </p>
+              </div>
+              <div>
+                <h3 class="text-lg font-semibold text-orange">AC 3 : Adopter de bonnes pratiques de conception et de programmation</h3>
+                <p class="text-sm text-black dark:text-white mb-4">
+                  j'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini.
+                </p>
+              </div>
             </div>
           </div>
 
@@ -103,7 +116,9 @@ const actions = [
   <script>
     function toggleAccordion(id) {
       const accordion = document.getElementById(id);
-      accordion.classList.toggle('hidden');
+      if (accordion) {
+        accordion.classList.toggle('hidden');
+      }
     }
   </script>
 </Layout>
