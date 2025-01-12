@@ -76,6 +76,14 @@ const tags = ['Java', 'JavaFX', 'Game']
     <Contact />
 		<BackToTop />
     <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const button = document.querySelector('[data-accordion-target="#accordion-ac"]');
+    if (button) {
+      button.addEventListener('click', function () {
+        toggleAccordion('accordion-ac', this);
+      });
+    }
+  });
       function toggleAccordion(id, button) {
       
         const accordion = document.getElementById(id);
