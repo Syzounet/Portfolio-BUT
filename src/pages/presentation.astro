@@ -6,12 +6,71 @@ import BackToTop from '@components/ui/BackToTop.astro';
 ---
 
 <Layout>
+    <style>
+        main {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #ff7f50; /* Coral color for headings */
+            font-size: 2rem;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #ff7f50;
+            display: inline-block;
+        }
+        p {
+            color: white; /* white */
+            margin-bottom: 20px;
+        }
+        strong {
+            color: #0073e6; /* Blue for key emphasis */
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            background: #f4f4f4;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+            border-left: 5px solid #ff7f50;
+            color: #333;
+        }
+        a {
+            color: #0073e6;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 10px;
+            background: #ff7f50;
+            color: white;
+        }
+        footer p {
+            margin: 0;
+        }
+        #contact a {
+            word-wrap: break-word;
+        }
+    </style>
 
     <main>
-        <section id="hero" class="bg-gray-50 dark:bg-gray">
-            <div class="container" class="text-center">
+        <section id="about">
+            <div class="container">
                 <h2>À propos de moi</h2>
-                <p class="text-gray">
+                <p>
                     Je suis un étudiant passionné par l'<strong>informatique</strong>, actuellement en 
                     <strong>deuxième année d'IUT Informatique</strong>. Mes intérêts incluent le 
                     <strong>développement web</strong> et le <strong>développement de jeux vidéo</strong>. 
@@ -24,10 +83,9 @@ import BackToTop from '@components/ui/BackToTop.astro';
                 </p>
             </div>
         </section>
-
-        <section id="skills" class="bg-gray-50 dark:bg-gray">
-            <div class="text-gray">
-                <h2 class="text-center text-2xl font-semibold text-orange">Compétences</h2>
+        <section id="skills">
+            <div class="container">
+                <h2>Compétences</h2>
                 <ul>
                     <li><strong>Développement web :</strong> HTML, CSS, JavaScript, PHP, MySQL</li>
                     <li><strong>Développement logiciel :</strong> Java, Python</li>
@@ -39,8 +97,8 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
         <section id="goals">
             <div class="container">
-                <h2 class="text-center text-2xl font-semibold text-orange">Objectifs professionnels</h2>
-                <p class="text-gray">
+                <h2>Objectifs professionnels</h2>
+                <p>
                     À long terme, je souhaite devenir <strong>développeur web</strong> ou 
                     <strong>développeur de jeux vidéo</strong>, en contribuant à des projets 
                     <strong>innovants</strong> et <strong>captivants</strong>.
@@ -50,7 +108,7 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
         <section id="contact">
             <div class="container">
-                <h2 class="text-center text-2xl font-semibold text-orange">Contact</h2>
+                <h2>Contact</h2>
                 <p>Email : <a href="mailto:Gauthier.34m@gmail.com">Gauthier.34m@gmail.com</a></p>
                 <p>
                     LinkedIn : 
