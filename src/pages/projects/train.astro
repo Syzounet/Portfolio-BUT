@@ -77,16 +77,16 @@ const tags = ['Java', 'JavaFX', 'Game']
 		<BackToTop />
     <script>
       function toggleAccordion(id, button) {
-      const accordion = document.getElementById(id);
-      const isExpanded = button.getAttribute('aria-expanded') === 'true';
       
-      if (accordion) {
-        // Toggle visibility
-        accordion.classList.toggle('hidden');
-        
-        // Update button ARIA attributes
-        button.setAttribute('aria-expanded', !isExpanded);
-      }
+        const accordion = document.getElementById(id);
+        if (accordion) {
+          const expanded = accordion.getAttribute('aria-expanded') === 'true' || false;
+          
+          accordion.hidden = expanded;
+          accordion.setAttribute('aria-expanded', String(!expanded));
+          
+          button.setAttribute('aria-expanded', !expanded);
+        }
     }
     </script>
   </main>
