@@ -3,6 +3,7 @@ import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
 import imagetrain from '@assets/images/train_gui.png';
 import imageSAE from '@assets/images/SAE3A.png';
+import imageNDI from '@assets/images/NDI.png';
 
 const projects = await getCollection('projects');
 ---
@@ -35,7 +36,7 @@ const projects = await getCollection('projects');
 			description={projects[2].data.description}
 			tags={projects[2].data.tags}
 			url={projects[2].data.url}
-			imageUrl={projects[2].data.imageUrl}
+			imageUrl={imageNDI}
 		/>
 	</div>
 </section>
