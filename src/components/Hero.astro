@@ -1,100 +1,29 @@
 ---
-import { Image } from 'astro:assets';
+import heroImage from '@assets/images/moi.jpg';
 import Button from '@components/ui/Button.astro';
+import { Image } from 'astro:assets';
 ---
 
-<section class="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-hidden">
-	<div class="absolute inset-0 overflow-hidden">
-		<div class="absolute inset-0 bg-grid-pattern opacity-[0.05] dark:opacity-[0.02]"></div>
-	</div>
-
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-		<div class="flex flex-col lg:flex-row items-center gap-12">
-			<div class="flex-1 text-center lg:text-left">
-				<h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-blue-400 dark:to-indigo-400 mb-6">
-					Développeur Web Passionné
-				</h1>
-				<p class="text-xl text-gray-600 dark:text-gray-300 mb-8 leading-relaxed">
-					Bienvenue sur mon portfolio ! Je suis Gauthier Souquet, développeur web full-stack spécialisé dans la création d'applications web modernes et performantes.
-				</p>
-				<div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-					<Button
-						size="lg"
-						class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-					>
-						<a href="#projects" class="flex items-center gap-2">
-							Voir mes projets
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-								<path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-							</svg>
-						</a>
-					</Button>
-					<Button
-						size="lg"
-						class="bg-white dark:bg-gray-800 text-gray-800 dark:text-white border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
-					>
-						<a href="#contact" class="flex items-center gap-2">
-							Me contacter
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-								<path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-								<path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-							</svg>
-						</a>
-					</Button>
-				</div>
-			</div>
-			<div class="flex-1 relative">
-				<div class="relative w-full max-w-lg mx-auto">
-					<div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 dark:bg-purple-700 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob"></div>
-					<div class="absolute top-0 -right-4 w-72 h-72 bg-blue-300 dark:bg-blue-700 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
-					<div class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-300 dark:bg-indigo-700 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-					<div class="relative">
-						<!-- Remplacez par votre photo de profil -->
-						<div class="w-64 h-64 rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 p-1">
-							<div class="w-full h-full rounded-full bg-white dark:bg-gray-900 flex items-center justify-center text-gray-500 dark:text-gray-400">
-								<svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-								</svg>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+<section
+	data-testid="hero"
+	class="flex h-screen flex-col-reverse items-center justify-center text-center lg:flex-row"
+>
+	<div class="mb-10 flex flex-col items-center lg:mb-0 lg:w-1/2">
+		<div>
+			<h1 class="mb-10 font-monospace text-3xl text-black dark:text-white lg:text-5xl">
+				Salut ! Mon nom est <span class="text-orange">Gauthier Souquet</span> et je suis un étudiant en informatique sur montpellier.
+			</h1>
 		</div>
 	</div>
-
-	<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
-		<a href="#about" class="text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
-			<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-			</svg>
-		</a>
+	<div data-testid="moi" class="mb-10 flex w-1/2 items-center justify-center">
+		<Image
+			src={heroImage}
+			alt="moi"
+			format="jpg"
+			width={500}
+			height={500}
+			loading="eager"
+			class="rounded-full"
+		/>
 	</div>
 </section>
-
-<style>
-    .bg-grid-pattern {
-        background-image: linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
-        background-size: 4rem 4rem;
-    }
-
-    @keyframes blob {
-        0% { transform: translate(0px, 0px) scale(1); }
-        33% { transform: translate(30px, -50px) scale(1.1); }
-        66% { transform: translate(-20px, 20px) scale(0.9); }
-        100% { transform: translate(0px, 0px) scale(1); }
-    }
-
-    .animate-blob {
-        animation: blob 7s infinite;
-    }
-
-    .animation-delay-2000 {
-        animation-delay: 2s;
-    }
-
-    .animation-delay-4000 {
-        animation-delay: 4s;
-    }
-</style>

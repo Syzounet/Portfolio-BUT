@@ -1,115 +1,43 @@
 ---
-import { Image } from 'astro:assets';
 ---
+<section
+	data-testid="about"
+	id="about"
+	class="mb-10 flex flex-col items-center justify-center lg:mb-0 lg:h-screen lg:flex-row"
+>
+	<div class="mb-10 flex w-full flex-col items-center justify-center lg:mb-0 lg:w-1/2">
+		<h2 class="font-monospace text-2xl text-orange lg:text-4xl">À propos de moi</h2>
+		<span class="mb-6 ml-2 h-1 w-10 bg-orange"></span>
+	</div>
 
-<section id="about" class="py-20 bg-white dark:bg-gray-900">
-	<div class="container mx-auto px-4 sm:px-6 lg:px-8">
-		<div class="max-w-3xl mx-auto text-center mb-16">
-			<h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-				À propos de moi
-			</h2>
-			<div class="w-20 h-1 bg-blue-500 mx-auto mb-8 rounded-full"></div>
-		</div>
+	<div class="w-full space-y-6 text-justify text-black dark:text-white lg:w-1/2">
+		<p class="mb-2">
+			<strong>Présentation :</strong> Je m'appelle Gauthier,
+			j'ai 20 ans et je suis étudiant en informatique à Montpellier.
+			Passionné par le développement depuis mon plus jeune âge,
+			j'aime explorer et créer des solutions techniques
+			innovantes qui combinent logique et créativité.
+		</p>
 
-		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-			<div class="space-y-8">
-				<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
-					<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Présentation</h3>
-					<p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-						Je m'appelle Gauthier, j'ai 20 ans et je suis étudiant en informatique à Montpellier.
-						Passionné par le développement depuis mon plus jeune âge, j'aime explorer et créer des solutions techniques
-						innovantes qui combinent logique et créativité.
-					</p>
-				</div>
+		<p class="mb-2">
+			<strong>Parcours de formation :</strong> Après avoir obtenu mon baccalauréat STI2D SIN,
+			je me suis orienté vers un BUT Informatique où j'ai acquis des bases solides en programmation,
+			algorithmique, et gestion de projets. J'ai également approfondi mes connaissances dans le développement web,
+			la conception de bases de données, et les technologies modernes comme PHP et Java.
+		</p>
 
-				<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
-					<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Parcours de formation</h3>
-					<p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-						Après avoir obtenu mon baccalauréat STI2D SIN, je me suis orienté vers un BUT Informatique
-						où j'ai acquis des bases solides en programmation, algorithmique, et gestion de projets.
-						J'ai également approfondi mes connaissances dans le développement web, la conception de bases de données,
-						et les technologies modernes comme PHP et Java.
-					</p>
-				</div>
+		<p class="mb-2">
+			<strong>Expériences :</strong> Durant mes études, j'ai participé à plusieurs projets académiques et personnels. Notamment :
+			<ul class="list-disc ml-4">
+				<li>Création d'un chatbot lors de la <strong>Nuit de l'Info</strong>, qui a permis d'explorer les concepts d'interactivité et de développement d'IA.</li>
+				<li>Développement d'un site web dédié à donner des avis sur la poursuite d'études, pour aider les étudiants à mieux s'informer sur leurs choix futurs.</li>
+			</ul>
+		</p>
 
-				<div class="bg-gray-50 dark:bg-gray-800 rounded-lg p-8 shadow-lg transform hover:scale-105 transition-transform duration-300">
-					<h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-4">Projet professionnel</h3>
-					<p class="text-gray-600 dark:text-gray-300 leading-relaxed">
-						Mon objectif est de devenir développeur web, ou développeur de jeux vidéo.
-						Ces deux domaines m'attirent pour leur capacité à créer des expériences immersives et interactives,
-						tout en mettant à profit mes compétences techniques et ma créativité.
-					</p>
-				</div>
-			</div>
-
-			<div class="space-y-8">
-				<div class="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg p-8 shadow-lg text-white">
-					<h3 class="text-xl font-semibold mb-6">Expériences</h3>
-					<div class="space-y-6">
-						<div class="bg-white/10 rounded-lg p-6 backdrop-blur-lg">
-							<h4 class="font-semibold mb-3">Nuit de l'Info</h4>
-							<p class="text-gray-100">
-								Création d'un chatbot qui a permis d'explorer les concepts d'interactivité et de développement d'IA.
-							</p>
-						</div>
-						<div class="bg-white/10 rounded-lg p-6 backdrop-blur-lg">
-							<h4 class="font-semibold mb-3">Projet Web - Avis sur la poursuite d'études</h4>
-							<p class="text-gray-100">
-								Développement d'un site web dédié à donner des avis sur la poursuite d'études, pour aider les étudiants à mieux s'informer sur leurs choix futurs.
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="grid grid-cols-2 gap-6">
-					<div class="bg-gradient-to-br from-purple-500 to-pink-600 p-6 rounded-lg shadow-lg text-white">
-						<h4 class="font-semibold text-lg mb-4">Technologies Web</h4>
-						<ul class="space-y-2">
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								PHP
-							</li>
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								JavaScript
-							</li>
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								HTML/CSS
-							</li>
-						</ul>
-					</div>
-					<div class="bg-gradient-to-br from-green-500 to-teal-600 p-6 rounded-lg shadow-lg text-white">
-						<h4 class="font-semibold text-lg mb-4">Autres</h4>
-						<ul class="space-y-2">
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								Java
-							</li>
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								SQL
-							</li>
-							<li class="flex items-center gap-2">
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-									<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
-								</svg>
-								Git
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-		</div>
+		<p class="mb-2">
+			<strong>Projet professionnel :</strong> Mon objectif est de devenir développeur web,
+			ou développeur de jeux vidéo. Ces deux domaines m'attirent pour leur capacité à
+			créer des expériences immersives et interactives, tout en mettant à profit mes compétences techniques et ma créativité.
+		</p>
 	</div>
 </section>

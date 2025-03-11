@@ -5,51 +5,59 @@ import ToggleTheme from '@components/ui/ToggleTheme.astro';
 import { Astronav, MenuIcon } from 'astro-navbar';
 ---
 
-<header data-testId="header" class="fixed top-0 left-0 right-0 z-50 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 shadow-sm">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-		<Astronav>
-			<div class="flex w-full items-center justify-between lg:w-auto">
-				<Button
-					size={'sm'}
-					name="Download CV"
-					class="bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
-				>
-					<a href={cvFile} download="Gauthier-Souquet-CV" class="flex items-center gap-2">
-						<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-						</svg>
-						Download CV
-					</a>
-				</Button>
-				<div class="block lg:hidden">
-					<MenuIcon class="h-6 w-6 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors" />
-				</div>
+<header data-testId="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
+	<Astronav>
+		<div class="flex w-full items-center justify-between lg:w-auto">
+			<Button size={'sm'} name="Download CV">
+				<a href={cvFile} download="Gauthier-Souquet-CV" class="flex items-center">
+					Download CV
+				</a>
+			</Button>
+			<div class="block lg:hidden">
+				<MenuIcon class="h-4 w-4 text-black dark:text-white" />
 			</div>
-
-			<nav class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
-				<ul class="flex flex-col lg:flex-row lg:gap-8">
-					{[
-						{ href: "/Portfolio-BUT", label: "Accueil" },
-						{ href: "/Portfolio-BUT/presentation", label: "Présentation" },
-						{ href: "/Portfolio-BUT/projects/projects", label: "Projets" },
-						{ href: "/Portfolio-BUT/contact", label: "Contact" }
-					].map(({ href, label }) => (
-						<li>
-							<a
-								href={href}
-								aria-label={`link to ${label}`}
-								class="relative flex py-2 text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-blue-400 transition-colors duration-300 group lg:px-3"
-							>
-								{label}
-								<span class="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
-							</a>
-						</li>
-					))}
-				</ul>
-			</nav>
-		</Astronav>
-		<div class="absolute right-4 top-1/2 transform -translate-y-1/2">
-			<ToggleTheme />
 		</div>
-	</div>
+
+		<nav class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+			<ul class="flex flex-col lg:flex-row lg:gap-3">
+				<li>
+					<a
+						href="/Portfolio-BUT"
+						aria-label="link to Home"
+						class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+					>
+						Accueil
+					</a>
+				</li>
+				<li>
+					<a
+						href="/Portfolio-BUT/presentation"
+						aria-label="link to Présentation"
+						class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+					>
+						Présentation
+					</a>
+				</li>
+				<li>
+					<a
+						href="/Portfolio-BUT/projects/projects"
+						aria-label="link to Projets"
+						class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+					>
+						Projets
+					</a>
+				</li>
+				<li>
+					<a
+						href="/Portfolio-BUT/contact"
+						aria-label="link to Contact"
+						class="flex py-2 text-black hover:text-orange dark:text-white dark:hover:text-orange lg:px-3"
+					>
+						Contact
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</Astronav>
+	<ToggleTheme />
 </header>
