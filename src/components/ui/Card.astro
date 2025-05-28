@@ -4,44 +4,70 @@ import Tags from '@components/ui/Tags.astro';
 import { Image } from 'astro:assets';
 
 interface Props {
-	url?: string;
-	alt?: string;
-	title?: string;
-	description: string;
-	tags: string[];
-	imageUrl?: string;
-	children?: HTMLElement | HTMLElement[];
+    url?: string;
+    alt?: string;
+    title?: string;
+    description: string;
+    tags: string[];
+    imageUrl?: ImageMetadata;
+    children?: HTMLElement | HTMLElement[];
 }
 
 const {
-	url = '#',
-	alt = 'Project image',
-	description = 'Project Description',
-	title = 'Project title',
-	tags = ['Tags'],
-	imageUrl = projectImage,
+    url = '#',
+    alt = 'Project image',
+    description = 'Project Description',
+    title = 'Project title',
+    tags = ['Tags'],
+    imageUrl = projectImage,
 } = Astro.props;
 ---
 
-<section class="w-full p-4">
-    <!-- Stable Wrapper for Card -->
-    <div class="relative w-full h-full overflow-hidden">
-        <article
-            data-testId="card"
-            class="rounded-xl bg-white p-3 shadow-lg hover:scale-105 hover:shadow-xl w-full h-full"
-        >
-            <a href={url} aria-label="link to project">
-                <div class="relative flex items-end overflow-hidden rounded-xl">
-                    <Image src={imageUrl || projectImage} alt={alt} format="png" width={400} height={400} loading="eager" />
-                </div>
-                <div class="mt-1 p-2">
-                    <h3 class="text-xl text-orange lg:text-2xl">{title}</h3>
-                    <p class="text-s text-black">{description}</p>
+<!-- Suppression de la section, utilisation d'un div -->
+<div class="w-full max-w-sm mx-auto">
+    <article
+      data-testId="card"
+      class="rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full flex flex-col"
+    >
+        <a href={url} aria-label="link to project" class="flex flex-col h-full">
+            <!-- Conteneur d'image avec aspect-ratio fixe pour éviter CLS -->
+            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl bg-gray-200">
+                <Image
+                  src={imageUrl || projectImage}
+                  alt={alt}
+                  width={400}
+                  height={300}
+                  class="w-full h-full object-cover"
+                  loading="eager"
+                  decoding="async"
+                />
+            </div>
+
+            <!-- Contenu avec hauteur prévisible -->
+            <div class="p-4 flex-grow flex flex-col min-h-[200px]">
+                <h3 class="text-xl text-orange lg:text-2xl mb-2 font-semibold line-clamp-2">{title}</h3>
+                <p class="text-sm text-black mb-4 flex-grow line-clamp-3">{description}</p>
+                <div class="mt-auto">
                     <Tags tags={tags} />
                 </div>
-            </a>
-        </article>
-    </div>
-</section>
+            </div>
+        </a>
+    </article>
+</div>
 
+<style>
+    /* Limitation du nombre de lignes pour éviter les variations de hauteur */
+    .line-clamp-2 {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
 
+    .line-clamp-3 {
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+</style>

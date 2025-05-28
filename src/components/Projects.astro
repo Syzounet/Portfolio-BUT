@@ -15,8 +15,9 @@ const projects = await getCollection('projects');
 >
 	<h2 class="font-monospace text-2xl text-orange lg:text-4xl">Projets</h2>
 	<span class="mb-10 h-1 w-10 bg-orange"></span>
-	<!-- Ajouter les projets un par un sans utiliser .map -->
-	<div class="flex flex-col lg:flex-row gap-8">
+
+	<!-- Grille stable avec gap fixe -->
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl px-4">
 		<Card
 			title={projects[0].data.title}
 			description={projects[0].data.description}
@@ -32,11 +33,11 @@ const projects = await getCollection('projects');
 			imageUrl={imageSAE}
 		/>
 		<Card
-			title={projects[2].title}
-			description={projects[2].data.description}
-			tags={projects[2].data.tags}
-			url={projects[2].data.url}
-			imageUrl={imageNDI}
+			title={projects[2].data.title}
+		description={projects[2].data.description}
+		tags={projects[2].data.tags}
+		url={projects[2].data.url}
+		imageUrl={imageNDI}
 		/>
 	</div>
 </section>

@@ -11,32 +11,39 @@ const { title = 'Gauthier Souquet | Portfolio' } = Astro.props as LayoutProps;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth" data-testid="html">
-	<head>
-		<SEO
-			title= {title}
-			description="Portfolio de Gauthier Souquet, étudiant en informatique sur Montpellier"
-		/>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="generator" content={Astro.generator} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<html lang="fr" class="scroll-smooth" data-testid="html">
+<head>
+	<SEO
+		title={title}
+		description="Portfolio de Gauthier Souquet, étudiant en informatique sur Montpellier"
+	/>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="generator" content={Astro.generator} />
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
-		<title>{title}</title>
-	</head>
-	<body
-		class="mx-auto max-w-screen-xl bg-white px-5 font-sans text-white dark:bg-black xs:text-[16px] md:text-[18px]"
-	>
-		<Navbar />
-		<slot />
-		<Footer />
-		<style is:global>
-			/* Improve Page speed */
-			/* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-			img {
-				content-visibility: auto;
-			}
-		</style>
-	</body>
+	<title>{title}</title>
+</head>
+<body
+	class="mx-auto max-w-screen-xl bg-white text-gray-900 px-5 font-sans dark:bg-gray-900 dark:text-gray-100 xs:text-base md:text-lg"
+>
+<Navbar />
+<slot />
+<Footer />
+
+<style is:global>
+	/* CSS stable pour les images */
+	img {
+		height: auto;
+		max-width: 100%;
+		display: block;
+	}
+
+	/* Empêcher les décalages de mise en page */
+	* {
+		box-sizing: border-box;
+	}
+</style>
+</body>
 </html>
