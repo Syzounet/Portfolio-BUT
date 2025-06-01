@@ -1,73 +1,76 @@
 ---
 import projectImage from '@assets/images/project.png';
-import Tags from '@components/ui/Tags.astro';
 import { Image } from 'astro:assets';
 
 interface Props {
-    url?: string;
-    alt?: string;
-    title?: string;
-    description: string;
-    tags: string[];
-    imageUrl?: ImageMetadata;
-    children?: HTMLElement | HTMLElement[];
+	url?: string;
+	alt?: string;
+	title?: string;
+	description: string;
+	tags: string[];
+	imageUrl?: ImageMetadata;
 }
 
 const {
-    url = '#',
-    alt = 'Project image',
-    description = 'Project Description',
-    title = 'Project title',
-    tags = ['Tags'],
-    imageUrl = projectImage,
+	url = '#',
+	alt = 'Project image',
+	description = 'Project Description',
+	title = 'Project title',
+	tags = ['Tags'],
+	imageUrl = projectImage,
 } = Astro.props;
 ---
 
-<!-- Suppression de la section, utilisation d'un div -->
 <div class="w-full max-w-sm mx-auto">
-    <article
-      data-testId="card"
-      class="rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden h-full flex flex-col"
-    >
-        <a href={url} aria-label="link to project" class="flex flex-col h-full">
-            <!-- Conteneur d'image avec aspect-ratio fixe pour éviter CLS -->
-            <div class="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl bg-gray-200">
-                <Image
-                  src={imageUrl || projectImage}
-                  alt={alt}
-                  width={400}
-                  height={300}
-                  class="w-full h-full object-cover"
-                  loading="eager"
-                  decoding="async"
-                />
-            </div>
+	<article
+		data-testId="card"
+		class="rounded-xl bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-full flex flex-col"
+	>
+		<a href={url} aria-label="link to project" class="flex flex-col h-full focus:outline-none focus:ring-2 focus:ring-orange-500 rounded-xl">
+			<div class="relative w-full aspect-[4/3] overflow-hidden rounded-t-xl bg-gray-200 dark:bg-gray-700">
+				<Image
+					src={imageUrl || projectImage}
+					alt={alt}
+					width={400}
+					height={300}
+					class="w-full h-full object-cover"
+					loading="eager"
+					decoding="async"
+				/>
+			</div>
 
-            <!-- Contenu avec hauteur prévisible -->
-            <div class="p-4 flex-grow flex flex-col min-h-[200px]">
-                <h3 class="text-xl text-orange lg:text-2xl mb-2 font-semibold line-clamp-2">{title}</h3>
-                <p class="text-sm text-black mb-4 flex-grow line-clamp-3">{description}</p>
-                <div class="mt-auto">
-                    <Tags tags={tags} />
-                </div>
-            </div>
-        </a>
-    </article>
+			<div class="p-4 flex-grow flex flex-col min-h-[200px]">
+				<h3 class="text-xl text-orange dark:text-orange-400 lg:text-2xl mb-2 font-semibold line-clamp-2">{title}</h3>
+				<p class="text-gray-900 dark:text-gray-200 mb-4 flex-grow line-clamp-3">{description}</p>
+
+				<!-- Tags en bulles -->
+				<div class="mt-auto flex flex-wrap gap-2">
+					{tags.map(tag => (
+						<span
+							class="inline-block bg-orange-200 text-orange-800 text-xs font-semibold px-3 py-1 rounded-full select-none dark:bg-orange-700 dark:text-orange-100"
+							key={tag}
+						>
+                      {tag}
+                    </span>
+					))}
+				</div>
+			</div>
+		</a>
+	</article>
 </div>
 
 <style>
-    /* Limitation du nombre de lignes pour éviter les variations de hauteur */
-    .line-clamp-2 {
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+	.line-clamp-2 {
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
 
-    .line-clamp-3 {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
+	.line-clamp-3 {
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
 </style>
