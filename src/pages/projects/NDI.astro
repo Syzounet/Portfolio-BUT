@@ -4,55 +4,247 @@ import image from '@assets/images/NDI.png';
 import { Image } from 'astro:assets';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
-const tags = ['HTML', 'CSS', 'JS', 'PHP']
+
+const tags = ['HTML', 'CSS', 'JS', 'PHP'];
+const actions = [
+	{
+		id: 'ac1',
+		title: "AC 1 : Comprendre la diversité, la structure et la dimension de l'informatique dans une organisation",
+		description: "Lors de la Nuit de l'Info, j'ai pu découvrir la diversité des métiers de l'informatique et la manière dont ils interagissent pour répondre aux besoins des entreprises. J'ai également appris à travailler en équipe, à communiquer efficacement et à gérer mon temps pour respecter les délais impartis.",
+		icon: "🏢"
+	},
+	{
+		id: 'ac2',
+		title: "AC 2 : Appliquer une démarche pour intégrer une équipe informatique au sein d'une organisation",
+		description: "J'ai intégré une équipe de 10 personnes pour relever les défis proposés par les entreprises. Nous avons utilisé des outils de gestion de projet comme Trello pour organiser notre travail, et nous avons réparti les tâches en fonction des compétences de chacun.",
+		icon: "🎯"
+	},
+	{
+		id: 'ac3',
+		title: "AC 3 : Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique",
+		description: "J'ai développé mes compétences interpersonnelles en travaillant en équipe lors de la Nuit de l'Info. J'ai appris à écouter les idées des autres, à respecter les opinions divergentes et à collaborer efficacement pour atteindre nos objectifs communs.",
+		icon: "🤝"
+	}
+];
 ---
 
 <Layout>
-    <main>
-        <section id="projects" class="py-10 bg-gray dark:bg-gray">
-            <div class="container mx-auto px-4">
-                <h2 class="font-monospace text-2xl text-orange">Nuit De l'Info</h2>
-                <div class="flex flex-col lg:flex-row gap-8">
-                    <div class="w-full p-4">
-                        <div class="flex-shrink-0 w-full lg:w-1/2">
-                            <Image
-                              src={image}
-                              alt="Nuit De l'Info"
-                              class="rounded-xl shadow-lg"
-                              format="png"
-                              width={500}
-                              height={500}
-                              loading="eager"
-                            />
-                          </div>
-                        <p class="mt-6 text-lg text-black dark:text-white">
-                            La Nuit de l'Info est un événement national organisé par les IUT, réunissant des étudiants en informatique pour une nuit de création intense. Le but est de concevoir un site web autour d'un thème donné, qui cette année portait sur l'océan et le corps humain. Les entreprises participantes proposent divers défis à intégrer sur le site, permettant aux équipes de gagner des lots.
-                        </p>
-            
-                    <h2 class="font-monospace text-2xl text-orange">Apprentissage Critique (AC) Compétence Collaborer </h2>
-                    <h3 class="text-xl text-orange">AC1 : Comprendre la diversité, la structure et la dimension de l’informatique dans une organisation</h3>
-                    <p class="text-lg text-black dark:text-white mb-4">
-                        Lors de la Nuit de l'Info, j'ai pu découvrir la diversité des métiers de l'informatique et la manière dont ils interagissent pour répondre aux besoins des entreprises. J'ai également appris à travailler en équipe, à communiquer efficacement et à gérer mon temps pour respecter les délais impartis.
-                    </p>
-                    <h3 class="text-xl text-orange">AC2 : Appliquer une démarche pour intégrer une équipe informatique au sein d’une organisation</h3>
-                    <p class="text-lg text-black dark:text-white mb-4">
-                        J'ai intégré une équipe de 10 personnes pour relever les défis proposés par les entreprises. Nous avons utilisé des outils de gestion de projet comme Trello pour organiser notre travail, et nous avons réparti les tâches en fonction des compétences de chacun. J'ai également pris en charge la communication avec les entreprises pour obtenir des précisions sur les défis à relever.
-                    </p>
-                    <h3 class="text-xl text-orange">AC3 : Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique</h3>
-                    <p class="text-lg text-black dark:text-white mb-4">
-                        J'ai développé mes compétences interpersonnelles en travaillant en équipe lors de la Nuit de l'Info. J'ai appris à écouter les idées des autres, à respecter les opinions divergentes et à collaborer efficacement pour atteindre nos objectifs communs. J'ai également pris en compte les retours des autres membres de l'équipe pour améliorer mes propres compétences et contribuer au succès du projet.
-                    </p>
-                </div>
-            </div>
-            <div class="flex flex-wrap gap-4 mt-8">
-                {tags.map((tag) => (
-                    <span class="px-3 py-1 bg-orange text-black rounded-full text-sm">{tag}</span>
-                ))}
-            </div>
-            
-        </section>
+	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
 
-        <Contact />
-        <BackToTop />
-    </main>
+		<!-- Hero Section -->
+		<section class="relative py-20 px-4">
+			<div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
+			<div class="relative max-w-6xl mx-auto">
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+
+					<!-- Project Image -->
+					<div class="order-2 lg:order-1">
+						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+							<Image
+								src={image}
+								alt="Projet Nuit de l'Info"
+								class="rounded-xl w-full"
+								format="png"
+								width={500}
+								height={500}
+								loading="eager"
+							/>
+						</div>
+					</div>
+
+					<!-- Project Details -->
+					<div class="order-1 lg:order-2 text-center lg:text-left">
+            <span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              Événement National
+            </span>
+						<h1 class="font-monospace text-4xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-6">
+							<span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-600">Nuit</span> de l'Info
+						</h1>
+						<p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+							Un événement national organisé par les IUT, réunissant des étudiants en informatique
+							pour une nuit de création intense autour du thème <span class="font-semibold text-blue-600">océan et corps humain</span>.
+						</p>
+
+						<!-- Tags Section -->
+						<div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+							{tags.map((tag) => (
+								<span class="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  {tag}
+                </span>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Event Overview Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Concept de l'événement
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Une nuit créative
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="space-y-8">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🌊</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Thématique 2024</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Cette année, le défi portait sur la relation entre
+								<span class="font-semibold text-orange-500">l'océan</span> et le
+								<span class="font-semibold text-blue-600">corps humain</span>,
+								créant un pont innovant entre nature et science.
+							</p>
+						</div>
+
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🏆</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Défis entreprises</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Les <span class="font-semibold text-purple-600">entreprises participantes</span>
+								proposent divers défis à intégrer, offrant aux équipes l'opportunité
+								de gagner des lots tout en développant leurs compétences.
+							</p>
+						</div>
+					</div>
+
+					<div class="bg-gradient-to-br from-orange-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg">
+						<h3 class="text-2xl font-bold mb-6">Expérience collaborative</h3>
+						<div class="space-y-6">
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">👥</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Équipe de 10 personnes</h4>
+									<p class="text-white/90">
+										Collaboration avec une <span class="font-semibold">équipe diversifiée</span>
+										pour relever les défis proposés par les entreprises.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">📋</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Gestion avec Trello</h4>
+									<p class="text-white/90">
+										Organisation du travail avec des <span class="font-semibold">outils collaboratifs</span>
+										et répartition des tâches selon les compétences.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">💬</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Communication entreprises</h4>
+									<p class="text-white/90">
+										Prise en charge de la <span class="font-semibold">communication</span>
+										avec les entreprises pour clarifier les défis.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technical Stack Section -->
+		<section class="py-16 px-4 bg-white dark:bg-gray-900">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Technologies utilisées
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Stack technique
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-orange-600 mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div class="bg-gradient-to-br from-orange-500 to-red-500 p-6 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-3xl mb-3">🌐</div>
+						<h3 class="text-lg font-bold mb-2">HTML</h3>
+						<p class="text-white/90 text-sm">Structure et sémantique</p>
+					</div>
+
+					<div class="bg-gradient-to-br from-blue-500 to-indigo-600 p-6 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-3xl mb-3">🎨</div>
+						<h3 class="text-lg font-bold mb-2">CSS</h3>
+						<p class="text-white/90 text-sm">Style et mise en page</p>
+					</div>
+
+					<div class="bg-gradient-to-br from-yellow-500 to-orange-500 p-6 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-3xl mb-3">⚡</div>
+						<h3 class="text-lg font-bold mb-2">JavaScript</h3>
+						<p class="text-white/90 text-sm">Interactivité dynamique</p>
+					</div>
+
+					<div class="bg-gradient-to-br from-purple-600 to-pink-600 p-6 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-3xl mb-3">🐘</div>
+						<h3 class="text-lg font-bold mb-2">PHP</h3>
+						<p class="text-white/90 text-sm">Logique côté serveur</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Learning Outcomes Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Compétences développées
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Apprentissages Critiques
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
+					<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
+						Compétence <span class="font-semibold text-purple-600">Collaborer</span> 🤝
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					{actions.map((action, index) => (
+						<div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 text-center">
+								{action.icon}
+							</div>
+							<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
+								AC {index + 1}
+							</h3>
+							<h4 class="text-sm font-semibold text-orange-500 mb-3 leading-tight">
+								{action.title.split(' : ')[1]}
+							</h4>
+							<p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+								{action.description}
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<Contact />
+		<BackToTop />
+	</main>
 </Layout>

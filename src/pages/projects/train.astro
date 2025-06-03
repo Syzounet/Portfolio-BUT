@@ -4,74 +4,234 @@ import image from '@assets/images/train_gui.png';
 import { Image } from 'astro:assets';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
-const tags = ['Java', 'JavaFX', 'Game']
+
+const tags = ['Java', 'JavaFX', 'Game'];
+const actions = [
+	{
+		id: 'ac1',
+		title: "AC 1 : Choisir des structures de données complexes adaptées au problème",
+		description: "J'ai utilisé des structures de données complexes pour gérer les différentes entités du jeu (locomotives, wagons, voies ferrées, etc.).",
+		icon: "🏗️"
+	},
+	{
+		id: 'ac2',
+		title: "AC 2 : Utiliser des techniques algorithmiques adaptées pour des problèmes complexes",
+		description: "J'ai mis en place des algorithmes pour gérer les déplacements des trains, les achats de matériel et les finances. Mais aussi pour gérer les différentes actions des cartes du jeu.",
+		icon: "⚙️"
+	}
+];
 ---
 
 <Layout>
-  <main class="py-12 px-6">
-    <section class="max-w-screen-lg mx-auto">
-      <div class="flex flex-col lg:flex-row items-center gap-8">
-        <!-- Project Image -->
-        <div class="flex-shrink-0 w-full lg:w-1/2">
-          <!-- Static image based on the project data -->
-          <Image src={image} 
-          alt='train image' 
-          class="rounded-xl shadow-lg" 
-          format="png" 
-          width={500}
-          height={500}
-          loading="eager"/>  
-        </div>
-        
-        <!-- Project Details -->
-        <div class="flex flex-col w-full lg:w-1/2">
-          <h2 class="font-monospace text-2xl text-orange lg:text-4xl">Train</h2>
-          <span class="mb-10 h-1 w-10 bg-orange"></span>
-          <p class="text-lg text-gray dark:text-gray-400">
-            C'est un jeu de société qui simule la gestion d'une compagnie de train. Nous avons utilisé JavaFX pour la partie graphique et Java pour la partie logique.
-            Pour ce projet, j'ai travaillé en trinôme avec 2 camarades de classe. Nous avons utilisé Git pour gérer le code source.
-          </p>
-          
-          <h2 class="text-xl font-semibold text-orange mb-4">Objectifs</h2>
-          <span class="text-lg text-gray dark:text-gray-400">
-            Le but du jeu est de gérer une compagnie de train en achetant des locomotives, des wagons et en construisant des voies ferrées. 
-            Le joueur doit également gérer les finances.
+	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+
+		<!-- Hero Section -->
+		<section class="relative py-20 px-4">
+			<div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
+			<div class="relative max-w-6xl mx-auto">
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+
+					<!-- Project Image -->
+					<div class="order-2 lg:order-1">
+						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+							<Image
+								src={image}
+								alt="Interface graphique du jeu Train"
+								class="rounded-xl w-full"
+								format="png"
+								width={500}
+								height={500}
+								loading="eager"
+							/>
+						</div>
+					</div>
+
+					<!-- Project Details -->
+					<div class="order-1 lg:order-2 text-center lg:text-left">
+            <span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              Projet de Développement
+            </span>
+						<h1 class="font-monospace text-4xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-6">
+							<span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-600">Train</span> Game
+						</h1>
+						<p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+							Un jeu de société digital simulant la gestion d'une compagnie ferroviaire.
+							Développé en équipe avec <span class="font-semibold text-orange-500">Java</span> et
+							<span class="font-semibold text-blue-600">JavaFX</span> pour une expérience immersive.
+						</p>
+
+						<!-- Tags Section -->
+						<div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+							{tags.map((tag) => (
+								<span class="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  {tag}
+                </span>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Game Features Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Gameplay
           </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Objectifs du jeu
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
+				</div>
 
-          <div class="border rounded-lg shadow-md bg-gray-100 p-4">
-            <h1 class="text-xl font-semibold text-orange mb-4">
-              Apprentissage Critique (AC) Compétence Réaliser🗂️
-            </h1>
-            <div id="accordion-ac">
-              <!-- Directly rendering the actions -->
-              <div>
-                <h3 class="text-lg font-semibold text-orange">AC 1 : Choisir des structures de données complexes adaptées au problème</h3>
-                <p class="text-sm text-black dark:text-white mb-4">
-                  j'ai utilisé des structures de données complexes pour gérer les différentes entités du jeu (locomotives, wagons, voies ferrées, etc.).
-                </p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-orange">AC 2 : Utiliser des techniques algorithmiques adaptées pour des problèmes complexes</h3>
-                <p class="text-sm text-black dark:text-white mb-4">
-                  j'ai mis en place des algorithmes pour gérer les déplacements des trains, les achats de matériel et les finances. 
-                  Mais aussi pour gérer les différente actions des cartes du jeu.
-                </p>
-              </div>
-            </div>
-          </div>
-          
-          <div class="flex flex-wrap gap-2 mt-4">
-            {tags.map((tag) => (
-              <span class="px-2 py-1 bg-orange text-white rounded-md text-sm">{tag}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-    <Contact />
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="space-y-8">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🚂</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Gestion ferroviaire</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Gérez votre compagnie de train en achetant des
+								<span class="font-semibold text-orange-500">locomotives</span>,
+								des wagons et en construisant des voies ferrées stratégiques.
+							</p>
+						</div>
+
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">💰</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Gestion financière</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Optimisez vos <span class="font-semibold text-blue-600">finances</span>
+								pour développer votre réseau ferroviaire et maximiser vos profits.
+							</p>
+						</div>
+					</div>
+
+					<div class="bg-gradient-to-br from-orange-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg">
+						<h3 class="text-2xl font-bold mb-6">Développement collaboratif</h3>
+						<div class="space-y-6">
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">👥</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Travail en équipe</h4>
+									<p class="text-white/90">
+										Développement en <span class="font-semibold">trinôme</span>
+										avec mes camarades de classe pour une approche collaborative.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">🔧</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Outils modernes</h4>
+									<p class="text-white/90">
+										Utilisation de <span class="font-semibold">Git</span>
+										pour la gestion du code source et la collaboration.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">🎨</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Interface graphique</h4>
+									<p class="text-white/90">
+										<span class="font-semibold">JavaFX</span> pour une interface
+										utilisateur moderne et intuitive.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Technical Details Section -->
+		<section class="py-16 px-4 bg-white dark:bg-gray-900">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Architecture technique
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Implémentation
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-orange-600 mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-8">
+					<div class="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-4xl mb-4">☕</div>
+						<h3 class="text-xl font-bold mb-4">Backend Java</h3>
+						<p class="text-white/90 leading-relaxed">
+							Logique métier robuste avec gestion des entités du jeu,
+							algorithmes de déplacement et système financier complet.
+						</p>
+					</div>
+
+					<div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
+						<div class="text-4xl mb-4">🖥️</div>
+						<h3 class="text-xl font-bold mb-4">Interface JavaFX</h3>
+						<p class="text-white/90 leading-relaxed">
+							Interface graphique moderne et responsive pour une expérience
+							utilisateur optimale et intuitive.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Learning Outcomes Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Compétences acquises
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Apprentissages Critiques
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
+					<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
+						Compétence <span class="font-semibold text-purple-600">Réaliser</span> 🗂️
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-2 gap-8">
+					{actions.map((action, index) => (
+						<div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 text-center">
+								{action.icon}
+							</div>
+							<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
+								AC {index + 1}
+							</h3>
+							<h4 class="text-sm font-semibold text-orange-500 mb-3 leading-tight">
+								{action.title.split(' : ')[1]}
+							</h4>
+							<p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+								{action.description}
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<Contact />
 		<BackToTop />
-
-  </main>
-  
+	</main>
 </Layout>
-

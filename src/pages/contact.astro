@@ -9,126 +9,276 @@ const contactInfo = {
 ---
 
 <Layout>
-	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800 py-16 px-4">
-		<!-- Section Header -->
-		<section class="max-w-6xl mx-auto text-center mb-16 relative">
-			<span
-				class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4"
-			>
-				Me contacter
-			</span>
-			<h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-4">
-				Contactez-moi
-			</h1>
-			<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
+	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+
+		<!-- Hero Section -->
+		<section class="relative py-20 px-4 text-center">
+			<div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
+			<div class="relative max-w-4xl mx-auto">
+				<div class="text-6xl mb-6">📞</div>
+				<h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
+					Parlons de votre <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-600">projet</span>
+				</h1>
+				<p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+					Vous avez une idée ? Un projet ? Ou simplement envie d'échanger ?
+					Je serais ravi de discuter avec vous de vos besoins.
+				</p>
+			</div>
 		</section>
 
-		<section
-			id="contact"
-			class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16"
-		>
-			<!-- Coordonnées -->
-			<div class="space-y-8">
-				<p class="text-gray-700 dark:text-gray-300 text-lg leading-relaxed">
-					Vous avez une question, une proposition ou simplement envie d'échanger ?<br />
-					N'hésitez pas à me contacter via l'un des moyens ci-dessous ou en envoyant un message.
-				</p>
-
-				<!-- Email Block -->
-				<div
-					class="relative flex items-center gap-6 rounded-2xl border-2 border-orange-500 bg-orange-100 p-6 dark:bg-orange-200/20"
-				>
-					<div
-						aria-hidden="true"
-						class="absolute -left-5 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full border-4 border-orange-500 bg-white dark:bg-black"
-					></div>
-					<div>
-						<h3 class="font-monospace text-2xl text-orange-500 mb-1">Email</h3>
-						<a
-							href={`mailto:${contactInfo.email}`}
-							class="text-lg font-semibold text-gray-900 underline decoration-orange-500 decoration-2 underline-offset-4 hover:text-orange-600 dark:text-gray-200 dark:hover:text-orange-600"
-							rel="noopener noreferrer"
-						>
-							{contactInfo.email}
-						</a>
-					</div>
+		<!-- Contact Section -->
+		<section id="contact" class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Restons connectés
+					</span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Contactez-moi
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
 				</div>
 
-				<!-- LinkedIn Block -->
-				<div
-					class="relative flex items-center gap-6 rounded-2xl border-2 border-orange-500 bg-orange-100 p-6 dark:bg-orange-200/20"
-				>
-					<div
-						aria-hidden="true"
-						class="absolute -left-5 top-1/2 h-8 w-8 -translate-y-1/2 rounded-full border-4 border-orange-500 bg-white dark:bg-black"
-					></div>
-					<div>
-						<h3 class="font-monospace text-2xl text-orange-500 mb-1">LinkedIn</h3>
-						<a
-							href={contactInfo.linkedin}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-lg font-semibold text-gray-900 underline decoration-orange-500 decoration-2 underline-offset-4 hover:text-orange-600 dark:text-gray-200 dark:hover:text-orange-600"
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="space-y-6">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">📧</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Email</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+								Pour toute demande professionnelle, question technique ou simplement pour échanger sur un projet.
+							</p>
+							<a
+								href={`mailto:${contactInfo.email}`}
+								class="inline-flex items-center text-orange-500 hover:text-orange-600 font-semibold transition-colors duration-200"
+								rel="noopener noreferrer"
+							>
+								{contactInfo.email}
+								<span class="ml-2">→</span>
+							</a>
+						</div>
+
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">💼</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">LinkedIn</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+								Connectons-nous sur LinkedIn pour échanger sur nos expériences et rester en contact professionnel.
+							</p>
+							<a
+								href={contactInfo.linkedin}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="inline-flex items-center text-blue-600 hover:text-blue-700 font-semibold transition-colors duration-200"
+							>
+								Mon profil LinkedIn
+								<span class="ml-2">→</span>
+							</a>
+						</div>
+					</div>
+
+					<div class="bg-gradient-to-br from-orange-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg">
+						<h3 class="text-2xl font-bold mb-6">Envoyez-moi un message</h3>
+
+						<!-- Message de statut -->
+						<div id="status-message" class="hidden mb-4 p-4 rounded-lg"></div>
+
+						<form
+							id="contact-form"
+							method="POST"
+							action="/api/contact"
+							class="space-y-6"
 						>
-							Mon profil LinkedIn
-						</a>
+							<div>
+								<label for="name" class="block text-sm font-medium text-white/90 mb-2">
+									Nom
+								</label>
+								<input
+									required
+									type="text"
+									name="name"
+									id="name"
+									placeholder="Votre nom"
+									class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-white/30 focus:outline-none"
+								/>
+							</div>
+
+							<div>
+								<label for="email" class="block text-sm font-medium text-white/90 mb-2">
+									Email
+								</label>
+								<input
+									required
+									type="email"
+									name="email"
+									id="email"
+									placeholder="votre.email@exemple.com"
+									class="w-full rounded-lg border-0 px-4 py-3 text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-white/30 focus:outline-none"
+								/>
+							</div>
+
+							<div>
+								<label for="message" class="block text-sm font-medium text-white/90 mb-2">
+									Message
+								</label>
+								<textarea
+									required
+									name="message"
+									id="message"
+									rows="4"
+									placeholder="Votre message..."
+									class="w-full rounded-lg border-0 px-4 py-3 resize-none text-gray-900 placeholder-gray-400 focus:ring-2 focus:ring-white/30 focus:outline-none"
+								></textarea>
+							</div>
+
+							<button
+								type="submit"
+								id="submit-button"
+								class="w-full bg-white text-orange-600 font-bold px-6 py-3 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white/30 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+							>
+								<span id="button-text">Envoyer le message</span>
+								<span id="loading-spinner" class="hidden">
+									<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-orange-600 inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+										<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+										<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+									</svg>
+									Envoi en cours...
+								</span>
+							</button>
+						</form>
 					</div>
 				</div>
 			</div>
-
-			<!-- Formulaire de contact -->
-			<form
-				method="POST"
-				action="/api/contact"
-				class="bg-white dark:bg-gray-800 rounded-2xl p-10 shadow-lg flex flex-col gap-6"
-			>
-				<h2 class="font-monospace text-3xl text-orange-500 mb-6">Envoyez-moi un message</h2>
-
-				<label for="name" class="block font-semibold text-gray-900 dark:text-gray-200">
-					Nom
-					<input
-						required
-						type="text"
-						name="name"
-						id="name"
-						placeholder="Votre nom"
-						class="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-orange-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:placeholder-gray-600"
-					/>
-				</label>
-
-				<label for="email" class="block font-semibold text-gray-900 dark:text-gray-200">
-					Email
-					<input
-						required
-						type="email"
-						name="email"
-						id="email"
-						placeholder="Votre email"
-						class="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-900 placeholder-gray-400 focus:border-orange-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:placeholder-gray-600"
-					/>
-				</label>
-
-				<label for="message" class="block font-semibold text-gray-900 dark:text-gray-200">
-					Message
-					<textarea
-						required
-						name="message"
-						id="message"
-						rows="5"
-						placeholder="Votre message"
-						class="mt-2 w-full rounded-lg border border-gray-300 px-4 py-3 resize-none text-gray-900 placeholder-gray-400 focus:border-orange-500 focus:outline-none dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:placeholder-gray-600"
-					></textarea>
-				</label>
-
-				<button
-					type="submit"
-					class="mt-4 rounded-2xl bg-gradient-to-r from-orange-500 to-blue-600 px-6 py-3 font-monospace text-lg font-bold text-white shadow-lg hover:brightness-110 focus:outline-none focus:ring-4 focus:ring-orange-500/50 transition"
-				>
-					Envoyer
-				</button>
-			</form>
 		</section>
 
-		<BackToTop class="mt-16 mx-auto" />
+		<!-- Additional Info Section -->
+		<section class="py-16 px-4 bg-white dark:bg-gray-900">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Informations pratiques
+					</span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						À propos de mes réponses
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8 text-center text-gray-900 dark:text-gray-100">
+					<!-- Temps de réponse -->
+					<div class="group bg-gradient-to-br from-green-400 to-blue-500 dark:from-green-600 dark:to-blue-700 p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+						<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">⚡</div>
+						<h3 class="text-xl font-bold mb-4">Réponse rapide</h3>
+						<p class="text-white/90">
+							Je m'engage à répondre à vos messages dans les <span class="font-semibold">24 heures</span> maximum.
+						</p>
+					</div>
+
+					<!-- Disponibilité -->
+					<div class="group bg-gradient-to-br from-blue-600 to-purple-600 dark:from-blue-700 dark:to-purple-800 p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+						<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📅</div>
+						<h3 class="text-xl font-bold mb-4">Disponibilité</h3>
+						<p class="text-white/90">
+							Ouvert aux <span class="font-semibold">stages</span>, <span class="font-semibold">missions freelance</span> et <span class="font-semibold">collaborations</span> étudiantes.
+						</p>
+					</div>
+
+					<!-- Localisation -->
+					<div class="group bg-gradient-to-br from-purple-600 to-pink-600 dark:from-purple-700 dark:to-pink-700 p-8 rounded-2xl hover:scale-105 transition-transform duration-300">
+						<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📍</div>
+						<h3 class="text-xl font-bold mb-4">Localisation</h3>
+						<p class="text-white/90">
+							Basé dans l'<span class="font-semibold">Hérault</span>, disponible pour du <span class="font-semibold">télétravail</span> ou sur site.
+						</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<BackToTop />
 	</main>
+
+	<script>
+		// Gestion du formulaire de contact
+		document.addEventListener('DOMContentLoaded', function() {
+			const form = document.getElementById('contact-form');
+			const statusMessage = document.getElementById('status-message');
+			const submitButton = document.getElementById('submit-button');
+			const buttonText = document.getElementById('button-text');
+			const loadingSpinner = document.getElementById('loading-spinner');
+
+			// Fonction pour afficher les messages de statut
+			function showStatus(message, type) {
+				statusMessage.textContent = message;
+				statusMessage.className = `mb-4 p-4 rounded-lg ${type === 'success'
+					? 'bg-green-100 text-green-800 border border-green-200'
+					: 'bg-red-100 text-red-800 border border-red-200'}`;
+				statusMessage.classList.remove('hidden');
+
+				// Faire défiler vers le message
+				statusMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+			}
+
+			// Fonction pour masquer le message de statut
+			function hideStatus() {
+				statusMessage.classList.add('hidden');
+			}
+
+			// Fonction pour gérer l'état du bouton
+			function setLoading(loading) {
+				submitButton.disabled = loading;
+				if (loading) {
+					buttonText.classList.add('hidden');
+					loadingSpinner.classList.remove('hidden');
+				} else {
+					buttonText.classList.remove('hidden');
+					loadingSpinner.classList.add('hidden');
+				}
+			}
+
+			// Gestion de la soumission du formulaire
+			form.addEventListener('submit', async function(e) {
+				e.preventDefault();
+
+				// Masquer les messages précédents
+				hideStatus();
+				setLoading(true);
+
+				try {
+					// Récupération des données du formulaire
+					const formData = new FormData(form);
+
+					// Envoi de la requête
+					const response = await fetch('/api/contact', {
+						method: 'POST',
+						body: formData
+					});
+
+					const result = await response.json();
+
+					if (result.success) {
+						showStatus('✅ Message envoyé avec succès ! Je vous répondrai rapidement.', 'success');
+						form.reset(); // Réinitialiser le formulaire
+					} else {
+						showStatus(`❌ Erreur : ${result.error}`, 'error');
+					}
+
+				} catch (error) {
+					console.error('Erreur lors de l\'envoi:', error);
+					showStatus('❌ Erreur de connexion. Veuillez réessayer plus tard.', 'error');
+				} finally {
+					setLoading(false);
+				}
+			});
+
+			// Masquer le message de statut lors de la saisie
+			form.addEventListener('input', function() {
+				if (!statusMessage.classList.contains('hidden')) {
+					setTimeout(hideStatus, 3000);
+				}
+			});
+		});
+	</script>
 </Layout>

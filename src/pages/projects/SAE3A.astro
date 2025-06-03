@@ -1,6 +1,6 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import image from '@assets/images/SAE3A.png'; // Remplace l'image par celle de ton projet
+import image from '@assets/images/SAE3A.png';
 import image2 from '@assets/images/SAEA3-agregation.png';
 import BackToTop from '@components/ui/BackToTop.astro';
 import Contact from '@components/Contact.astro';
@@ -8,105 +8,220 @@ import { Image } from 'astro:assets';
 
 const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
 const actions = [
-  {
-    title: "AC 1 : Analyse des besoins",
-    description: "Analyser les besoins des utilisateurs et définir les fonctionnalités principales du site web pour répondre à leurs attentes.",
-  },
-  {
-    title: "AC 2 : Gestion des tâches et priorisation",
-    description: "Organiser les tâches selon leur priorité et veiller à leur réalisation dans les délais fixés grâce à une méthodologie Agile.",
-  },
-  {
-    title: "AC 3 : Résolution de blocages",
-    description: "Faciliter la résolution des problèmes rencontrés par l'équipe en proposant des solutions adaptées et en mobilisant les ressources nécessaires.",
-  },
+	{
+		id: 'ac1',
+		title: "AC 1 : Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles",
+		description: "J'ai analysé les besoins des utilisateurs et défini les fonctionnalités principales du site web pour répondre à leurs attentes.",
+		icon: "📋"
+	},
+	{
+		id: 'ac2',
+		title: "AC 2 : Appliquer des principes d'accessibilité et d'ergonomie",
+		description: "J'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.",
+		icon: "♿"
+	},
+	{
+		id: 'ac3',
+		title: "AC 3 : Adopter de bonnes pratiques de conception et de programmation",
+		description: "J'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini.",
+		icon: "⚡"
+	},
 ];
 ---
+
 <Layout>
-  <main class="py-12 px-6">
-    <section class="max-w-screen-lg mx-auto">
-      <div class="flex flex-col lg:flex-row items-center gap-8">
-        <!-- Project Image -->
-        <div class="flex-shrink-0 w-full lg:w-1/2">
-          <Image
-            src={image}
-            alt="Image du projet SAE 3A"
-            class="rounded-xl shadow-lg"
-            format="png"
-            width={500}
-            height={500}
-            loading="eager"
-          />
-        </div>
+	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
 
-        <!-- Project Details -->
-        <div class="w-full lg:w-1/2">
-          <h1 class="text-4xl font-semibold text-orange mb-4">SAE 3A - Site d'avis de poursuite d'études</h1>
-          <p class="text-lg text-black dark:text-white mb-6">
-            Ce projet consistait à créer un site web permettant aux étudiants de donner leur avis sur les universités vers lesquelles ils souhaitaient postuler. 
-            Les professeurs pouvaient également ajouter un avis favorable ou non, influençant ainsi le choix des étudiants.
-          </p>
+		<!-- Hero Section -->
+		<section class="relative py-20 px-4">
+			<div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
+			<div class="relative max-w-6xl mx-auto">
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
 
-          <h2 class="text-xl font-semibold text-orange mb-4">Mon rôle : Scrum Master</h2>
-          <p class="text-lg text-black dark:text-white mb-6">
-            En tant que Scrum Master, ma mission principale était de gérer l'organisation de l'équipe, en assurant une communication fluide entre les membres et en facilitant les processus agiles. 
-            J'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.
-          </p>
-          <Image
-            src={image2}
-            alt="Image du projet SAE 3A"
-            class="rounded-xl shadow-lg"
-            format="png"
-            width={500}
-            height={500}
-            loading="eager"
-          />
+					<!-- Project Image -->
+					<div class="order-2 lg:order-1">
+						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+							<Image
+								src={image}
+								alt="Image du projet SAE 3A"
+								class="rounded-xl w-full"
+								format="png"
+								width={500}
+								height={500}
+								loading="eager"
+							/>
+						</div>
+					</div>
 
-          <h2 class="text-xl font-semibold text-orange mb-4">Motivation de l'équipe</h2>
-          <p class="text-lg text-black dark:text-white mb-6">
-            Afin de motiver l'équipe, j'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini. 
-            J'ai organisé des réunions régulières pour vérifier l'avancement des tâches et résoudre les problèmes rapidement. Cela a permis de maintenir une bonne ambiance et de respecter les délais du projet.
-          </p>
+					<!-- Project Details -->
+					<div class="order-1 lg:order-2 text-center lg:text-left">
+            <span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              Projet Universitaire
+            </span>
+						<h1 class="font-monospace text-4xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-6">
+							SAE 3A - <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-600">Site d'avis</span>
+						</h1>
+						<p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+							Un projet collaboratif visant à créer une plateforme permettant aux étudiants de partager leurs avis sur les universités
+							et aux professeurs d'apporter leur expertise pour guider les choix d'orientation.
+						</p>
 
-          <!-- Accordion for Apprentissage Critique -->
-          <div class="border rounded-lg shadow-md bg-gray-100 p-4">
-            <h1 class="text-xl font-semibold text-orange mb-4">
-              Apprentissage Critique (AC) Compétence Réaliser🗂️
-            </h1>
-            <div id="accordion-ac">
-              <!-- Directly rendering the actions -->
-              <div>
-                <h3 class="text-lg font-semibold text-orange">AC 1 : Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles</h3>
-                <p class="text-sm text-black dark:text-white mb-4">
-                    j'ai analysé les besoins des utilisateurs et défini les fonctionnalités principales du site web pour répondre à leurs attentes.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-orange">AC 2 : Appliquer des principes d’accessibilité et d’ergonomie</h3>
-                <p class="text-sm text-black dark:text-white mb-4">
-                    j'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.
-                </p>
-              </div>
-              <div>
-                <h3 class="text-lg font-semibold text-orange">AC 3 : Adopter de bonnes pratiques de conception et de programmation</h3>
-                <p class="text-sm text-black dark:text-white mb-4">
-                  j'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini.
-                </p>
-              </div>
-            </div>
-          </div>
+						<!-- Tags Section -->
+						<div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+							{tags.map((tag) => (
+								<span class="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  {tag}
+                </span>
+							))}
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-          <!-- Tags Section -->
-          <div class="flex flex-wrap gap-2 mb-6 mt-8">
-            {tags.map((tag) => (
-              <span class="px-2 py-1 bg-orange text-black rounded-lg text-sm">{tag}</span>
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-    <Contact />
-    <BackToTop />
-    
-  </main>
+		<!-- Role Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Mon rôle
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Scrum Master
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
+				</div>
+
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<div class="space-y-8">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🎯</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Mission principale</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								En tant que <span class="font-semibold text-orange-500">Scrum Master</span>,
+								ma mission était de gérer l'organisation de l'équipe, assurer une communication fluide
+								entre les membres et faciliter les processus agiles.
+							</p>
+						</div>
+
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🚀</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Motivation de l'équipe</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								J'ai créé un environnement de travail <span class="font-semibold text-blue-600">collaboratif</span>
+								en organisant des réunions régulières, définissant des rôles clairs et maintenant
+								une dynamique positive pour respecter les délais.
+							</p>
+						</div>
+					</div>
+
+					<div class="bg-gradient-to-br from-orange-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg">
+						<h3 class="text-2xl font-bold mb-6">Activités clés</h3>
+						<div class="space-y-6">
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">📅</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Daily Meetings</h4>
+									<p class="text-white/90">
+										Organisation de <span class="font-semibold">réunions quotidiennes</span>
+										pour suivre l'avancement et identifier les blocages.
+									</p>
+								</div>
+							</div>
+
+							<div class="flex items-start space-x-4">
+								<div class="bg-white p-3 rounded-lg">
+									<span class="text-2xl">🔧</span>
+								</div>
+								<div>
+									<h4 class="font-semibold text-lg mb-2">Résolution de problèmes</h4>
+									<p class="text-white/90">
+										Facilitation de la <span class="font-semibold">résolution des blocages</span>
+										en mobilisant les ressources nécessaires.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Additional Image Section -->
+		<section class="py-16 px-4 bg-white dark:bg-gray-900">
+			<div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+          Résultats du projet
+        </span>
+
+				<div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl shadow-lg">
+					<Image
+						src={image}
+						alt="Agrégation des données du projet SAE 3A"
+						class="rounded-xl shadow-lg mx-auto mt-6"
+						format="png"
+						width={600}
+						height={400}
+						loading="lazy"
+					/>
+					<Image
+						src={image2}
+						alt="Agrégation des données du projet SAE 3A"
+						class="rounded-xl shadow-lg mx-auto"
+						format="png"
+						width={600}
+						height={400}
+						loading="lazy"
+					/>
+
+				</div>
+			</div>
+		</section>
+
+		<!-- Learning Outcomes Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+          <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Compétences acquises
+          </span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Apprentissages Critiques
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
+					<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
+						Compétence <span class="font-semibold text-purple-600">Réaliser</span> 🗂️
+					</p>
+				</div>
+
+				<div class="grid md:grid-cols-3 gap-8">
+					{actions.map((action, index) => (
+						<div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 text-center">
+								{action.icon}
+							</div>
+							<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
+								AC {index + 1}
+							</h3>
+							<h4 class="text-sm font-semibold text-orange-500 mb-3 leading-tight">
+								{action.title.split(' : ')[1]}
+							</h4>
+							<p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+								{action.description}
+							</p>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<Contact />
+		<BackToTop />
+	</main>
 </Layout>
