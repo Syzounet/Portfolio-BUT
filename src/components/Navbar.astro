@@ -2,7 +2,7 @@
 import cvFile from '@assets/cv-gauthier-souquet.pdf';
 import Button from '@components/ui/Button.astro';
 import ToggleTheme from '@components/ui/ToggleTheme.astro';
-import { Astronav, MenuIcon } from 'astro-navbar';
+import { Astronav, MenuIcon, MenuItems } from 'astro-navbar';
 ---
 
 <header data-testid="header" class="my-5 flex flex-col items-center justify-between lg:flex-row">
@@ -24,27 +24,51 @@ import { Astronav, MenuIcon } from 'astro-navbar';
 			</div>
 		</div>
 
-		<nav class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto" aria-label="Menu principal">
-			<ul class="flex flex-col gap-2 lg:flex-row lg:gap-6">
-				{[
-					{ href: '/Portfolio-BUT', label: 'Accueil' },
-					{ href: '/Portfolio-BUT/presentation', label: 'Présentation' },
-					{ href: '/Portfolio-BUT/projects/projects', label: 'Projets' },
-					{ href: '/Portfolio-BUT/contact', label: 'Contact' },
-				].map(({ href, label }) => (
-					<li>
-						<a
-							href={href}
-							aria-label={`Lien vers ${label}`}
-							class="block py-2 px-3 text-gray-900 hover:text-orange-500 dark:text-gray-100 dark:hover:text-orange-400 transition-colors rounded"
-						>
-							{label}
-						</a>
-					</li>
-				))}
-			</ul>
-		</nav>
+		<!-- Navigation Desktop ET Mobile -->
+		<MenuItems class="mt-2 hidden w-full lg:mt-0 lg:flex lg:w-auto">
+			<nav aria-label="Menu principal">
+				<ul class="flex flex-col gap-2 lg:flex-row lg:gap-6 lg:items-center">
+					{[
+						{ href: '/Portfolio-BUT', label: 'Accueil' },
+						{ href: '/Portfolio-BUT/presentation', label: 'Présentation' },
+						{ href: '/Portfolio-BUT/apprentissage', label: 'Apprentissage' },
+						{ href: '/Portfolio-BUT/projects/projects', label: 'Projets' },
+						{ href: '/Portfolio-BUT/contact', label: 'Contact' },
+					].map(({ href, label }) => (
+						<li>
+							<a
+								href={href}
+								aria-label={`Lien vers ${label}`}
+								class="block py-2 px-3 text-gray-900 hover:text-orange-500 dark:text-gray-100 dark:hover:text-orange-400 transition-colors rounded lg:py-1"
+							>
+								{label}
+							</a>
+						</li>
+					))}
+				</ul>
+			</nav>
+		</MenuItems>
 	</Astronav>
 
-	<ToggleTheme />
+	<div class="mt-4 lg:mt-0">
+		<ToggleTheme />
+	</div>
 </header>
+
+<style>
+	/* Styles pour améliorer l'apparence mobile */
+	@media (max-width: 1023px) {
+		[data-astronav-menu] {
+			background: white;
+			border: 1px solid #e5e7eb;
+			border-radius: 0.5rem;
+			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+			margin-top: 0.5rem;
+			padding: 1rem;
+		}
+
+		.dark [data-astronav-menu] {
+			background: #1f2937;
+			border-color: #374151;
+		}
+	}</style>
