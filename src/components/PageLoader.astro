@@ -1,0 +1,110 @@
+---
+// src/components/PageLoader.astro
+---
+
+<div id="page-loader" class="page-loader">
+	<div class="loader-content">
+		<div class="spinner"></div>
+		<p class="loader-text">Chargement...</p>
+	</div>
+</div>
+
+<style>
+	.page-loader {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background: rgb(255, 255, 255);
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 9999;
+		transition: opacity 0.4s ease, visibility 0.4s ease;
+	}
+
+	/* Support du mode sombre */
+	@media (prefers-color-scheme: dark) {
+		.page-loader {
+			background: rgb(17, 24, 39); /* gray-900 */
+		}
+
+		.loader-text {
+			color: rgb(243, 244, 246); /* gray-100 */
+		}
+	}
+
+	.loader-content {
+		text-align: center;
+	}
+
+	.spinner {
+		width: 40px;
+		height: 40px;
+		border: 3px solid rgba(59, 130, 246, 0.1); /* blue-500 avec transparence */
+		border-top: 3px solid rgb(59, 130, 246); /* blue-500 */
+		border-radius: 50%;
+		animation: spin 1s linear infinite;
+		margin: 0 auto 1rem auto;
+	}
+
+	.loader-text {
+		font-family: inherit;
+		font-size: 1rem;
+		color: rgb(17, 24, 39); /* gray-900 */
+		margin: 0;
+		opacity: 0.7;
+	}
+
+	@keyframes spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	/* Animation de sortie */
+	.page-loader.fade-out {
+		opacity: 0;
+		visibility: hidden;
+	}
+</style>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const loader = document.getElementById('page-loader');
+		const body = document.body;
+
+		if (loader) {
+			// Empêcher le scroll pendant le chargement
+			body.style.overflow = 'hidden';
+
+			// Attendre que toutes les ressources soient chargées
+			const hideLoader = () => {
+				// Durée minimum d'affichage pour éviter un flash trop rapide
+				setTimeout(() => {
+					loader.classList.add('fade-out');
+					body.style.overflow = ''; // Rétablir le scroll
+
+					// Supprimer complètement le loader après l'animation
+					setTimeout(() => {
+						if (loader.parentNode) {
+							loader.parentNode.removeChild(loader);
+						}
+					}, 400);
+				}, 800); // Durée minimum d'affichage
+			};
+
+			// Si la page est déjà chargée
+			if (document.readyState === 'complete') {
+				hideLoader();
+			} else {
+				// Sinon attendre le chargement complet
+				window.addEventListener('load', hideLoader);
+			}
+		}
+	});
+</script>
