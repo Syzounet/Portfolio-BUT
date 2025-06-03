@@ -5,6 +5,7 @@ import Card from '@components/ui/Card.astro';
 import train from '@assets/images/train_gui.png';
 import SAE from '@assets/images/SAE3A.png';
 import imageNDI from '@assets/images/NDI.png';
+import imageStage from '@assets/images/stage.png';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 
@@ -40,6 +41,14 @@ const projects = await getCollection('projects');
 						url={projects[2].data.url}
 						imageUrl={imageNDI}
 					/>
+					<Card
+					title={projects[3].data.title}
+					description={projects[3].data.description}
+					tags={projects[3].data.tags}
+					url={projects[3].data.url}
+					imageUrl={imageStage}
+					/>
+
 				</div>
 			</div>
 		</section>

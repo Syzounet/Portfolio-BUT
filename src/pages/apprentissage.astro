@@ -1,6 +1,7 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
+
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 ---
@@ -23,6 +24,33 @@ import BackToTop from '@components/ui/BackToTop.astro';
             </div>
         </section>
 
+        <!-- Légende des niveaux -->
+        <section class="py-8 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">Légende des niveaux de maîtrise</h3>
+                    <div class="grid md:grid-cols-4 gap-4">
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 bg-red-500 rounded-full"></span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">Débutant</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 bg-yellow-500 rounded-full"></span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">En cours</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 bg-blue-500 rounded-full"></span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">Acquis</span>
+                        </div>
+                        <div class="flex items-center space-x-2">
+                            <span class="w-4 h-4 bg-green-500 rounded-full"></span>
+                            <span class="text-sm text-gray-700 dark:text-gray-300">Maîtrisé</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Compétence 3 Section -->
         <section id="competence3" class="py-16 px-4">
             <div class="max-w-6xl mx-auto">
@@ -41,7 +69,15 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
                 <div class="grid lg:grid-cols-3 gap-8">
                     <!-- AC 3.1 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Acquis</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">🔗</span>
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.1</h3>
@@ -53,14 +89,31 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Concevoir et développer des applications communicantes utilisant des protocoles réseau
                             et des API pour l'échange de données.
                         </p>
-                        <a href="#projet-chat-app" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-lg hover:from-orange-500 hover:to-orange-700 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% maîtrisé</p>
+                        </div>
+
+                        <a href="/Portfolio-BUT/projects/NDI" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-lg hover:from-orange-500 hover:to-orange-700 transition-colors duration-300">
                             <span class="mr-2">💬</span>
                             Voir le projet Chat App
                         </a>
                     </div>
 
                     <!-- AC 3.2 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Maîtrisé</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">🖥️</span>
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.2</h3>
@@ -72,14 +125,31 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Configurer un poste de travail dans un réseau d'entreprise avec gestion des droits
                             et sécurisation des accès.
                         </p>
-                        <a href="#projet-infra-reseau" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg hover:from-blue-500 hover:to-blue-700 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 70%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">70% maîtrisé</p>
+                        </div>
+
+                        <a href="" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg hover:from-blue-500 hover:to-blue-700 transition-colors duration-300">
                             <span class="mr-2">🌐</span>
-                            Voir Infrastructure Réseau
+                            Aucun projet spécifique
                         </a>
                     </div>
 
                     <!-- AC 3.3 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Maîtrisé</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">⚙️</span>
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.3</h3>
@@ -91,9 +161,18 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Déployer des services dans une architecture réseau avec conteneurisation
                             et orchestration des applications.
                         </p>
-                        <a href="#projet-docker-deploy" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-lg hover:from-purple-500 hover:to-purple-700 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">90% maîtrisé</p>
+                        </div>
+
+                        <a href="" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-lg hover:from-purple-500 hover:to-purple-700 transition-colors duration-300">
                             <span class="mr-2">🐳</span>
-                            Voir Déploiement Docker
+                            Aucun projet spécifique
                         </a>
                     </div>
                 </div>
@@ -118,7 +197,15 @@ import BackToTop from '@components/ui/BackToTop.astro';
 
                 <div class="grid lg:grid-cols-2 gap-8 mb-8">
                     <!-- AC 4.1 -->
-                    <div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Acquis</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">📊</span>
                             <h3 class="text-xl font-bold">AC 4.1</h3>
@@ -128,14 +215,31 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Optimiser les modèles de données de l'entreprise par la normalisation,
                             l'indexation et l'analyse des performances.
                         </p>
-                        <a href="#projet-bdd-optimisee" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
+
+                        <!-- Barre de progression (style white pour contraste) -->
+                        <div class="mb-4">
+                            <div class="w-full bg-white/30 rounded-full h-2">
+                                <div class="bg-white h-2 rounded-full" style="width: 90%"></div>
+                            </div>
+                            <p class="text-xs text-white/80 mt-1">90% maîtrisé</p>
+                        </div>
+
+                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
                             <span class="mr-2">🗄️</span>
-                            Voir Optimisation BDD
+                            Voir SAE 3A
                         </a>
                     </div>
 
                     <!-- AC 4.2 -->
-                    <div class="bg-gradient-to-br from-red-500 to-pink-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-gradient-to-br from-red-500 to-pink-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>En cours</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">🔒</span>
                             <h3 class="text-xl font-bold">AC 4.2</h3>
@@ -145,16 +249,33 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Assurer la confidentialité des données par le chiffrement,
                             la gestion des accès et la mise en place de protocoles de sécurité.
                         </p>
-                        <a href="#projet-securite-donnees" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-white/30 rounded-full h-2">
+                                <div class="bg-white h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                            <p class="text-xs text-white/80 mt-1">65% maîtrisé</p>
+                        </div>
+
+                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
                             <span class="mr-2">🛡️</span>
-                            Voir Sécurité Données
+                            Voir SAE 3A
                         </a>
                     </div>
                 </div>
 
                 <div class="grid lg:grid-cols-2 gap-8">
                     <!-- AC 4.3 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Acquis</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">📈</span>
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 4.3</h3>
@@ -166,14 +287,31 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Organiser la restitution de données à travers la programmation
                             et la visualisation avec des dashboards interactifs.
                         </p>
-                        <a href="#projet-dashboard" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-400 to-indigo-600 text-white rounded-lg hover:from-indigo-500 hover:to-indigo-700 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% acquis</p>
+                        </div>
+
+                        <a href="/Portfolio-BUT/projects/stage" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-400 to-indigo-600 text-white rounded-lg hover:from-indigo-500 hover:to-indigo-700 transition-colors duration-300">
                             <span class="mr-2">📊</span>
-                            Voir Dashboard Analytics
+                            Voir Stage
                         </a>
                     </div>
 
                     <!-- AC 4.4 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
+                        <!-- Badge de niveau -->
+                        <div class="absolute -top-3 -right-3">
+                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
+                                <span class="w-2 h-2 bg-white rounded-full"></span>
+                                <span>Acquis</span>
+                            </div>
+                        </div>
+
                         <div class="flex items-center mb-4">
                             <span class="text-3xl mr-4">🔄</span>
                             <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 4.4</h3>
@@ -185,9 +323,18 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             Manipuler des données hétérogènes provenant de sources diverses
                             avec transformation et intégration automatisées.
                         </p>
-                        <a href="#projet-etl" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-400 to-teal-600 text-white rounded-lg hover:from-teal-500 hover:to-teal-700 transition-colors duration-300">
+
+                        <!-- Barre de progression -->
+                        <div class="mb-4">
+                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
+                                <div class="bg-red-500 h-2 rounded-full" style="width: 100%"></div>
+                            </div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% Acquis</p>
+                        </div>
+
+                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-400 to-teal-600 text-white rounded-lg hover:from-teal-500 hover:to-teal-700 transition-colors duration-300">
                             <span class="mr-2">🔧</span>
-                            Voir Pipeline ETL
+                            Voir SAE 3A
                         </a>
                     </div>
                 </div>
@@ -214,7 +361,14 @@ import BackToTop from '@components/ui/BackToTop.astro';
                     <h3 class="text-2xl font-bold mb-6 text-center">Gestion de projet complète</h3>
                     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                         <!-- AC 5.1 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
+                            <!-- Badge de niveau -->
+                            <div class="absolute -top-2 -right-2">
+                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    Acquis
+                                </div>
+                            </div>
+
                             <div class="flex items-center mb-3">
                                 <span class="text-2xl mr-3">🏢</span>
                                 <h4 class="font-semibold">AC 5.1</h4>
@@ -222,13 +376,28 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             <p class="text-sm text-white/90 mb-3">
                                 Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information
                             </p>
-                            <a href="#projet-audit-si" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Audit SI
+
+                            <!-- Mini barre de progression -->
+                            <div class="mb-3">
+                                <div class="w-full bg-white/30 rounded-full h-1">
+                                    <div class="bg-white h-1 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+
+                            <a href="/Portfolio-BUT/projects/stage" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
+                                Stage
                             </a>
                         </div>
 
                         <!-- AC 5.2 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
+                            <!-- Badge de niveau -->
+                            <div class="absolute -top-2 -right-2">
+                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    Acquis
+                                </div>
+                            </div>
+
                             <div class="flex items-center mb-3">
                                 <span class="text-2xl mr-3">📝</span>
                                 <h4 class="font-semibold">AC 5.2</h4>
@@ -236,13 +405,28 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             <p class="text-sm text-white/90 mb-3">
                                 Formaliser les besoins du client et de l'utilisateur par des cahiers des charges détaillés
                             </p>
-                            <a href="#projet-cahier-charges" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Cahier des charges
+
+                            <!-- Mini barre de progression -->
+                            <div class="mb-3">
+                                <div class="w-full bg-white/30 rounded-full h-1">
+                                    <div class="bg-white h-1 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <a href="/Portfolio-BUT/projects/stage" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
+                                Stage
                             </a>
                         </div>
 
                         <!-- AC 5.3 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
+                            <!-- Badge de niveau -->
+                            <div class="absolute -top-2 -right-2">
+                                <div class="bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    En cours
+                                </div>
+                            </div>
+
                             <div class="flex items-center mb-3">
                                 <span class="text-2xl mr-3">⚖️</span>
                                 <h4 class="font-semibold">AC 5.3</h4>
@@ -250,13 +434,28 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             <p class="text-sm text-white/90 mb-3">
                                 Identifier les critères de faisabilité d'un projet informatique avec analyse des risques
                             </p>
-                            <a href="#projet-etude-faisabilite" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Étude faisabilité
+
+                            <!-- Mini barre de progression -->
+                            <div class="mb-3">
+                                <div class="w-full bg-white/30 rounded-full h-1">
+                                    <div class="bg-white h-1 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+
+                            <a href="/Portfolio-BUT/projects/NDI" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
+                                Nuit de l'info
                             </a>
                         </div>
 
                         <!-- AC 5.4 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl">
+                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
+                            <!-- Badge de niveau -->
+                            <div class="absolute -top-2 -right-2">
+                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                                    Acquis
+                                </div>
+                            </div>
+
                             <div class="flex items-center mb-3">
                                 <span class="text-2xl mr-3">📊</span>
                                 <h4 class="font-semibold">AC 5.4</h4>
@@ -264,30 +463,18 @@ import BackToTop from '@components/ui/BackToTop.astro';
                             <p class="text-sm text-white/90 mb-3">
                                 Définir et mettre en œuvre une démarche de suivi de projet avec méthodes agiles
                             </p>
-                            <a href="#projet-suivi-agile" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Suivi Agile
+
+                            <!-- Mini barre de progression -->
+                            <div class="mb-3">
+                                <div class="w-full bg-white/30 rounded-full h-1">
+                                    <div class="bg-white h-1 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <a href="/Portfolio-BUT/projects/SAE3A" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
+                                SAE 3A
                             </a>
                         </div>
-                    </div>
-                </div>
-
-                <!-- Projet phare -->
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
-                    <div class="text-center mb-6">
-                        <span class="text-4xl mb-4 block">🚀</span>
-                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                            Projet intégrateur : Application de gestion d'entreprise
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed max-w-3xl mx-auto">
-                            Projet combinant toutes les compétences acquises : développement d'une application web complète
-                            avec gestion de base de données, architecture réseau, sécurité et suivi de projet selon la méthode SCRUM.
-                        </p>
-                    </div>
-                    <div class="text-center">
-                        <a href="#projet-integrateur" class="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:from-purple-700 hover:to-pink-700 transition-colors duration-300 text-lg font-semibold">
-                            <span class="mr-2">🎯</span>
-                            Découvrir le projet complet
-                        </a>
                     </div>
                 </div>
             </div>

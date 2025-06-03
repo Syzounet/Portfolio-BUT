@@ -1,0 +1,329 @@
+---
+import Layout from '@layouts/Layout.astro';
+// Remplacez ces imports par vos vraies images
+import imageAvant from '@assets/images/avantstage.png';
+import BackToTop from '@components/ui/BackToTop.astro';
+import Contact from '@components/Contact.astro';
+import { Image } from 'astro:assets';
+import image from '@assets/images/stage.png';
+
+
+const tags = ['PHP', 'MySQL', 'phpMyAdmin', 'OVH', 'Stage'];
+const actions = [
+    {
+        id: 'ac1',
+        title: "AC 1 : Analyser les besoins clients et concevoir des solutions adaptées",
+        description: "Nous avons organisé des rendez-vous avec les clients pour comprendre leurs besoins spécifiques et identifier les problématiques du système existant.",
+        icon: "👥"
+    },
+    {
+        id: 'ac2',
+        title: "AC 2 : Développer et maintenir une application web fonctionnelle",
+        description: "J'ai développé de nouvelles fonctionnalités en PHP et optimisé le code existant pour améliorer les performances du site de réservation.",
+        icon: "💻"
+    },
+    {
+        id: 'ac3',
+        title: "AC 3 : Gérer et optimiser une base de données relationnelle",
+        description: "J'ai manipulé la base de données MySQL, créé de nouvelles tables et optimisé les requêtes pour une meilleure performance.",
+        icon: "🗄️"
+    },
+];
+---
+
+<Layout>
+    <main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+
+        <!-- Hero Section -->
+        <section class="relative py-20 px-4">
+            <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-purple-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+
+                    <!-- Project Image Placeholder -->
+                    <div class="order-2 lg:order-1">
+                        <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+                            <!-- Placeholder - remplacez par votre vraie image -->
+                            <div class="bg-gradient-to-br from-green-100 to-purple-100 dark:from-green-900 dark:to-purple-900 rounded-xl w-full h-80 flex items-center justify-center">
+                                <div class="text-center">
+                                    <Image
+                                            src={image}
+                                            alt="Image du projet de stage"
+                                            class="rounded-xl w-full h-full object-cover"
+                                            format="png"
+                                            width={500}
+                                            height={500}
+                                            loading="eager">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Details -->
+                    <div class="order-1 lg:order-2 text-center lg:text-left">
+            <span class="inline-block bg-green-500 dark:bg-green-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+              Stage Professionnel
+            </span>
+                        <h1 class="font-monospace text-4xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-6">
+                            Stage - <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-purple-600">Réservation Cantine</span>
+                        </h1>
+                        <p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
+                            Amélioration d'un système de réservation de cantine pour écoles privées.
+                            Développement en PHP avec une base de données MySQL, hébergement sur serveur OVH/O2Switch.
+                        </p>
+
+                        <!-- Tags Section -->
+                        <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+                            {tags.map((tag) => (
+                                    <span class="bg-gradient-to-r from-green-500 to-purple-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-shadow duration-300">
+                  {tag}
+                </span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Role Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+          <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Mon rôle
+          </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        Développeur Web
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-8">
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-4">🎯</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Mission principale</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Collaborer avec mon <span class="font-semibold text-green-500">maître de stage</span>
+                                pour améliorer l'interface utilisateur et les fonctionnalités du site de réservation,
+                                tout en maintenant une communication directe avec les clients.
+                            </p>
+                        </div>
+
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+                            <div class="flex items-center mb-4">
+                                <span class="text-3xl mr-4">🚀</span>
+                                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Approche client</h3>
+                            </div>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                Nous avons organisé des <span class="font-semibold text-purple-600">rendez-vous réguliers</span>
+                                avec les clients pour comprendre leurs besoins spécifiques et adapter les solutions
+                                aux contraintes des écoles privées.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-gradient-to-br from-green-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg">
+                        <h3 class="text-2xl font-bold mb-6">Technologies utilisées</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="text-2xl">🐘</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-2">PHP & MySQL</h4>
+                                    <p class="text-white/90">
+                                        Développement en <span class="font-semibold">PHP natif</span>
+                                        avec gestion de base de données MySQL via phpMyAdmin.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start space-x-4">
+                                <div class="bg-white p-3 rounded-lg">
+                                    <span class="text-2xl">🌐</span>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-lg mb-2">Hébergement</h4>
+                                    <p class="text-white/90">
+                                        Déploiement sur serveur <span class="font-semibold">OVH/O2Switch</span>
+                                        avec configuration et maintenance de l'environnement.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Before/After Section -->
+        <section class="py-16 px-4 bg-white dark:bg-gray-900">
+            <div class="max-w-6xl mx-auto">
+        <span class="inline-block bg-orange-600 dark:bg-orange-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-8 mx-auto block text-center w-fit">
+          Transformation du site
+        </span>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Avant -->
+                    <div class="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
+                            🔴 Avant
+                        </h3>
+                        <!-- Placeholder - remplacez par votre image "avant" -->
+                        <div class="bg-gradient-to-br from-red-100 to-orange-100 dark:from-red-900 dark:to-orange-900 rounded-xl h-64 flex items-center justify-center mb-6">
+                            <Image
+                                    src={imageAvant}
+                                    alt="Image du projet de stage avant"
+                                    class="rounded-xl w-full h-full object-cover"
+                                    format="png"
+                                    width={500}
+                                    height={500}
+                                    loading="eager"/>
+                        </div>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-red-500">❌</span>
+                                <span>Interface peu intuitive</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-red-500">❌</span>
+                                <span>Design obsolète</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-red-500">❌</span>
+                                <span>Fonctionnalités limitées</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Après -->
+                    <div class="bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 p-8 rounded-2xl shadow-lg">
+                        <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
+                            🟢 Après
+                        </h3>
+                        <!-- Placeholder - remplacez par votre image "après" -->
+                        <div class="bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-800 dark:to-blue-800 rounded-xl h-64 flex items-center justify-center mb-6">
+                            <Image
+                                    src={image}
+                                    alt="Image du projet de stage après"
+                                    class="rounded-xl w-full h-full object-cover"
+                                    format="png"
+                                    width={500}
+                                    height={500}
+                                    loading="eager"/>
+                        </div>
+                        <ul class="space-y-3 text-gray-700 dark:text-gray-300">
+                            <li class="flex items-center space-x-3">
+                                <span class="text-green-500">✅</span>
+                                <span>Interface moderne et intuitive</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-green-500">✅</span>
+                                <span>Design responsive adaptatif</span>
+                            </li>
+                            <li class="flex items-center space-x-3">
+                                <span class="text-green-500">✅</span>
+                                <span>Nouvelles fonctionnalités</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Database Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-8">
+          Gestion de la base de données
+        </span>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6">
+                        Optimisation MySQL
+                    </h3>
+
+                    <div class="grid md:grid-cols-2 gap-8 text-left">
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-lg text-gray-900 dark:text-gray-100">Modifications apportées :</h4>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-green-500">•</span>
+                                    <span>Ajout de nouvelles tables</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-green-500">•</span>
+                                    <span>Optimisation des requêtes</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-green-500">•</span>
+                                    <span>Restructuration des relations</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="space-y-4">
+                            <h4 class="font-semibold text-lg text-gray-900 dark:text-gray-100">Outils utilisés :</h4>
+                            <ul class="space-y-2 text-gray-700 dark:text-gray-300">
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-blue-500">•</span>
+                                    <span>phpMyAdmin</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-blue-500">•</span>
+                                    <span>MySQL Workbench</span>
+                                </li>
+                                <li class="flex items-center space-x-2">
+                                    <span class="text-blue-500">•</span>
+                                    <span>Scripts SQL personnalisés</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Learning Outcomes Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+          <span class="inline-block bg-indigo-600 dark:bg-indigo-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+            Compétences acquises
+          </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        Apprentissages du Stage
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
+                    <p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
+                        Compétence <span class="font-semibold text-indigo-600">Développer</span> 💻
+                    </p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    {actions.map((action, index) => (
+                            <div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                                <div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 text-center">
+                                    {action.icon}
+                                </div>
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
+                                    AC {index + 1}
+                                </h3>
+                                <h4 class="text-sm font-semibold text-green-500 mb-3 leading-tight">
+                                    {action.title.split(' : ')[1]}
+                                </h4>
+                                <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+                                    {action.description}
+                                </p>
+                            </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <Contact />
+        <BackToTop />
+    </main>
+</Layout>
