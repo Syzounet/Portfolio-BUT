@@ -29,349 +29,122 @@ const actions = [
 ---
 
 <Layout>
-	<main class="min-h-screen bg-gradient-to-br from-slate-50 to-blue-50 dark:from-gray-900 dark:to-slate-800">
+	<main class="min-h-screen border-2 border-gray-600 rounded-2xl">
 
 		<!-- Hero Section -->
-		<section class="relative py-24 px-4 overflow-hidden">
-			<div class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-teal-500 rounded-3xl mx-4 opacity-90 dark:opacity-70"></div>
+		<section class="relative py-20 px-4 text-center">
+			<div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
+				<div class="text-6xl mb-6">🤖</div>
+				<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+					Événement National • 2024
+				</span>
+				<h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
+					Nuit de <span class="text-transparent text-blue-500 dark:text-blue-500">l'Info</span>
+				</h1>
+				<p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+					Compétition nationale organisée par les IUT autour du thème océan et corps humain.
+					Développement d'un chatbot intelligent utilisant l'IA Llama.
+				</p>
+			</div>
+		</section>
 
-			<div class="relative max-w-7xl mx-auto">
-				<div class="grid lg:grid-cols-2 gap-16 items-center">
+		<!-- Tags Section -->
+		<section class="py-8 px-4">
+			<div class="max-w-4xl mx-auto">
+				<div class="flex flex-wrap gap-3 justify-center">
+					{tags.map((tag) => (
+						<span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							{tag}
+						</span>
+					))}
+				</div>
+			</div>
+		</section>
 
-					<!-- Project Details -->
-					<div class="text-center lg:text-left text-white">
-						<div class="inline-flex items-center bg-white/20 backdrop-blur-sm px-6 py-3 rounded-full text-sm font-medium mb-6">
-							<span class="w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse"></span>
-							Événement National • 2024
-						</div>
+		<!-- Contribution Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
+				<div class="text-center mb-16">
+					<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Ma contribution
+					</span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Développement du Chatbot
+					</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-600 mx-auto rounded-full"></div>
+				</div>
 
-						<h1 class="font-bold text-5xl lg:text-7xl mb-6 leading-tight">
-							<span class="block">Nuit de</span>
-							<span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">l'Info</span>
-						</h1>
-
-						<p class="text-xl lg:text-2xl text-white/90 mb-8 leading-relaxed max-w-2xl">
-							 Compétition national organisé par les IUT autour du thème
-							<span class="font-bold text-cyan-300">océan et corps humain</span>.
-						</p>
-
-						<div class="bg-white/10 backdrop-blur-sm p-6 rounded-2xl mb-8 border border-white/20">
-							<div class="flex items-center mb-3">
-								<span class="text-2xl mr-3">🤖</span>
-								<h3 class="text-lg font-bold">Ma Contribution Technique</h3>
+				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<!-- Description -->
+					<div class="space-y-8">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">🤖</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Chatbot Intelligent</h3>
 							</div>
-							<p class="text-white/90">
-								Développement d'un <span class="font-bold text-yellow-300">chatbot intelligent</span> utilisant
-								l'API <span class="font-bold text-green-300">Llama de Meta</span> via Hugging Face,
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Développement d'un <span class="font-semibold text-blue-600">chatbot intelligent</span> utilisant
+								l'API <span class="font-semibold text-green-600">Llama de Meta</span> via Hugging Face,
 								intégré en PHP pour des interactions contextuelles sur la thématique.
 							</p>
 						</div>
 
-						<!-- Tags -->
-						<div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-							{tags.map((tag) => (
-								<span class="bg-white/20 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-medium border border-white/30 hover:bg-white/30 transition-colors duration-300">
-									{tag}
-								</span>
-							))}
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">⚡</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Technologies utilisées</h3>
+							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Backend en <span class="font-semibold text-purple-600">PHP</span>,
+								interface interactive en <span class="font-semibold text-yellow-600">JavaScript</span>,
+								et intégration avec l'API Hugging Face pour exploiter la puissance de l'IA Llama.
+							</p>
 						</div>
 					</div>
 
 					<!-- Project Image -->
-					<div class="order-1 lg:order-2">
-						<div class="relative group">
-							<div class="absolute -inset-4 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-3xl blur-2xl opacity-30 group-hover:opacity-50 transition-opacity duration-500"></div>
-							<div class="relative bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-2xl hover:shadow-3xl transition-all duration-500 hover:scale-105">
-								<Image
-									src={image}
-									alt="Projet Nuit de l'Info - Chatbot Llama"
-									class="rounded-2xl w-full"
-									format="png"
-									width={600}
-									height={400}
-									loading="eager"
-								/>
-							</div>
-						</div>
+					<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+						<Image
+							src={image}
+							alt="Projet Nuit de l'Info - Chatbot Llama"
+							class="rounded-xl w-full"
+							format="png"
+							width={600}
+							height={400}
+							loading="eager"
+						/>
 					</div>
 				</div>
 			</div>
 		</section>
-
-		<!-- Chatbot Feature Section -->
-		<section class="py-20 px-4">
-			<div class="max-w-7xl mx-auto">
+		<!-- Compétences acquises Section -->
+		<section class="py-16 px-4">
+			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
-					<div class="inline-flex items-center bg-gradient-to-r from-green-500 to-teal-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
-						<span class="text-lg mr-2">🚀</span>
-						Innovation IA
-					</div>
-					<h2 class="font-bold text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-						Chatbot <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-teal-600">Llama</span>
+					<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Compétences
+					</span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						Apprentissages Critiques
 					</h2>
-					<div class="w-24 h-1 bg-gradient-to-r from-green-500 to-teal-600 mx-auto rounded-full"></div>
-				</div>
-
-				<div class="grid lg:grid-cols-3 gap-8 mb-16">
-					<!-- Main Feature -->
-					<div class="lg:col-span-2">
-						<div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 lg:p-12 rounded-3xl text-white shadow-2xl hover:shadow-3xl transition-all duration-500">
-							<div class="flex items-center mb-8">
-								<div class="bg-white/20 p-4 rounded-2xl mr-6">
-									<span class="text-4xl">🧠</span>
-								</div>
-								<div>
-									<h3 class="text-2xl lg:text-3xl font-bold mb-2">Intelligence Artificielle Avancée</h3>
-									<p class="text-lg text-white/80">Powered by Meta Llama via Hugging Face</p>
-								</div>
-							</div>
-
-							<p class="text-xl text-white/90 leading-relaxed mb-8">
-								Développement d'un système conversationnel intelligent spécialisé dans la thématique
-								<span class="font-bold">Pirate</span>, défis d'une entreprise, capable de fournir des réponses
-								contextuelles et pertinentes grâce au modèle Llama de Meta.
-							</p>
-
-							<div class="grid md:grid-cols-2 gap-6">
-								<div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
-									<div class="text-2xl mb-3">⚡</div>
-									<h4 class="font-bold text-lg mb-2">Réponses Temps Réel</h4>
-									<p class="text-white/80 text-sm">Traitement rapide des requêtes avec optimisation des performances</p>
-								</div>
-								<div class="bg-white/10 p-6 rounded-2xl backdrop-blur-sm">
-									<div class="text-2xl mb-3">🎯</div>
-									<h4 class="font-bold text-lg mb-2">Spécialisé</h4>
-									<p class="text-white/80 text-sm">Optimisé pour la thématique spécifique du concours</p>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<!-- Technical Stack -->
-					<div class="space-y-6">
-						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-							<div class="flex items-center mb-4">
-								<span class="text-2xl mr-3">🐘</span>
-								<h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">Backend PHP</h3>
-							</div>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">
-								Gestion des requêtes API, authentification et traitement des réponses
-							</p>
-						</div>
-
-						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-							<div class="flex items-center mb-4">
-								<span class="text-2xl mr-3">🤗</span>
-								<h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">Hugging Face API</h3>
-							</div>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">
-								Intégration sécurisée avec gestion d'erreurs et rate limiting
-							</p>
-						</div>
-
-						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-							<div class="flex items-center mb-4">
-								<span class="text-2xl mr-3">💬</span>
-								<h3 class="font-bold text-lg text-gray-900 dark:text-gray-100">Interface Chat</h3>
-							</div>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">
-								Interface utilisateur intuitive avec JavaScript pour l'interactivité
-							</p>
-						</div>
-					</div>
-				</div>
-
-				<!-- Technical Process -->
-				<div class="bg-gradient-to-r from-gray-50 to-blue-50 dark:from-gray-800 dark:to-slate-800 p-8 lg:p-12 rounded-3xl">
-					<div class="text-center mb-10">
-						<h3 class="font-bold text-2xl lg:text-3xl text-gray-900 dark:text-gray-100 mb-4">
-							Processus de Développement
-						</h3>
-						<p class="text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-							Intégration complète d'un modèle d'IA dans une application web sous contrainte de temps
-						</p>
-					</div>
-
-					<div class="grid md:grid-cols-4 gap-6">
-						<div class="text-center group">
-							<div class="bg-gradient-to-br from-blue-500 to-purple-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-								<span class="text-white text-2xl">🔧</span>
-							</div>
-							<h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2">Configuration API</h4>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">Setup Hugging Face et authentification sécurisée</p>
-						</div>
-
-						<div class="text-center group">
-							<div class="bg-gradient-to-br from-green-500 to-teal-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-								<span class="text-white text-2xl">🎨</span>
-							</div>
-							<h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2">Optimisation Prompts</h4>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">Adaptation du modèle à la thématique spécifique</p>
-						</div>
-
-						<div class="text-center group">
-							<div class="bg-gradient-to-br from-orange-500 to-red-500 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-								<span class="text-white text-2xl">⚡</span>
-							</div>
-							<h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2">Backend PHP</h4>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">Développement de l'API et gestion des requêtes</p>
-						</div>
-
-						<div class="text-center group">
-							<div class="bg-gradient-to-br from-purple-500 to-pink-600 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-								<span class="text-white text-2xl">🚀</span>
-							</div>
-							<h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2">Intégration</h4>
-							<p class="text-gray-600 dark:text-gray-400 text-sm">Déploiement et tests avec l'équipe</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Event Overview Section -->
-		<section class="py-20 px-4 bg-white dark:bg-gray-900">
-			<div class="max-w-7xl mx-auto">
-				<div class="text-center mb-16">
-					<div class="inline-flex items-center bg-blue-600 dark:bg-blue-700 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
-						<span class="w-2 h-2 bg-yellow-400 rounded-full mr-2 animate-pulse"></span>
-						Concept de l'événement
-					</div>
-					<h2 class="font-bold text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-						Une nuit <span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-blue-600">créative</span>
-					</h2>
-					<div class="w-24 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
-				</div>
-
-				<div class="grid lg:grid-cols-2 gap-16 items-center">
-					<div class="space-y-8">
-						<div class="bg-gradient-to-br from-cyan-50 to-blue-50 dark:from-gray-800 dark:to-slate-800 p-8 rounded-3xl border border-cyan-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
-							<div class="flex items-center mb-6">
-								<div class="bg-gradient-to-br from-cyan-500 to-blue-600 p-4 rounded-2xl mr-4">
-									<span class="text-white text-3xl">🌊</span>
-								</div>
-								<h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Thématique 2024</h3>
-							</div>
-							<p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-								Cette année, le défi portait sur la relation entre
-								<span class="font-bold text-cyan-600">l'océan</span> et le
-								<span class="font-bold text-blue-600">corps humain</span>,
-								créant un pont innovant entre nature et science.
-							</p>
-						</div>
-
-						<div class="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-gray-800 dark:to-slate-800 p-8 rounded-3xl border border-purple-100 dark:border-gray-700 hover:shadow-xl transition-shadow duration-300">
-							<div class="flex items-center mb-6">
-								<div class="bg-gradient-to-br from-purple-500 to-pink-600 p-4 rounded-2xl mr-4">
-									<span class="text-white text-3xl">🏆</span>
-								</div>
-								<h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Défis Entreprises</h3>
-							</div>
-							<p class="text-gray-700 dark:text-gray-300 leading-relaxed text-lg">
-								Les <span class="font-bold text-purple-600">entreprises participantes</span>
-								proposent divers défis à intégrer, offrant aux équipes l'opportunité
-								de gagner des lots tout en développant leurs compétences.
-							</p>
-						</div>
-					</div>
-
-					<div class="bg-gradient-to-br from-orange-500 via-red-500 to-pink-500 p-8 lg:p-12 rounded-3xl text-white shadow-2xl">
-						<h3 class="text-3xl font-bold mb-8">Expérience Collaborative</h3>
-						<div class="space-y-8">
-							<div class="flex items-start space-x-6">
-								<div class="bg-white/20 p-4 rounded-2xl backdrop-blur-sm flex-shrink-0">
-									<span class="text-3xl">👥</span>
-								</div>
-								<div>
-									<h4 class="font-bold text-xl mb-3">Équipe de 10 personnes</h4>
-									<p class="text-white/90 leading-relaxed">
-										Collaboration avec une <span class="font-bold">équipe diversifiée</span>
-										pour relever les défis proposés par les entreprises partenaires.
-									</p>
-								</div>
-							</div>
-
-							<div class="flex items-start space-x-6">
-								<div class="bg-white/20 p-4 rounded-2xl backdrop-blur-sm flex-shrink-0">
-									<span class="text-3xl">📋</span>
-								</div>
-								<div>
-									<h4 class="font-bold text-xl mb-3">Gestion avec Trello</h4>
-									<p class="text-white/90 leading-relaxed">
-										Organisation du travail avec des <span class="font-bold">outils collaboratifs</span>
-										et répartition des tâches selon les compétences de chacun.
-									</p>
-								</div>
-							</div>
-
-							<div class="flex items-start space-x-6">
-								<div class="bg-white/20 p-4 rounded-2xl backdrop-blur-sm flex-shrink-0">
-									<span class="text-3xl">💬</span>
-								</div>
-								<div>
-									<h4 class="font-bold text-xl mb-3">Communication Entreprises</h4>
-									<p class="text-white/90 leading-relaxed">
-										Prise en charge de la <span class="font-bold">communication</span>
-										avec les entreprises pour clarifier les défis et besoins techniques.
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Learning Outcomes Section -->
-		<section class="py-20 px-4">
-			<div class="max-w-7xl mx-auto">
-				<div class="text-center mb-16">
-					<div class="inline-flex items-center bg-gradient-to-r from-green-500 to-teal-600 text-white px-6 py-3 rounded-full text-sm font-medium mb-6">
-						<span class="text-lg mr-2">🎯</span>
-						Compétences développées
-					</div>
-					<h2 class="font-bold text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-						Apprentissages <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-purple-600">Critiques</span>
-					</h2>
-					<div class="w-24 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
-					<p class="text-xl text-gray-700 dark:text-gray-300 mt-8 max-w-3xl mx-auto">
-						Compétence <span class="font-bold text-purple-600">Collaborer</span>
-						<span class="text-2xl ml-2">🤝</span>
-					</p>
+					<div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-600 mx-auto rounded-full"></div>
 				</div>
 
 				<div class="grid lg:grid-cols-3 gap-8">
-					{actions.map((action, index) => (
-						<div class="group bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 hover:scale-105 border border-gray-100 dark:border-gray-700">
-							<div class="text-center mb-6">
-								<div class="bg-gradient-to-br from-blue-500 to-purple-600 w-20 h-20 rounded-3xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
-									<span class="text-white text-3xl">{action.icon}</span>
-								</div>
-								<div class="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full text-sm font-bold inline-block">
-									AC {index + 1}
-								</div>
+					{actions.map((action) => (
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">{action.icon}</span>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">Acquis</h3>
 							</div>
-							<h3 class="text-lg font-bold text-orange-500 mb-4 leading-tight">
-								{action.title.split(' : ')[1]}
-							</h3>
+							<h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
+								{action.title}
+							</h4>
 							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 								{action.description}
 							</p>
 						</div>
 					))}
-				</div>
-
-				<!-- Impact Summary -->
-				<div class="mt-16 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 p-8 lg:p-12 rounded-3xl text-white text-center">
-					<div class="max-w-4xl mx-auto">
-						<div class="text-4xl mb-6">🚀</div>
-						<h3 class="text-2xl lg:text-3xl font-bold mb-6">Impact de l'Expérience</h3>
-						<p class="text-xl text-white/90 leading-relaxed">
-							Cette expérience m'a permis de maîtriser l'intégration d'<span class="font-bold">intelligence artificielle avancée</span>
-							dans un projet web collaboratif, tout en développant mes compétences en <span class="font-bold">gestion d'équipe</span>
-							et en <span class="font-bold">communication technique</span> sous contrainte de temps.
-						</p>
-					</div>
 				</div>
 			</div>
 		</section>

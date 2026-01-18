@@ -1,7 +1,7 @@
 import mdx from '@astrojs/mdx';
 import tailwind from '@astrojs/tailwind';
 import icon from "astro-icon";
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 export default defineConfig({
   site: 'https://syzounet.github.io/Portfolio-BUT/',
@@ -10,9 +10,5 @@ export default defineConfig({
     include: {
       mdi: ["*"]
     }
-  })],
-  image: {
-    service: squooshImageService()
-  }
-
+  })]
 });

@@ -6,49 +6,36 @@ import train from '@assets/images/train_gui.png';
 import SAE from '@assets/images/SAE3A.png';
 import imageNDI from '@assets/images/NDI.png';
 import imageStage from '@assets/images/stage.png';
+import imageAlternance from '@assets/images/project.png';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 
 const projects = await getCollection('projects');
+const projectImages = [train, SAE, imageNDI, imageStage, imageAlternance];
 ---
 
 <Layout>
-	<main>
-		<section id="projects" class="py-12 bg-white dark:bg-gray-900">
+	<main class="min-h-screen border-2 border-gray-600 rounded-2xl">
+		<section id="projects" class="py-16 px-4">
 			<div class="container mx-auto px-4 max-w-6xl">
-				<h2 class="font-monospace text-3xl text-orange mb-6">Mes projets</h2>
-				<hr class="border-orange-500 mb-10 w-20" />
+				<div class="text-center mb-12">
+					<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Portfolio
+					</span>
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">Mes projets</h2>
+					<div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
+				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					<Card
-						title={projects[0].data.title}
-						description={projects[0].data.description}
-						tags={projects[0].data.tags}
-						url={projects[0].data.url}
-						imageUrl={train}
-					/>
-					<Card
-						title={projects[1].data.title}
-						description={projects[1].data.description}
-						tags={projects[1].data.tags}
-						url={projects[1].data.url}
-						imageUrl={SAE}
-					/>
-					<Card
-						title={projects[2].data.title}
-						description={projects[2].data.description}
-						tags={projects[2].data.tags}
-						url={projects[2].data.url}
-						imageUrl={imageNDI}
-					/>
-					<Card
-					title={projects[3].data.title}
-					description={projects[3].data.description}
-					tags={projects[3].data.tags}
-					url={projects[3].data.url}
-					imageUrl={imageStage}
-					/>
-
+					{projects.map((project, index) => (
+						<Card
+							title={project.data.title}
+							description={project.data.description}
+							tags={project.data.tags}
+							url={project.data.url}
+							imageUrl={projectImages[index]}
+						/>
+					))}
 				</div>
 			</div>
 		</section>

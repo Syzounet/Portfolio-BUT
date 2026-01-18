@@ -23,52 +23,34 @@ const actions = [
 ---
 
 <Layout>
-	<main class="min-h-screen bg-gradient-to-br from-gray-50 to-gray-200 dark:from-gray-900 dark:to-gray-800">
+	<main class="min-h-screen border-2 border-gray-600 rounded-2xl">
 
 		<!-- Hero Section -->
-		<section class="relative py-20 px-4">
-			<div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-blue-600 rounded-3xl mx-4 opacity-40 dark:opacity-60"></div>
-			<div class="relative max-w-6xl mx-auto">
-				<div class="grid lg:grid-cols-2 gap-12 items-center">
+		<section class="relative py-20 px-4 text-center">
+			<div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
+				<div class="text-6xl mb-6">🚂</div>
+				<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+					Projet de Développement
+				</span>
+				<h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
+					Train <span class="text-transparent text-orange-500 dark:text-orange-500">Game</span>
+				</h1>
+				<p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+					Un jeu de société digital simulant la gestion d'une compagnie ferroviaire.
+					Développé en équipe avec Java et JavaFX pour une expérience immersive.
+				</p>
+			</div>
+		</section>
 
-					<!-- Project Image -->
-					<div class="order-2 lg:order-1">
-						<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
-							<Image
-								src={image}
-								alt="Interface graphique du jeu Train"
-								class="rounded-xl w-full"
-								format="png"
-								width={500}
-								height={500}
-								loading="eager"
-							/>
-						</div>
-					</div>
-
-					<!-- Project Details -->
-					<div class="order-1 lg:order-2 text-center lg:text-left">
-            <span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-              Projet de Développement
-            </span>
-						<h1 class="font-monospace text-4xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-6">
-							<span class="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-blue-600">Train</span> Game
-						</h1>
-						<p class="text-xl text-gray-700 dark:text-gray-300 mb-8 leading-relaxed">
-							Un jeu de société digital simulant la gestion d'une compagnie ferroviaire.
-							Développé en équipe avec <span class="font-semibold text-orange-500">Java</span> et
-							<span class="font-semibold text-blue-600">JavaFX</span> pour une expérience immersive.
-						</p>
-
-						<!-- Tags Section -->
-						<div class="flex flex-wrap gap-3 justify-center lg:justify-start">
-							{tags.map((tag) => (
-								<span class="bg-gradient-to-r from-orange-500 to-blue-600 text-white px-4 py-2 rounded-full text-sm font-medium shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  {tag}
-                </span>
-							))}
-						</div>
-					</div>
+		<!-- Tags Section -->
+		<section class="py-8 px-4">
+			<div class="max-w-4xl mx-auto">
+				<div class="flex flex-wrap gap-3 justify-center">
+					{tags.map((tag) => (
+						<span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							{tag}
+						</span>
+					))}
 				</div>
 			</div>
 		</section>
@@ -77,9 +59,9 @@ const actions = [
 		<section class="py-16 px-4">
 			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
-          <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            Gameplay
-          </span>
+					<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Gameplay
+					</span>
 					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
 						Objectifs du jeu
 					</h2>
@@ -87,8 +69,22 @@ const actions = [
 				</div>
 
 				<div class="grid lg:grid-cols-2 gap-12 items-center">
+					<!-- Project Image -->
+					<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+						<Image
+							src={image}
+							alt="Interface graphique du jeu Train"
+							class="rounded-xl w-full"
+							format="png"
+							width={500}
+							height={500}
+							loading="eager"
+						/>
+					</div>
+
+					<!-- Description -->
 					<div class="space-y-8">
-						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
 							<div class="flex items-center mb-4">
 								<span class="text-3xl mr-4">🚂</span>
 								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Gestion ferroviaire</h3>
@@ -100,7 +96,7 @@ const actions = [
 							</p>
 						</div>
 
-						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
 							<div class="flex items-center mb-4">
 								<span class="text-3xl mr-4">💰</span>
 								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Gestion financière</h3>
@@ -110,119 +106,47 @@ const actions = [
 								pour développer votre réseau ferroviaire et maximiser vos profits.
 							</p>
 						</div>
-					</div>
 
-					<div class="bg-gradient-to-br from-orange-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg">
-						<h3 class="text-2xl font-bold mb-6">Développement collaboratif</h3>
-						<div class="space-y-6">
-							<div class="flex items-start space-x-4">
-								<div class="bg-white p-3 rounded-lg">
-									<span class="text-2xl">👥</span>
-								</div>
-								<div>
-									<h4 class="font-semibold text-lg mb-2">Travail en équipe</h4>
-									<p class="text-white/90">
-										Développement en <span class="font-semibold">trinôme</span>
-										avec mes camarades de classe pour une approche collaborative.
-									</p>
-								</div>
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">👥</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Travail en équipe</h3>
 							</div>
-
-							<div class="flex items-start space-x-4">
-								<div class="bg-white p-3 rounded-lg">
-									<span class="text-2xl">🔧</span>
-								</div>
-								<div>
-									<h4 class="font-semibold text-lg mb-2">Outils modernes</h4>
-									<p class="text-white/90">
-										Utilisation de <span class="font-semibold">Git</span>
-										pour la gestion du code source et la collaboration.
-									</p>
-								</div>
-							</div>
-
-							<div class="flex items-start space-x-4">
-								<div class="bg-white p-3 rounded-lg">
-									<span class="text-2xl">🎨</span>
-								</div>
-								<div>
-									<h4 class="font-semibold text-lg mb-2">Interface graphique</h4>
-									<p class="text-white/90">
-										<span class="font-semibold">JavaFX</span> pour une interface
-										utilisateur moderne et intuitive.
-									</p>
-								</div>
-							</div>
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+								Développement en <span class="font-semibold text-purple-600">trinôme</span>
+								avec utilisation de <span class="font-semibold text-orange-600">Git</span> et
+								<span class="font-semibold text-blue-600">JavaFX</span> pour l'interface.
+							</p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<!-- Technical Details Section -->
-		<section class="py-16 px-4 bg-white dark:bg-gray-900">
-			<div class="max-w-6xl mx-auto">
-				<div class="text-center mb-16">
-          <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            Architecture technique
-          </span>
-					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-						Implémentation
-					</h2>
-					<div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-orange-600 mx-auto rounded-full"></div>
-				</div>
-
-				<div class="grid md:grid-cols-2 gap-8">
-					<div class="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
-						<div class="text-4xl mb-4">☕</div>
-						<h3 class="text-xl font-bold mb-4">Backend Java</h3>
-						<p class="text-white/90 leading-relaxed">
-							Logique métier robuste avec gestion des entités du jeu,
-							algorithmes de déplacement et système financier complet.
-						</p>
-					</div>
-
-					<div class="bg-gradient-to-br from-blue-600 to-indigo-700 p-8 rounded-2xl text-white hover:scale-105 transition-transform duration-300">
-						<div class="text-4xl mb-4">🖥️</div>
-						<h3 class="text-xl font-bold mb-4">Interface JavaFX</h3>
-						<p class="text-white/90 leading-relaxed">
-							Interface graphique moderne et responsive pour une expérience
-							utilisateur optimale et intuitive.
-						</p>
-					</div>
-				</div>
-			</div>
-		</section>
-
-		<!-- Learning Outcomes Section -->
+		<!-- Compétences acquises Section -->
 		<section class="py-16 px-4">
 			<div class="max-w-6xl mx-auto">
 				<div class="text-center mb-16">
-          <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-            Compétences acquises
-          </span>
+					<span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+						Compétences acquises
+					</span>
 					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
 						Apprentissages Critiques
 					</h2>
 					<div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
-					<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
-						Compétence <span class="font-semibold text-purple-600">Réaliser</span> 🗂️
-					</p>
 				</div>
 
 				<div class="grid md:grid-cols-2 gap-8">
 					{actions.map((action, index) => (
-						<div class="group bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-							<div class="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300 text-center">
-								{action.icon}
+						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+							<div class="flex items-center mb-4">
+								<span class="text-3xl mr-4">{action.icon}</span>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">AC {index + 1}</h3>
 							</div>
-							<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">
-								AC {index + 1}
-							</h3>
-							<h4 class="text-sm font-semibold text-orange-500 mb-3 leading-tight">
-								{action.title.split(' : ')[1]}
+							<h4 class="font-semibold text-lg mb-3 text-orange-600 dark:text-orange-400">
+								{action.title}
 							</h4>
-							<p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">
+							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
 								{action.description}
 							</p>
 						</div>

@@ -1,0 +1,236 @@
+---
+import Layout from '@layouts/Layout.astro';
+import BackToTop from '@components/ui/BackToTop.astro';
+import Contact from '@components/Contact.astro';
+import { Image } from 'astro:assets';
+
+const tags = ['Alternance', 'Développement', 'Full-Stack', 'Projet Pro'];
+const actions = [
+    {
+        id: 'ac1',
+        title: "AC 1 : Lorem ipsum dolor sit amet",
+        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
+        icon: "💼"
+    },
+    {
+        id: 'ac2',
+        title: "AC 2 : Consectetur adipiscing elit",
+        description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.",
+        icon: "🚀"
+    },
+    {
+        id: 'ac3',
+        title: "AC 3 : Sed do eiusmod tempor",
+        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.",
+        icon: "⚡"
+    },
+];
+---
+
+<Layout>
+    <main class="min-h-screen border-2 border-gray-600 rounded-2xl">
+
+        <!-- Hero Section -->
+        <section class="relative py-20 px-4 text-center">
+            <div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
+                <div class="text-6xl mb-6">💼</div>
+                <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                    Alternance Professionnelle
+                </span>
+                <h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
+                    Mon <span class="text-transparent text-blue-500 dark:text-blue-500">Alternance</span>
+                </h1>
+                <p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+            </div>
+        </section>
+
+        <!-- Présentation Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Présentation
+                    </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        L'entreprise et mes missions
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    <!-- Description de l'entreprise -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div class="flex items-center mb-6">
+                            <span class="text-4xl mr-4">🏢</span>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">L'entreprise</h3>
+                        </div>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
+                        </p>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+                        </p>
+                    </div>
+
+                    <!-- Mes missions -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div class="flex items-center mb-6">
+                            <span class="text-4xl mr-4">🎯</span>
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Mes missions</h3>
+                        </div>
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-3 text-xl">✓</span>
+                                <span class="text-gray-700 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipiscing elit</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-3 text-xl">✓</span>
+                                <span class="text-gray-700 dark:text-gray-300">Sed do eiusmod tempor incididunt ut labore</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-3 text-xl">✓</span>
+                                <span class="text-gray-700 dark:text-gray-300">Quis nostrud exercitation ullamco laboris nisi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-blue-500 mr-3 text-xl">✓</span>
+                                <span class="text-gray-700 dark:text-gray-300">Duis aute irure dolor in reprehenderit</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-orange-600 dark:bg-orange-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Stack Technique
+                    </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        Technologies utilisées
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-orange-600 to-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="flex flex-wrap gap-4 justify-center">
+                    {tags.map((tag) => (
+                        <span class="bg-white dark:bg-gray-800 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-gray-900 dark:text-gray-100">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Apprentissages Critiques Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Compétences
+                    </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        Apprentissages Critiques
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-green-600 to-blue-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="space-y-8">
+                    {actions.map((action) => (
+                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                            <div class="flex items-start space-x-6">
+                                <div class="flex-shrink-0">
+                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
+                                        {action.icon}
+                                    </div>
+                                </div>
+                                <div class="flex-1">
+                                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                                        {action.title}
+                                    </h3>
+                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                        {action.description}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- Réalisations Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="inline-block bg-red-600 dark:bg-red-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
+                        Portfolio
+                    </span>
+                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+                        Mes réalisations
+                    </h2>
+                    <div class="w-20 h-1 bg-gradient-to-r from-red-600 to-orange-600 mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Réalisation 1 -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div class="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-xl h-48 flex items-center justify-center mb-6">
+                            <span class="text-6xl">📱</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                            Lorem Ipsum Project
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </p>
+                    </div>
+
+                    <!-- Réalisation 2 -->
+                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                        <div class="bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 rounded-xl h-48 flex items-center justify-center mb-6">
+                            <span class="text-6xl">🖥️</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
+                            Dolor Sit Amet
+                        </h3>
+                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bilan Section -->
+        <section class="py-16 px-4">
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300">
+                    <div class="text-center mb-8">
+                        <span class="text-5xl mb-4 block">🎓</span>
+                        <h2 class="font-monospace text-3xl lg:text-4xl mb-4">
+                            Bilan de l'alternance
+                        </h2>
+                    </div>
+                    <p class="text-white/90 text-lg leading-relaxed mb-6">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    </p>
+                    <p class="text-white/90 text-lg leading-relaxed">
+                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <Contact />
+
+        <!-- Back to Top Button -->
+        <BackToTop />
+    </main>
+</Layout>
+
