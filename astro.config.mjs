@@ -8,7 +8,8 @@ export default defineConfig({
   base: 'Portfolio-BUT',
   integrations: [tailwind(), mdx(), icon({
     include: {
-      mdi: ["*"]
+      mdi: ["*"],
+      heroicons: ["*"]
     }
   })]
 });

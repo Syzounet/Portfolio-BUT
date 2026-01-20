@@ -11,7 +11,17 @@ import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 
 const projects = await getCollection('projects');
-const projectImages = [train, SAE, imageNDI, imageStage, imageAlternance];
+// Filtrer les projets désactivés
+const activeProjects = projects.filter(project => !project.data.disabled);
+
+// Tableau des images correspondant à tous les projets (dans l'ordre)
+const allProjectImages = [train, SAE, imageNDI, imageStage, imageAlternance];
+
+// Mapper les images uniquement pour les projets actifs
+const activeProjectImages = activeProjects.map(activeProject => {
+	const originalIndex = projects.findIndex(p => p.id === activeProject.id);
+	return allProjectImages[originalIndex];
+});
 ---
 
 <Layout>
@@ -27,13 +37,13 @@ const projectImages = [train, SAE, imageNDI, imageStage, imageAlternance];
 				</div>
 
 				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-					{projects.map((project, index) => (
+					{activeProjects.map((project, index) => (
 						<Card
 							title={project.data.title}
 							description={project.data.description}
 							tags={project.data.tags}
 							url={project.data.url}
-							imageUrl={projectImages[index]}
+							imageUrl={activeProjectImages[index]}
 						/>
 					))}
 				</div>

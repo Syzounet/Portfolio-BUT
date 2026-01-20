@@ -1,0 +1,54 @@
+---
+export interface Props {
+	badge?: string;
+	badgeColor?: 'orange' | 'green' | 'blue' | 'purple' | 'red' | 'indigo';
+	title?: string;
+	subtitle?: string;
+	centered?: boolean;
+}
+
+const {
+	badge,
+	badgeColor = 'orange',
+	title,
+	subtitle,
+	centered = false
+} = Astro.props;
+
+// Map des couleurs pour les badges
+const badgeColors = {
+	orange: 'bg-orange-500 dark:bg-orange-600',
+	green: 'bg-green-600 dark:bg-green-700',
+	blue: 'bg-blue-600 dark:bg-blue-700',
+	purple: 'bg-purple-600 dark:bg-purple-700',
+	red: 'bg-red-500 dark:bg-red-600',
+	indigo: 'bg-indigo-600 dark:bg-indigo-700',
+};
+---
+
+<section class="py-16 px-4">
+	<div class={`max-w-6xl mx-auto ${centered ? 'text-center' : ''}`}>
+		{(badge || title || subtitle) && (
+			<div class={`mb-16 ${centered ? 'text-center' : ''}`}>
+				{badge && (
+					<span class={`inline-block ${badgeColors[badgeColor]} text-white px-4 py-2 rounded-full text-sm font-medium mb-4`}>
+						{badge}
+					</span>
+				)}
+				{title && (
+					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
+						{title}
+					</h2>
+				)}
+				<div class={`w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 rounded-full ${centered ? 'mx-auto' : ''}`}></div>
+				{subtitle && (
+					<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
+						{subtitle}
+					</p>
+				)}
+			</div>
+		)}
+
+		<slot />
+	</div>
+</section>

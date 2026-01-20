@@ -7,4 +7,5 @@ slug: train
 img_alt: "Image du projet Train"
 imageUrl: "/assets/images/train_gui.png"
 inProgress: false
+disabled: true
 ---

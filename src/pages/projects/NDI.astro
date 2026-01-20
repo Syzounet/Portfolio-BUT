@@ -1,9 +1,12 @@
 ---
-import Layout from '@layouts/Layout.astro';
+import ProjectLayout from '@layouts/ProjectLayout.astro';
+import ProjectHero from '@components/project/ProjectHero.astro';
+import ProjectTags from '@components/project/ProjectTags.astro';
+import ProjectSection from '@components/project/ProjectSection.astro';
+import ProjectCard from '@components/project/ProjectCard.astro';
+import ProjectCompetences from '@components/project/ProjectCompetences.astro';
 import image from '@assets/images/NDI.png';
 import { Image } from 'astro:assets';
-import Contact from '@components/Contact.astro';
-import BackToTop from '@components/ui/BackToTop.astro';
 
 const tags = ['HTML', 'CSS', 'JavaScript', 'PHP', 'Llama AI', 'Hugging Face'];
 const actions = [
@@ -11,145 +14,90 @@ const actions = [
 		id: 'ac1',
 		title: "AC 1 : Comprendre la diversité, la structure et la dimension de l'informatique dans une organisation",
 		description: "Lors de la Nuit de l'Info, j'ai découvert la diversité des métiers de l'informatique et leur interaction. Le développement du chatbot Llama m'a permis d'appréhender l'intégration de l'IA dans les solutions d'entreprise et de comprendre les enjeux technologiques actuels.",
-		icon: "🏢"
+		icon: "building-office"
 	},
 	{
 		id: 'ac2',
 		title: "AC 2 : Appliquer une démarche pour intégrer une équipe informatique au sein d'une organisation",
 		description: "J'ai intégré une équipe de 10 personnes en prenant en charge le développement du chatbot IA. Utilisation de Trello pour la gestion de projet et coordination de l'intégration de mon module avec les autres composants du système.",
-		icon: "🎯"
+		icon: "target"
 	},
 	{
 		id: 'ac3',
 		title: "AC 3 : Mobiliser les compétences interpersonnelles pour intégrer une équipe informatique",
 		description: "Communication avec l'équipe pour comprendre les besoins fonctionnels, explication des possibilités techniques de l'IA Llama, et adaptation de mon développement aux contraintes du projet global. Prise en charge de la communication avec les entreprises partenaires.",
-		icon: "🤝"
+		icon: "hand-raised"
 	}
 ];
 ---
 
-<Layout>
-	<main class="min-h-screen border-2 border-gray-600 rounded-2xl">
+<ProjectLayout title="Nuit de l'Info | Portfolio">
+	<ProjectHero
+		icon="chat-bubble-left-right"
+		badge="Événement National • 2024"
+		badgeColor="blue"
+		title="Nuit de "
+		titleHighlight="l'Info"
+		titleHighlightColor="text-blue-500 dark:text-blue-500"
+		description="Compétition nationale organisée par les IUT autour du thème océan et corps humain. Développement d'un chatbot intelligent utilisant l'IA Llama."
+	/>
 
-		<!-- Hero Section -->
-		<section class="relative py-20 px-4 text-center">
-			<div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
-				<div class="text-6xl mb-6">🤖</div>
-				<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-					Événement National • 2024
-				</span>
-				<h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-					Nuit de <span class="text-transparent text-blue-500 dark:text-blue-500">l'Info</span>
-				</h1>
-				<p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-					Compétition nationale organisée par les IUT autour du thème océan et corps humain.
-					Développement d'un chatbot intelligent utilisant l'IA Llama.
-				</p>
+	<ProjectTags tags={tags} />
+
+	<ProjectSection
+		badge="Ma contribution"
+		badgeColor="orange"
+		title="Développement du Chatbot"
+		centered={true}
+	>
+		<div class="grid lg:grid-cols-2 gap-12 items-center">
+			<!-- Description -->
+			<div class="space-y-8">
+				<ProjectCard
+					icon="chat-bubble-left-right"
+					title="Chatbot Intelligent"
+					description=""
+				>
+					<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+						Développement d'un <span class="font-semibold text-blue-600">chatbot intelligent</span> utilisant
+						l'API <span class="font-semibold text-green-600">Llama de Meta</span> via Hugging Face,
+						intégré en PHP pour des interactions contextuelles sur la thématique.
+					</p>
+				</ProjectCard>
+
+				<ProjectCard
+					icon="bolt"
+					title="Technologies utilisées"
+					description=""
+				>
+					<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+						Backend en <span class="font-semibold text-purple-600">PHP</span>,
+						interface interactive en <span class="font-semibold text-yellow-600">JavaScript</span>,
+						et intégration avec l'API Hugging Face pour exploiter la puissance de l'IA Llama.
+					</p>
+				</ProjectCard>
 			</div>
-		</section>
 
-		<!-- Tags Section -->
-		<section class="py-8 px-4">
-			<div class="max-w-4xl mx-auto">
-				<div class="flex flex-wrap gap-3 justify-center">
-					{tags.map((tag) => (
-						<span class="bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-							{tag}
-						</span>
-					))}
-				</div>
+			<!-- Project Image -->
+			<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
+				<Image
+					src={image}
+					alt="Projet Nuit de l'Info - Chatbot Llama"
+					class="rounded-xl w-full"
+					format="png"
+					width={600}
+					height={400}
+					loading="eager"
+				/>
 			</div>
-		</section>
+		</div>
+	</ProjectSection>
 
-		<!-- Contribution Section -->
-		<section class="py-16 px-4">
-			<div class="max-w-6xl mx-auto">
-				<div class="text-center mb-16">
-					<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-						Ma contribution
-					</span>
-					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-						Développement du Chatbot
-					</h2>
-					<div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-600 mx-auto rounded-full"></div>
-				</div>
-
-				<div class="grid lg:grid-cols-2 gap-12 items-center">
-					<!-- Description -->
-					<div class="space-y-8">
-						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-							<div class="flex items-center mb-4">
-								<span class="text-3xl mr-4">🤖</span>
-								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Chatbot Intelligent</h3>
-							</div>
-							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-								Développement d'un <span class="font-semibold text-blue-600">chatbot intelligent</span> utilisant
-								l'API <span class="font-semibold text-green-600">Llama de Meta</span> via Hugging Face,
-								intégré en PHP pour des interactions contextuelles sur la thématique.
-							</p>
-						</div>
-
-						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-							<div class="flex items-center mb-4">
-								<span class="text-3xl mr-4">⚡</span>
-								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Technologies utilisées</h3>
-							</div>
-							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-								Backend en <span class="font-semibold text-purple-600">PHP</span>,
-								interface interactive en <span class="font-semibold text-yellow-600">JavaScript</span>,
-								et intégration avec l'API Hugging Face pour exploiter la puissance de l'IA Llama.
-							</p>
-						</div>
-					</div>
-
-					<!-- Project Image -->
-					<div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300">
-						<Image
-							src={image}
-							alt="Projet Nuit de l'Info - Chatbot Llama"
-							class="rounded-xl w-full"
-							format="png"
-							width={600}
-							height={400}
-							loading="eager"
-						/>
-					</div>
-				</div>
-			</div>
-		</section>
-		<!-- Compétences acquises Section -->
-		<section class="py-16 px-4">
-			<div class="max-w-6xl mx-auto">
-				<div class="text-center mb-16">
-					<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-						Compétences
-					</span>
-					<h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-						Apprentissages Critiques
-					</h2>
-					<div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-orange-600 mx-auto rounded-full"></div>
-				</div>
-
-				<div class="grid lg:grid-cols-3 gap-8">
-					{actions.map((action) => (
-						<div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-							<div class="flex items-center mb-4">
-								<span class="text-3xl mr-4">{action.icon}</span>
-								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">Acquis</h3>
-							</div>
-							<h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
-								{action.title}
-							</h4>
-							<p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-								{action.description}
-							</p>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-
-		<Contact />
-		<BackToTop />
-	</main>
-</Layout>
+	<ProjectCompetences
+		badge="Compétences"
+		badgeColor="blue"
+		title="Apprentissages Critiques"
+		competences={actions}
+		accentColor="blue-600"
+	/>
+</ProjectLayout>

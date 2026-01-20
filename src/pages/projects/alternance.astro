@@ -1,236 +1,235 @@
 ---
-import Layout from '@layouts/Layout.astro';
-import BackToTop from '@components/ui/BackToTop.astro';
-import Contact from '@components/Contact.astro';
-import { Image } from 'astro:assets';
+import ProjectLayout from '@layouts/ProjectLayout.astro';
+import ProjectHero from '@components/project/ProjectHero.astro';
+import ProjectTags from '@components/project/ProjectTags.astro';
+import ProjectSection from '@components/project/ProjectSection.astro';
+import ProjectCompetences from '@components/project/ProjectCompetences.astro';
+import { Icon } from 'astro-icon/components';
 
-const tags = ['Alternance', 'Développement', 'Full-Stack', 'Projet Pro'];
+const tags = ['PHP', 'Vue.js', 'API REST', 'OpenAPI', 'Swagger', 'GitLab CI', 'ESX', 'Hyper-V', 'Testing'];
 const actions = [
     {
         id: 'ac1',
-        title: "AC 1 : Lorem ipsum dolor sit amet",
-        description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.",
-        icon: "💼"
+        title: "AC 1 : Analyser et tester une application complexe",
+        description: "Déroulement de cas de tests conçus par notre testeur logiciel pendant septembre pour comprendre l'interface et identifier les bugs. Cette phase m'a permis de maîtriser le fonctionnement complet du système de sauvegarde.",
+        icon: "clipboard-document-list"
     },
     {
         id: 'ac2',
-        title: "AC 2 : Consectetur adipiscing elit",
-        description: "Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas.",
-        icon: "🚀"
+        title: "AC 2 : Développer et maintenir des fonctionnalités",
+        description: "Développement front-end avec Vue.js pour l'interface utilisateur. Développement de fonctionnalités pour les plugins ESXi, DB et Hyper-V côté backend PHP. Contribution aux améliorations de l'interface, notamment sur le TreeView avec gestion des icônes. Refactoring PHP : remplacement des stdClass par des classes typées pour améliorer la qualité et la maintenabilité du code.",
+        icon: "code-bracket-square"
     },
     {
         id: 'ac3',
-        title: "AC 3 : Sed do eiusmod tempor",
-        description: "Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit.",
-        icon: "⚡"
+        title: "AC 3 : Concevoir et documenter une API professionnelle",
+        description: "Implémentation complète d'une gestion d'utilisateurs côté API PHP avec typage de classes (remplacement des stdClass). Mise en place d'une documentation API automatisée avec OpenAPI et Swagger, intégrée dans la CI GitLab pour mise à jour automatique à chaque push sur dev. Feature essentielle pour la sortie de la V1 en février 2026.",
+        icon: "document-text"
     },
 ];
 ---
 
-<Layout>
-    <main class="min-h-screen border-2 border-gray-600 rounded-2xl">
+<ProjectLayout title="Mon Alternance | Portfolio">
+    <ProjectHero
+        icon="briefcase"
+        badge="Alternance Professionnelle • 2025-2026"
+        badgeColor="blue"
+        title="Alternance "
+        titleHighlight="Développeur Full-Stack"
+        titleHighlightColor="text-blue-500 dark:text-blue-500"
+        description="Contribution au développement d'un système de gestion de sauvegarde de données pour entreprises. Participation à la sortie de la Beta puis de la V1 prévue en février 2026."
+    />
 
-        <!-- Hero Section -->
-        <section class="relative py-20 px-4 text-center">
-            <div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
-                <div class="text-6xl mb-6">💼</div>
-                <span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                    Alternance Professionnelle
-                </span>
-                <h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-                    Mon <span class="text-transparent text-blue-500 dark:text-blue-500">Alternance</span>
-                </h1>
-                <p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    <ProjectTags tags={tags} />
+
+    <ProjectSection
+        badge="Présentation"
+        badgeColor="purple"
+        title="Le Projet et Mes Missions"
+        centered={true}
+    >
+        <div class="grid lg:grid-cols-2 gap-12">
+            <!-- Description du projet -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30 mr-4">
+                        <Icon name="heroicons:server-stack" class="w-7 h-7 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Le Projet</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Développement d'un <span class="font-semibold text-blue-600">système de gestion de sauvegarde</span> de données pour entreprises.
+                    Objectif : sortir une <span class="font-semibold text-purple-600">Beta fonctionnelle</span> puis une <span class="font-semibold text-green-600">V1 stable</span> en février 2026.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Solution professionnelle permettant aux entreprises de gérer leurs sauvegardes sur différentes infrastructures (ESX, Hyper-V, bases de données).
                 </p>
             </div>
-        </section>
 
-        <!-- Présentation Section -->
-        <section class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                        Présentation
-                    </span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        L'entreprise et mes missions
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-12">
-                    <!-- Description de l'entreprise -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                        <div class="flex items-center mb-6">
-                            <span class="text-4xl mr-4">🏢</span>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">L'entreprise</h3>
-                        </div>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.
-                        </p>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
-                        </p>
+            <!-- Mes missions -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-6">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
+                        <Icon name="heroicons:rocket-launch" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
                     </div>
-
-                    <!-- Mes missions -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                        <div class="flex items-center mb-6">
-                            <span class="text-4xl mr-4">🎯</span>
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Mes missions</h3>
-                        </div>
-                        <ul class="space-y-4">
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-3 text-xl">✓</span>
-                                <span class="text-gray-700 dark:text-gray-300">Lorem ipsum dolor sit amet consectetur adipiscing elit</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-3 text-xl">✓</span>
-                                <span class="text-gray-700 dark:text-gray-300">Sed do eiusmod tempor incididunt ut labore</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-3 text-xl">✓</span>
-                                <span class="text-gray-700 dark:text-gray-300">Quis nostrud exercitation ullamco laboris nisi</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-blue-500 mr-3 text-xl">✓</span>
-                                <span class="text-gray-700 dark:text-gray-300">Duis aute irure dolor in reprehenderit</span>
-                            </li>
-                        </ul>
-                    </div>
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Mes Missions</h3>
                 </div>
+                <ul class="space-y-4">
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Tests & QA</span> : Déroulement de cas de tests pour validation fonctionnelle</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Développement Front-End</span> : Vue.js pour l'interface utilisateur</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Développement plugins</span> : ESX, DB, Hyper-V</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Amélioration UI</span> : TreeView avec gestion d'icônes</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">API Backend</span> : Gestion users + OpenAPI/Swagger</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
+                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Refactoring PHP</span> : Migration stdClass vers classes typées</span>
+                    </li>
+                </ul>
             </div>
-        </section>
+        </div>
+    </ProjectSection>
 
-        <!-- Technologies Section -->
-        <section class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="inline-block bg-orange-600 dark:bg-orange-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                        Stack Technique
-                    </span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Technologies utilisées
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-orange-600 to-blue-600 mx-auto rounded-full"></div>
-                </div>
+    <ProjectSection
+        badge="Stack Technique"
+        badgeColor="orange"
+        title="Technologies utilisées"
+        centered={true}
+    >
+        <div class="flex flex-wrap gap-4 justify-center">
+            {tags.map((tag) => (
+                <span class="bg-white dark:bg-gray-800 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-gray-900 dark:text-gray-100">
+                    {tag}
+                </span>
+            ))}
+        </div>
+    </ProjectSection>
 
-                <div class="flex flex-wrap gap-4 justify-center">
-                    {tags.map((tag) => (
-                        <span class="bg-white dark:bg-gray-800 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-gray-900 dark:text-gray-100">
-                            {tag}
-                        </span>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Apprentissages Critiques Section -->
-        <section class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="inline-block bg-green-600 dark:bg-green-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                        Compétences
-                    </span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Apprentissages Critiques
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-green-600 to-blue-600 mx-auto rounded-full"></div>
-                </div>
-
-                <div class="space-y-8">
-                    {actions.map((action) => (
-                        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                            <div class="flex items-start space-x-6">
-                                <div class="flex-shrink-0">
-                                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center text-3xl shadow-lg">
-                                        {action.icon}
-                                    </div>
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                                        {action.title}
-                                    </h3>
-                                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                        {action.description}
-                                    </p>
-                                </div>
+    <ProjectSection
+        badge="Compétences"
+        badgeColor="green"
+        title="Apprentissages Critiques"
+        centered={true}
+    >
+        <div class="space-y-8">
+            {actions.map((action) => (
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                    <div class="flex items-start space-x-6">
+                        <div class="flex-shrink-0">
+                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
+                                <Icon name={`heroicons:${action.icon}`} class="w-10 h-10 text-white" />
                             </div>
                         </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- Réalisations Section -->
-        <section class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-                    <span class="inline-block bg-red-600 dark:bg-red-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-                        Portfolio
-                    </span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Mes réalisations
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-red-600 to-orange-600 mx-auto rounded-full"></div>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Réalisation 1 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                        <div class="bg-gradient-to-br from-blue-100 to-purple-100 dark:from-blue-900 dark:to-purple-900 rounded-xl h-48 flex items-center justify-center mb-6">
-                            <span class="text-6xl">📱</span>
+                        <div class="flex-1">
+                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
+                                {action.title}
+                            </h3>
+                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                                {action.description}
+                            </p>
                         </div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-                            Lorem Ipsum Project
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                        </p>
                     </div>
+                </div>
+            ))}
+        </div>
+    </ProjectSection>
 
-                    <!-- Réalisation 2 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                        <div class="bg-gradient-to-br from-green-100 to-blue-100 dark:from-green-900 dark:to-blue-900 rounded-xl h-48 flex items-center justify-center mb-6">
-                            <span class="text-6xl">🖥️</span>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-                            Dolor Sit Amet
-                        </h3>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+    <ProjectSection
+        badge="Réalisations"
+        badgeColor="red"
+        title="Features Développées"
+        centered={true}
+    >
+        <div class="grid md:grid-cols-3 gap-8">
+            <!-- Réalisation 1 : Plugins -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 mx-auto mb-6 shadow-lg">
+                    <Icon name="heroicons:puzzle-piece" class="w-10 h-10 text-white" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
+                    Développement Plugins
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Contribution au développement des plugins <span class="font-semibold">ESX</span>, <span class="font-semibold">Database</span> et <span class="font-semibold">Hyper-V</span> pour la gestion des sauvegardes.
+                </p>
+            </div>
+
+            <!-- Réalisation 2 : API Users -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 mx-auto mb-6 shadow-lg">
+                    <Icon name="heroicons:user-group" class="w-10 h-10 text-white" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
+                    Gestion Utilisateurs API
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Implémentation complète de la gestion des utilisateurs côté API avec <span class="font-semibold">typage de classes PHP</span> remplaçant les stdClass. Feature essentielle pour la V1.
+                </p>
+            </div>
+
+            <!-- Réalisation 3 : Documentation -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 mx-auto mb-6 shadow-lg">
+                    <Icon name="heroicons:document-text" class="w-10 h-10 text-white" />
+                </div>
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
+                    Documentation OpenAPI
+                </h3>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Mise en place d'une documentation <span class="font-semibold">OpenAPI/Swagger</span> automatisée, intégrée dans la <span class="font-semibold">CI GitLab</span> pour mise à jour automatique.
+                </p>
+            </div>
+        </div>
+    </ProjectSection>
+
+    <ProjectSection centered={true}>
+        <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 max-w-4xl mx-auto">
+            <div class="text-center mb-8">
+                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/20 mx-auto mb-4">
+                    <Icon name="heroicons:academic-cap" class="w-10 h-10 text-white" />
+                </div>
+                <h2 class="font-monospace text-3xl lg:text-4xl mb-4">
+                    Bilan de l'Alternance
+                </h2>
+            </div>
+            <div class="space-y-6">
+                <p class="text-white/90 text-lg leading-relaxed">
+                    Cette alternance m'a permis de <span class="font-semibold text-white">découvrir le développement professionnel</span> d'un produit SaaS complexe, de la phase de tests à la sortie de la V1. J'ai pu monter en compétences sur le <span class="font-semibold text-white">développement d'APIs RESTful</span>, la <span class="font-semibold text-white">documentation technique</span> et l'intégration continue.
+                </p>
+                <p class="text-white/90 text-lg leading-relaxed">
+                    Le passage des <span class="font-semibold text-white">stdClass PHP aux classes typées</span> m'a sensibilisé à l'importance de la <span class="font-semibold text-white">qualité du code</span> et de la maintenabilité. L'implémentation de la documentation OpenAPI automatisée et son intégration dans la CI/CD illustrent les <span class="font-semibold text-white">bonnes pratiques du développement moderne</span>.
+                </p>
+                <div class="flex items-center justify-center mt-8 space-x-3">
+                    <div class="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                        <p class="text-sm text-white/80">Septembre 2025</p>
+                        <p class="font-bold text-white">Tests & Discovery</p>
+                    </div>
+                    <div class="text-white/60">→</div>
+                    <div class="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
+                        <p class="text-sm text-white/80">Octobre - Janvier</p>
+                        <p class="font-bold text-white">Développement</p>
+                    </div>
+                    <div class="text-white/60">→</div>
+                    <div class="px-4 py-2 bg-white/30 rounded-lg backdrop-blur-sm border-2 border-white/50">
+                        <p class="text-sm text-white/80">Février 2026</p>
+                        <p class="font-bold text-white">V1 Release 🚀</p>
                     </div>
                 </div>
             </div>
-        </section>
-
-        <!-- Bilan Section -->
-        <section class="py-16 px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300">
-                    <div class="text-center mb-8">
-                        <span class="text-5xl mb-4 block">🎓</span>
-                        <h2 class="font-monospace text-3xl lg:text-4xl mb-4">
-                            Bilan de l'alternance
-                        </h2>
-                    </div>
-                    <p class="text-white/90 text-lg leading-relaxed mb-6">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                    </p>
-                    <p class="text-white/90 text-lg leading-relaxed">
-                        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <Contact />
-
-        <!-- Back to Top Button -->
-        <BackToTop />
-    </main>
-</Layout>
-
+        </div>
+    </ProjectSection>
+</ProjectLayout>
