@@ -1,6 +1,7 @@
 ---
 import Card from '@components/ui/Card.astro';
 import { getCollection } from 'astro:content';
+import type { ImageMetadata } from 'astro';
 import imagetrain from '@assets/images/train_gui.png';
 import imageSAE from '@assets/images/SAE3A.png';
 import imageNDI from '@assets/images/NDI.png';
@@ -13,18 +14,13 @@ const projects = await getCollection('projects');
 const activeProjects = projects.filter(project => !project.data.disabled);
 
 // Mapper les images par slug pour correspondance exacte
-const imageMap = new Map([
-	['train', imagetrain],
-	['sae3a', imageSAE],
-	['ndi', imageNDI],
-	['stage', imageStage],
-	['alternance', imageAlternance],
-]);
-
-// Mapper les images uniquement pour les projets actifs
-const activeProjectImages = activeProjects.map(project => {
-	return imageMap.get(project.data.slug) || imageMap.get(project.id);
-});
+const imageMap: { [key: string]: ImageMetadata } = {
+	'train': imagetrain,
+	'sae3a': imageSAE,
+	'ndi': imageNDI,
+	'stage': imageStage,
+	'alternance': imageAlternance,
+};
 ---
 
 <section
@@ -56,17 +52,21 @@ const activeProjectImages = activeProjects.map(project => {
 				id="carousel"
 				class="flex gap-6"
 			>
-				{activeProjects.map((project, index) => (
-					<div class="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
-						<Card
-							title={project.data.title}
-							description={project.data.description}
-							tags={project.data.tags}
-							url={project.data.url}
-							imageUrl={activeProjectImages[index]}
-						/>
-					</div>
-				))}
+				{activeProjects.map((project) => {
+					// Utiliser le slug personnalisé si disponible, sinon utiliser le slug du fichier
+					const projectSlug = project.data.slug || project.slug;
+					return (
+						<div class="flex-shrink-0 w-full md:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)]">
+							<Card
+								title={project.data.title}
+								description={project.data.description}
+								tags={project.data.tags}
+								url={project.data.url}
+								imageUrl={imageMap[projectSlug]}
+							/>
+						</div>
+					);
+				})}
 			</div>
 		</div>
 
