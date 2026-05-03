@@ -6,7 +6,8 @@ import train from '@assets/images/train_gui.png';
 import SAE from '@assets/images/SAE3A.png';
 import imageNDI from '@assets/images/NDI.png';
 import imageStage from '@assets/images/stage.png';
-import imageAlternance from '@assets/images/project.png';
+import imageAlternance from '@assets/images/alternance1.png';
+import imageDocker from '@assets/images/docker.png';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 
@@ -15,7 +16,7 @@ const projects = await getCollection('projects');
 const activeProjects = projects.filter(project => !project.data.disabled);
 
 // Tableau des images correspondant à tous les projets (dans l'ordre)
-const allProjectImages = [train, SAE, imageNDI, imageStage, imageAlternance];
+const allProjectImages = [train, SAE, imageNDI, imageStage, imageAlternance, imageDocker];
 
 // Mapper les images uniquement pour les projets actifs
 const activeProjectImages = activeProjects.map(activeProject => {

@@ -177,7 +177,33 @@ yarn astro --help
 
 ## 🌐 Déploiement
 
-### Vercel (Recommandé)
+### GitHub Pages (Recommandé pour ce projet)
+
+Le projet est configuré pour un déploiement automatique sur GitHub Pages via GitHub Actions.
+
+#### Configuration initiale
+
+1. **Activer GitHub Pages dans les paramètres du repository** :
+   - Allez dans `Settings` > `Pages`
+   - Source : `GitHub Actions`
+
+2. **Le workflow se déclenchera automatiquement** :
+   - À chaque push sur la branche `main`
+   - Ou manuellement depuis l'onglet `Actions`
+
+3. **Configuration** :
+   - Le fichier `.nojekyll` dans `public/` désactive Jekyll
+   - Le workflow `.github/workflows/deploy.yml` gère le build et le déploiement
+   - La config `astro.config.mjs` définit le `site` et le `base`
+
+#### Build local
+
+```bash
+npm run build
+npm run preview
+```
+
+### Vercel
 
 ```bash
 # Installer Vercel CLI

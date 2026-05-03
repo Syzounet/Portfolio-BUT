@@ -1,99 +1,99 @@
 ---
 import Layout from '@layouts/Layout.astro';
 import { Image } from 'astro:assets';
+import moi from '@assets/images/moi.jpg';
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
 ---
 
 <Layout>
 	<main class="min-h-screen border-2 border-gray-600 rounded-2xl">
+
 		<!-- Hero Section -->
 		<section class="relative px-4 py-20 text-center">
 			<div class="relative mx-auto rounded-2xl pb-5 pt-5 shadow-lg dark:bg-gray-800">
 				<div class="mb-6 text-6xl">👋</div>
 				<h1 class="mb-6 font-monospace text-4xl text-gray-900 dark:text-gray-100 lg:text-6xl">
-					Découvrez mon <span class="text-transparent text-orange-500 dark:text-orange-500">univers</span>
+					Gauthier <span class="text-orange-500 dark:text-orange-500">Souquet</span>
 				</h1>
 				<p class="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700 dark:text-gray-300">
-					Plongez dans mon parcours d'étudiant passionné par l'informatique, mes compétences et
-					mes ambitions professionnelles.
+					Étudiant en BUT Informatique parcours RACDV à l'IUT de Montpellier, alternant développeur front/back-end, passionné par la résolution de problèmes techniques complexes et le développement web.
 				</p>
 			</div>
 		</section>
 
-		<!-- About Section -->
+		<!-- Qui suis-je -->
 		<section id="about" class="px-4 py-16">
 			<div class="mx-auto max-w-6xl">
 				<div class="mb-16 text-center">
-					<span
-						class="mb-4 inline-block rounded-full bg-orange-500 px-4 py-2 text-sm font-medium text-white dark:bg-orange-600"
-					>
+					<span class="mb-4 inline-block rounded-full bg-orange-500 px-4 py-2 text-sm font-medium text-white dark:bg-orange-600">
 						Mon histoire
 					</span>
 					<h2 class="mb-4 font-monospace text-3xl text-gray-900 dark:text-gray-100 lg:text-5xl">
-						À propos de moi
+						Qui suis-je ?
 					</h2>
-					<div class="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-blue-600">
-					</div>
+					<div class="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-orange-500 to-blue-600"></div>
 				</div>
 
-				<div class="grid items-center gap-12 lg:grid-cols-2">
+				<div class="grid items-start gap-12 lg:grid-cols-2">
 					<div class="space-y-6">
-						<div
-							class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
-						>
+						<!-- Présentation personnelle -->
+						<div class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800">
 							<div class="mb-4 flex items-center">
-								<span class="mr-4 text-3xl">🎓</span>
-								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Formation</h3>
+								<span class="mr-4 text-3xl">🧩</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Ma personnalité</h3>
 							</div>
 							<p class="leading-relaxed text-gray-700 dark:text-gray-300">
-								Je suis un étudiant passionné par l'<span class="font-semibold text-orange-500"
-									>informatique</span
-								>, actuellement en <span class="font-semibold text-blue-600"
-									>alternance en troisième année d'IUT Informatique</span
-								>. Mes intérêts incluent le <span class="italic">développement web</span> et le
-								<span class="italic">développement de jeux vidéo</span>.
+								Je suis quelqu'un de <span class="font-semibold text-orange-500">curieux et rigoureux</span> : quand je rencontre un problème technique, je ne m'arrête pas à la première solution. J'aime comprendre pourquoi quelque chose ne fonctionne pas, aller chercher la cause racine. Cette façon de travailler m'a été confirmée lors de mon alternance, où j'ai résolu 11 blocages techniques complexes lors de la dockerisation d'un environnement PHP.
 							</p>
 						</div>
 
-						<div
-							class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
-						>
+						<div class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800">
+							<div class="mb-4 flex items-center">
+								<span class="mr-4 text-3xl">🤝</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">En équipe</h3>
+							</div>
+							<p class="leading-relaxed text-gray-700 dark:text-gray-300">
+								Je m'intègre facilement dans une équipe et j'apprécie le travail collectif. En alternance, j'ai participé activement aux cérémonies Scrum (daily, sprint review, rétrospective) et j'ai présenté des design patterns à l'équipe chaque vendredi. J'aime partager ce que j'apprends autant que j'aime apprendre des autres.
+							</p>
+						</div>
+
+						<div class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800">
 							<div class="mb-4 flex items-center">
 								<span class="mr-4 text-3xl">🎯</span>
-								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Projet professionnel</h3>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Mon projet post-BUT</h3>
 							</div>
 							<p class="leading-relaxed text-gray-700 dark:text-gray-300">
-								Mon objectif est de devenir <span class="font-semibold text-green-600"
-									>développeur web</span
-								>, en combinant créativité et compétences techniques pour créer des
-								<span class="italic">solutions innovantes</span> et
-								<span class="italic">expériences utilisateur engageantes</span>.
+								À l'issue de mon BUT, je souhaite rejoindre une <span class="font-semibold text-green-600">entreprise innovante</span> en tant que <span class="font-semibold text-blue-600">développeur front/back-end</span>. Mon expérience en alternance m'a confirmé que j'aime travailler sur des produits concrets qui vont en production et qui ont un impact réel pour des utilisateurs. Je vise des environnements qui valorisent la qualité du code, la méthode agile, et où je peux continuer à progresser rapidement.
 							</p>
 						</div>
+					</div>
 
-						<div
-							class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800"
-						>
+					<div class="space-y-6">
+						<!-- Photo -->
+						<div class="rounded-2xl bg-white p-6 shadow-lg dark:bg-gray-800 flex justify-center">
+							<Image
+								src={moi}
+								alt="Photo de Gauthier Souquet"
+								class="rounded-xl w-64 h-64 object-cover shadow"
+								width={256}
+								height={256}
+								loading="eager"
+							/>
+						</div>
+
+						<!-- Centres d'intérêt -->
+						<div class="rounded-2xl bg-white p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800">
 							<div class="mb-4 flex items-center">
-								<span class="mr-4 text-3xl">💼</span>
-								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Expériences</h3>
+								<span class="mr-4 text-3xl">💡</span>
+								<h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Centres d'intérêt tech</h3>
 							</div>
-							<div class="space-y-4 text-gray-700 dark:text-gray-300">
-								<div class="border-l-4 border-orange-500 pl-4">
-									<h4 class="font-semibold text-orange-600 mb-1">Stage professionnel</h4>
-									<p class="leading-relaxed">
-										Amélioration d'un <span class="font-semibold">système de réservation de cantine</span>
-										pour écoles privées, développé en <span class="font-semibold">PHP/MySQL</span> avec déploiement sur serveur OVH.
-									</p>
-								</div>
-								<div class="border-l-4 border-blue-500 pl-4">
-									<h4 class="font-semibold text-blue-600 mb-1">Alternance actuelle</h4>
-									<p class="leading-relaxed">
-										Développement web et gestion de projets en milieu professionnel,
-										en appliquant les <span class="font-semibold">méthodes agiles</span> et les bonnes pratiques du développement.
-									</p>
-								</div>
+							<div class="flex flex-wrap gap-3">
+								{['Développement web', 'Architecture logicielle', 'Linux & systèmes', 'Game dev', 'IA / LLM', 'CI/CD & DevOps'].map(interest => (
+									<span class="bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 px-4 py-2 rounded-full text-sm font-medium border border-orange-200 dark:border-orange-700">
+										{interest}
+									</span>
+								))}
 							</div>
 						</div>
 					</div>
@@ -101,104 +101,162 @@ import BackToTop from '@components/ui/BackToTop.astro';
 			</div>
 		</section>
 
-		<!-- Skills Section -->
+		<!-- Parcours Académique -->
+		<section id="parcours" class="px-4 py-16 bg-gray-50 dark:bg-gray-900/50 rounded-2xl mx-4 my-8">
+			<div class="mx-auto max-w-6xl">
+				<div class="mb-16 text-center">
+					<span class="mb-4 inline-block rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white dark:bg-blue-700">
+						Mon parcours
+					</span>
+					<h2 class="mb-4 font-monospace text-3xl text-gray-900 dark:text-gray-100 lg:text-5xl">
+						Formation académique
+					</h2>
+					<div class="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
+				</div>
+
+				<div class="relative max-w-3xl mx-auto">
+					<!-- Timeline line -->
+					<div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600 hidden md:block"></div>
+
+					<div class="space-y-8">
+						<!-- Lycée -->
+						<div class="flex gap-6 items-start">
+							<div class="flex-shrink-0 w-16 h-16 rounded-full bg-gray-200 dark:bg-gray-700 border-4 border-white dark:border-gray-800 shadow flex items-center justify-center z-10">
+								<span class="text-xl">🏫</span>
+							</div>
+							<div class="flex-1 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
+								<div class="flex flex-wrap items-center gap-2 mb-2">
+									<span class="text-sm font-medium text-gray-500 dark:text-gray-400">2019 — 2022</span>
+									<span class="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 text-xs px-2 py-0.5 rounded-full">Lycée</span>
+								</div>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">Baccalauréat Général</h3>
+								<p class="text-gray-600 dark:text-gray-400 text-sm">Spécialités Mathématiques et Numérique & Sciences Informatiques (NSI). Obtenu avec mention.</p>
+							</div>
+						</div>
+
+						<!-- BUT S1-S2 -->
+						<div class="flex gap-6 items-start">
+							<div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-100 dark:bg-blue-900 border-4 border-white dark:border-gray-800 shadow flex items-center justify-center z-10">
+								<span class="text-xl">📚</span>
+							</div>
+							<div class="flex-1 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
+								<div class="flex flex-wrap items-center gap-2 mb-2">
+									<span class="text-sm font-medium text-blue-600">2022 — 2023</span>
+									<span class="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs px-2 py-0.5 rounded-full">BUT Informatique — Semestres 1 & 2</span>
+								</div>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">IUT Informatique — 1ère année</h3>
+								<p class="text-gray-600 dark:text-gray-400 text-sm">Bases de la programmation (Java, C), algorithmique, bases de données (SQL), développement web (HTML/CSS/PHP). Premiers projets en équipe : application Java, site web PHP/MySQL.</p>
+							</div>
+						</div>
+
+						<!-- BUT S3-S4 -->
+						<div class="flex gap-6 items-start">
+							<div class="flex-shrink-0 w-16 h-16 rounded-full bg-blue-200 dark:bg-blue-800 border-4 border-white dark:border-gray-800 shadow flex items-center justify-center z-10">
+								<span class="text-xl">💻</span>
+							</div>
+							<div class="flex-1 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow">
+								<div class="flex flex-wrap items-center gap-2 mb-2">
+									<span class="text-sm font-medium text-blue-600">2023 — 2024</span>
+									<span class="bg-blue-100 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300 text-xs px-2 py-0.5 rounded-full">BUT Informatique — Semestres 3 & 4</span>
+								</div>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">IUT Informatique — 2ème année</h3>
+								<p class="text-gray-600 dark:text-gray-400 text-sm">SAE de gestion des avis de poursuite d'étude (PHP/PL-SQL), stage professionnel chez WebMinit34 (amélioration d'un système de réservation de cantine en PHP/MySQL), participation à la Nuit de l'Info (chatbot IA Llama).</p>
+							</div>
+						</div>
+
+						<!-- BUT S5-S6 -->
+						<div class="flex gap-6 items-start">
+							<div class="flex-shrink-0 w-16 h-16 rounded-full bg-purple-200 dark:bg-purple-800 border-4 border-white dark:border-gray-800 shadow flex items-center justify-center z-10">
+								<span class="text-xl">🚀</span>
+							</div>
+							<div class="flex-1 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow border-2 border-purple-300 dark:border-purple-700">
+								<div class="flex flex-wrap items-center gap-2 mb-2">
+									<span class="text-sm font-medium text-purple-600">2024 — 2026</span>
+									<span class="bg-purple-100 dark:bg-purple-900/40 text-purple-700 dark:text-purple-300 text-xs px-2 py-0.5 rounded-full">BUT Informatique — Semestres 5 & 6</span>
+									<span class="bg-orange-100 dark:bg-orange-900/40 text-orange-700 dark:text-orange-300 text-xs px-2 py-0.5 rounded-full">Parcours RACDV</span>
+									<span class="bg-green-100 dark:bg-green-900/40 text-green-700 dark:text-green-300 text-xs px-2 py-0.5 rounded-full">En cours</span>
+								</div>
+								<h3 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-1">IUT de Montpellier — 3ème année (alternance)</h3>
+								<p class="text-gray-600 dark:text-gray-400 text-sm">Alternance chez Beemo Technologie : développement front/back-end d'un système de sauvegarde (PHP + Vue.js), contribution à la sortie de la V1, dockerisation PHP 7.4 sur Debian 10. Formation SMSI MOOC ANSSI. Présentation de design patterns à l'équipe.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Compétences -->
 		<section id="skills" class="px-4 py-16">
 			<div class="mx-auto max-w-6xl">
 				<div class="mb-16 text-center">
-					<span
-						class="mb-4 inline-block rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white dark:bg-blue-700"
-					>
+					<span class="mb-4 inline-block rounded-full bg-blue-600 px-4 py-2 text-sm font-medium text-white dark:bg-blue-700">
 						Mes outils
 					</span>
 					<h2 class="mb-4 font-monospace text-3xl text-gray-900 dark:text-gray-100 lg:text-5xl">
 						Compétences
 					</h2>
-					<div class="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600">
-					</div>
+					<div class="mx-auto h-1 w-20 rounded-full bg-gradient-to-r from-blue-600 to-purple-600"></div>
 				</div>
 
 				<div class="grid gap-8 text-center text-white md:grid-cols-3">
 					<!-- Web Development -->
-					<div
-						class="group rounded-2xl bg-orange-500 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-orange-600"
-					>
-						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
-							🌐
-						</div>
+					<div class="group rounded-2xl bg-orange-500 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-orange-600">
+						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">🌐</div>
 						<h3 class="mb-4 text-xl font-bold">Développement web</h3>
 						<div class="flex flex-wrap justify-center gap-2">
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>HTML</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>CSS</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>JavaScript</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>PHP</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Oracle</span
-							>
+							{['HTML', 'CSS', 'JavaScript', 'PHP', 'Vue.js', 'Astro', 'API REST'].map(tech => (
+								<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium">{tech}</span>
+							))}
 						</div>
 					</div>
 
 					<!-- Software Development -->
-					<div
-						class="group rounded-2xl bg-blue-600 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-blue-700"
-					>
-						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
-							💻
-						</div>
+					<div class="group rounded-2xl bg-blue-600 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-blue-700">
+						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">💻</div>
 						<h3 class="mb-4 text-xl font-bold">Développement logiciel</h3>
 						<div class="flex flex-wrap justify-center gap-2">
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Java</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Python</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>C/C++</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Go</span
-							>
+							{['Java', 'Python', 'C/C++', 'Go', 'SQL', 'PL/SQL'].map(tech => (
+								<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium">{tech}</span>
+							))}
 						</div>
 					</div>
 
 					<!-- Outils et Méthodes -->
-					<div
-						class="group rounded-2xl bg-purple-600 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-purple-700"
-					>
-						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">
-							⚙️
-						</div>
+					<div class="group rounded-2xl bg-purple-600 p-8 shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl dark:bg-purple-700">
+						<div class="mb-4 text-4xl transition-transform duration-300 group-hover:scale-110">⚙️</div>
 						<h3 class="mb-4 text-xl font-bold">Outils & Méthodes</h3>
 						<div class="flex flex-wrap justify-center gap-2">
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Git</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Docker</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>Linux</span
-							>
-							<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium"
-								>SCRUM</span
-							>
+							{['Git', 'Docker', 'Linux', 'Scrum', 'GitLab CI', 'Swagger', 'Jira'].map(tech => (
+								<span class="rounded-full bg-white/20 backdrop-blur-sm px-3 py-1 text-sm font-medium">{tech}</span>
+							))}
 						</div>
 					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- CV -->
+		<section id="cv" class="px-4 py-16">
+			<div class="mx-auto max-w-4xl text-center">
+				<div class="rounded-2xl bg-gradient-to-br from-blue-600 to-purple-600 p-10 text-white shadow-lg">
+					<h2 class="font-monospace text-3xl mb-4">Mon CV</h2>
+					<p class="text-white/90 mb-8 text-lg">
+						Mon CV à jour avec mes projets de BUT3, mon alternance et mes compétences techniques.
+					</p>
+					<a
+						href="/Portfolio-BUT/cv-gauthier-souquet.pdf"
+						download
+						class="inline-flex items-center gap-3 bg-white text-blue-700 font-bold px-8 py-4 rounded-xl shadow hover:bg-blue-50 transition-all duration-300 hover:scale-105 text-lg"
+					>
+						<span>📄</span>
+						Télécharger mon CV
+					</a>
 				</div>
 			</div>
 		</section>
 
 		<!-- Contact Section -->
 		<Contact />
-
 		<BackToTop />
 	</main>
 </Layout>

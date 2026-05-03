@@ -5,231 +5,372 @@ import ProjectTags from '@components/project/ProjectTags.astro';
 import ProjectSection from '@components/project/ProjectSection.astro';
 import ProjectCompetences from '@components/project/ProjectCompetences.astro';
 import { Icon } from 'astro-icon/components';
+import { Image } from 'astro:assets';
+import imgAlternance1 from '@assets/images/alternance1.png';
+import imgOpenapi from '@assets/images/openapi.png';
 
-const tags = ['PHP', 'Vue.js', 'API REST', 'OpenAPI', 'Swagger', 'GitLab CI', 'ESX', 'Hyper-V', 'Testing'];
-const actions = [
+const tags = ['PHP', 'Vue.js', 'API REST', 'OpenAPI', 'Swagger', 'GitLab CI', 'ESX', 'Hyper-V', 'Testing', 'MFA', 'JWT'];
+
+const competences = [
     {
         id: 'ac1',
-        title: "AC 1 : Analyser et tester une application complexe",
-        description: "Déroulement de cas de tests conçus par notre testeur logiciel pendant septembre pour comprendre l'interface et identifier les bugs. Cette phase m'a permis de maîtriser le fonctionnement complet du système de sauvegarde.",
-        icon: "clipboard-document-list"
+        title: "AC 1 : Choisir et implémenter les architectures adaptées",
+        description: "Acquis — J'ai choisi et mis en place toute la structure du code, en restructurant complètement les dossiers et en implémentant les namespaces pour organiser le projet de manière claire et maintenable. J'ai également implémenté le MFA et intégré le front avec Vue.js. Exemples concrets : restructuration des dossiers, implémentation des namespaces, choix de l'architecture, implémentation du MFA.",
+        icon: "squares-2x2"
     },
     {
         id: 'ac2',
-        title: "AC 2 : Développer et maintenir des fonctionnalités",
-        description: "Développement front-end avec Vue.js pour l'interface utilisateur. Développement de fonctionnalités pour les plugins ESXi, DB et Hyper-V côté backend PHP. Contribution aux améliorations de l'interface, notamment sur le TreeView avec gestion des icônes. Refactoring PHP : remplacement des stdClass par des classes typées pour améliorer la qualité et la maintenabilité du code.",
-        icon: "code-bracket-square"
+        title: "AC 2 : Faire évoluer une application existante",
+        description: "Acquis — J'ai ajouté des fonctionnalités au site existant, corrigé des bugs et refactorisé le code pour améliorer la qualité et la maintenance. J'ai créé des services dédiés, comme UtilisateurService, pour isoler la logique métier et faciliter les évolutions futures. Exemples concrets : refactorisation du code, ajout de fonctionnalités utilisateurs, amélioration de la documentation.",
+        icon: "arrow-path"
     },
     {
         id: 'ac3',
-        title: "AC 3 : Concevoir et documenter une API professionnelle",
-        description: "Implémentation complète d'une gestion d'utilisateurs côté API PHP avec typage de classes (remplacement des stdClass). Mise en place d'une documentation API automatisée avec OpenAPI et Swagger, intégrée dans la CI GitLab pour mise à jour automatique à chaque push sur dev. Feature essentielle pour la sortie de la V1 en février 2026.",
-        icon: "document-text"
-    },
+        title: "AC 3 : Intégrer des solutions dans un environnement de production",
+        description: "En cours — J'ai participé au déploiement et utilisé Git et CI/CD pour préparer les mises en production. J'ai appris à adapter le code aux contraintes réelles : performance, sécurité et compatibilité. Exemples concrets : déploiement supervisé, tests de non-régression avant mise en ligne, ajustements backend pour la prod.",
+        icon: "rocket-launch"
+    }
 ];
 ---
 
-<ProjectLayout title="Mon Alternance | Portfolio">
+<ProjectLayout title="Alternance - Développeur Front/Back-end | Portfolio">
     <ProjectHero
         icon="briefcase"
-        badge="Alternance Professionnelle • 2025-2026"
+        badge="Alternance Professionnelle • Septembre 2025 - Mars 2026"
         badgeColor="blue"
-        title="Alternance "
-        titleHighlight="Développeur Full-Stack"
+        title="Mission 1 — Développement "
+        titleHighlight="Web & QA"
         titleHighlightColor="text-blue-500 dark:text-blue-500"
-        description="Contribution au développement d'un système de gestion de sauvegarde de données pour entreprises. Participation à la sortie de la Beta puis de la V1 prévue en février 2026."
+        description="Contribution au développement d'un système de gestion de sauvegarde de données pour entreprises. De la phase de tests fonctionnels jusqu'à la sortie de la V1 le 16 mars 2026."
     />
 
     <ProjectTags tags={tags} />
 
+    <!-- Contexte -->
     <ProjectSection
-        badge="Présentation"
+        badge="Contexte"
         badgeColor="purple"
-        title="Le Projet et Mes Missions"
+        title="Le Projet BeeBox"
         centered={true}
     >
-        <div class="grid lg:grid-cols-2 gap-12">
-            <!-- Description du projet -->
+        <div class="grid lg:grid-cols-2 gap-10">
             <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class="flex items-center mb-6">
+                <div class="flex items-center mb-5">
                     <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30 mr-4">
                         <Icon name="heroicons:server-stack" class="w-7 h-7 text-purple-600 dark:text-purple-400" />
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Le Projet</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">La solution</h3>
                 </div>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                    Développement d'un <span class="font-semibold text-blue-600">système de gestion de sauvegarde</span> de données pour entreprises.
-                    Objectif : sortir une <span class="font-semibold text-purple-600">Beta fonctionnelle</span> puis une <span class="font-semibold text-green-600">V1 stable</span> en février 2026.
+                    <span class="font-semibold text-blue-600">BeeBox</span> est un boîtier physique livré aux entreprises pour gérer leurs sauvegardes de données. Le boîtier héberge un serveur de sauvegarde et un site web de gestion.
                 </p>
                 <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Solution professionnelle permettant aux entreprises de gérer leurs sauvegardes sur différentes infrastructures (ESX, Hyper-V, bases de données).
+                    Le site permet de configurer les agents de sauvegarde (machines Windows/Linux, VMs ESX, Hyper-V, bases de données), de planifier des sauvegardes, de les surveiller, et de restaurer des fichiers ou des VMs complètes.
                 </p>
             </div>
 
-            <!-- Mes missions -->
             <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class="flex items-center mb-6">
+                <div class="flex items-center mb-5">
                     <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
-                        <Icon name="heroicons:rocket-launch" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
+                        <Icon name="heroicons:users" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
                     </div>
-                    <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100">Mes Missions</h3>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Mon rôle dans l'équipe</h3>
                 </div>
-                <ul class="space-y-4">
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Tests & QA</span> : Déroulement de cas de tests pour validation fonctionnelle</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Développement Front-End</span> : Vue.js pour l'interface utilisateur</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Développement plugins</span> : ESX, DB, Hyper-V</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Amélioration UI</span> : TreeView avec gestion d'icônes</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">API Backend</span> : Gestion users + OpenAPI/Swagger</span>
-                    </li>
-                    <li class="flex items-start">
-                        <span class="text-blue-500 mr-3 text-xl flex-shrink-0">✓</span>
-                        <span class="text-gray-700 dark:text-gray-300"><span class="font-semibold">Refactoring PHP</span> : Migration stdClass vers classes typées</span>
-                    </li>
-                </ul>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Intégration dans une équipe de <span class="font-semibold text-blue-600">développeurs en méthode agile (Scrum)</span>. Participation aux daily meetings, sprints de 2 semaines, et revues de code sur GitLab.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Stack technique : backend en <span class="font-semibold text-purple-600">PHP</span> communiquant avec le serveur de sauvegarde, frontend en <span class="font-semibold text-green-600">Vue.js</span>, tickets gérés sur <span class="font-semibold">Jira</span>, CI/CD sur <span class="font-semibold">GitLab</span>.
+                </p>
             </div>
         </div>
     </ProjectSection>
 
+    <!-- Timeline -->
     <ProjectSection
-        badge="Stack Technique"
+        badge="Déroulement"
         badgeColor="orange"
-        title="Technologies utilisées"
+        title="Chronologie de la mission"
         centered={true}
     >
-        <div class="flex flex-wrap gap-4 justify-center">
-            {tags.map((tag) => (
-                <span class="bg-white dark:bg-gray-800 px-6 py-3 rounded-2xl text-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 text-gray-900 dark:text-gray-100">
-                    {tag}
-                </span>
-            ))}
+        <div class="max-w-3xl mx-auto space-y-0">
+            <!-- Phase 1 -->
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Icon name="heroicons:clipboard-document-list" class="w-6 h-6 text-white" />
+                    </div>
+                    <div class="w-0.5 flex-1 bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                </div>
+                <div class="pb-10 pt-1 flex-1">
+                    <p class="text-sm font-medium text-orange-500 mb-1">Septembre 2025</p>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Phase de tests & Découverte</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Déroulement complet des cas de tests fonctionnels conçus par le testeur logiciel. Couverture de toutes les fonctionnalités : administration, backupsets, partages, restauration VM, Business Continuity. Formation SMSI MOOC ANSSI. Cette phase m'a permis de comprendre le métier de la sauvegarde avant de toucher au code.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 2 -->
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Icon name="heroicons:code-bracket-square" class="w-6 h-6 text-white" />
+                    </div>
+                    <div class="w-0.5 flex-1 bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                </div>
+                <div class="pb-10 pt-1 flex-1">
+                    <p class="text-sm font-medium text-blue-500 mb-1">Octobre — Novembre 2025</p>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Développement & Corrections</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Résolution de bugs front-end Vue.js et de logique métier backend PHP. Refonte de la logique d'affichage conditionnel pour les plugins ESX et Hyper-V. Chaque vendredi : présentation d'un design pattern à l'équipe (Factory, Prototype).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 3 -->
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Icon name="heroicons:magnifying-glass" class="w-6 h-6 text-white" />
+                    </div>
+                    <div class="w-0.5 flex-1 bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                </div>
+                <div class="pb-10 pt-1 flex-1">
+                    <p class="text-sm font-medium text-red-500 mb-1">Novembre 2025 — Semaine du 24</p>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Phase de test pré-bêta intensive</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Semaine intensive sous forte pression (DT, PO, direction, commerciaux). 70% des tests terminés en fin de semaine. 40 tickets remontés, triés par criticité : 8 bloqueurs, 7 critiques, 9 majeures. Les bugs bloqueurs et critiques intègrent directement le sprint en cours pour correction immédiate.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 4 -->
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Icon name="heroicons:wrench-screwdriver" class="w-6 h-6 text-white" />
+                    </div>
+                    <div class="w-0.5 flex-1 bg-gray-200 dark:bg-gray-700 mt-2"></div>
+                </div>
+                <div class="pb-10 pt-1 flex-1">
+                    <p class="text-sm font-medium text-purple-500 mb-1">Décembre 2025 — Février 2026</p>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">Refactorisation & Gestion des utilisateurs</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Refonte complète de l'architecture de l'API PHP : nouvelles normes de code, suppression des stdClass au profit de classes typées. Implémentation de la gestion des utilisateurs (création, modification, suppression, validation) avec refresh token. Mise en place d'une documentation Swagger/OpenAPI automatisée via CI GitLab. Présentation du pattern Iterator à l'équipe.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Phase 5 : V1 -->
+            <div class="flex gap-6">
+                <div class="flex flex-col items-center">
+                    <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center flex-shrink-0 shadow-lg">
+                        <Icon name="heroicons:rocket-launch" class="w-6 h-6 text-white" />
+                    </div>
+                </div>
+                <div class="pb-2 pt-1 flex-1">
+                    <p class="text-sm font-medium text-green-500 mb-1">Mars 2026 — V1 le 16/03/2026</p>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">MFA & Sortie de la V1</h4>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">
+                        Développement complet du MFA (authentification à 2 facteurs) côté backend en 2 jours avec le tech lead, correction des bugs remontés par le testeur en 1 jour. Côté frontend : activation du MFA pour toute la box par le superAdmin. Nouveau système de notifications. La <span class="font-semibold text-green-600">V1 est sortie le 16 mars 2026</span>.
+                    </p>
+                </div>
+            </div>
         </div>
     </ProjectSection>
 
+    <!-- Refactorisation API -->
     <ProjectSection
-        badge="Compétences"
-        badgeColor="green"
-        title="Apprentissages Critiques"
+        badge="Refactorisation"
+        badgeColor="purple"
+        title="Refonte de l'API & Gestion des utilisateurs"
         centered={true}
     >
-        <div class="space-y-8">
-            {actions.map((action) => (
-                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                    <div class="flex items-start space-x-6">
-                        <div class="flex-shrink-0">
-                            <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl flex items-center justify-center shadow-lg">
-                                <Icon name={`heroicons:${action.icon}`} class="w-10 h-10 text-white" />
-                            </div>
+        <div class="space-y-8 max-w-5xl mx-auto">
+            <!-- Contexte refacto -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <div class="flex items-center mb-5">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-purple-100 dark:bg-purple-900/30 mr-4">
+                        <Icon name="heroicons:wrench-screwdriver" class="w-7 h-7 text-purple-600 dark:text-purple-400" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Contexte de la refactorisation</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Avec l'arrivée d'un nouveau chef de projet focalisé sur l'évolution du serveur de sauvegarde, il a fallu <span class="font-semibold text-purple-600">revoir l'architecture de l'API PHP</span> pour faciliter les futures intégrations et passer aux prochaines versions plus facilement.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    La refonte a porté sur l'organisation des dossiers, l'introduction de <span class="font-semibold">normes PHP strictes</span> (typage, classes dédiées en remplacement des <code class="bg-gray-100 dark:bg-gray-700 px-1.5 py-0.5 rounded text-sm">stdClass</code>), et la mise en place d'une couche d'abstraction propre entre le frontend et le serveur de sauvegarde.
+                </p>
+            </div>
+
+            <!-- Gestion users + refresh token -->
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-blue-100 dark:bg-blue-900/30 mr-4">
+                            <Icon name="heroicons:user-group" class="w-7 h-7 text-blue-600 dark:text-blue-400" />
                         </div>
-                        <div class="flex-1">
-                            <h3 class="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-                                {action.title}
-                            </h3>
-                            <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                                {action.description}
-                            </p>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">Gestion des utilisateurs</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4">
+                        Implémentation complète des routes CRUD vers le serveur de sauvegarde : création, modification, suppression, validation et récupération d'utilisateurs. J'ai fait le lien entre ce que renvoyait le serveur et ce que le frontend attendait, en agissant comme une véritable passerelle.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                        <li class="flex items-center gap-2"><span class="text-green-500 font-bold">GET</span> Récupération d'un ou plusieurs utilisateurs</li>
+                        <li class="flex items-center gap-2"><span class="text-blue-500 font-bold">POST</span> Création & validation de compte</li>
+                        <li class="flex items-center gap-2"><span class="text-orange-500 font-bold">PATCH</span> Modification (mot de passe, rôle...)</li>
+                        <li class="flex items-center gap-2"><span class="text-red-500 font-bold">DELETE</span> Suppression d'utilisateur</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                    <div class="flex items-center mb-5">
+                        <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/30 mr-4">
+                            <Icon name="heroicons:key" class="w-7 h-7 text-green-600 dark:text-green-400" />
+                        </div>
+                        <h3 class="text-lg font-bold text-gray-900 dark:text-gray-100">Refresh Token</h3>
+                    </div>
+                    <p class="text-gray-700 dark:text-gray-300 leading-relaxed text-sm mb-4">
+                        Mise en place d'un système de <span class="font-semibold text-green-600">refresh token</span> pour la gestion des sessions utilisateurs. L'access token de courte durée est renouvelé automatiquement via le refresh token sans que l'utilisateur ait à se reconnecter.
+                    </p>
+                    <div class="bg-gray-50 dark:bg-gray-700 rounded-xl p-4 space-y-2 text-xs font-mono text-gray-600 dark:text-gray-300">
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-green-400 flex-shrink-0"></span>
+                            <span>Access token — courte durée</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-blue-400 flex-shrink-0"></span>
+                            <span>Refresh token — longue durée</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <span class="w-2 h-2 rounded-full bg-purple-400 flex-shrink-0"></span>
+                            <span>Renouvellement automatique transparent</span>
                         </div>
                     </div>
                 </div>
-            ))}
+            </div>
         </div>
     </ProjectSection>
 
+    <!-- Preuves de réalisation -->
     <ProjectSection
-        badge="Réalisations"
-        badgeColor="red"
-        title="Features Développées"
+        badge="Preuves de réalisation"
+        badgeColor="blue"
+        title="Fonctionnalités clés"
         centered={true}
     >
-        <div class="grid md:grid-cols-3 gap-8">
-            <!-- Réalisation 1 : Plugins -->
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-600 mx-auto mb-6 shadow-lg">
-                    <Icon name="heroicons:puzzle-piece" class="w-10 h-10 text-white" />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
-                    Développement Plugins
-                </h3>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Contribution au développement des plugins <span class="font-semibold">ESX</span>, <span class="font-semibold">Database</span> et <span class="font-semibold">Hyper-V</span> pour la gestion des sauvegardes.
+        <div class="space-y-10 max-w-5xl mx-auto">
+            <!-- Placeholder image interface -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Interface de l'application</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                    Vue générale du site web de gestion de la BeeBox avec ses différentes sections (backupsets, partages, administration).
                 </p>
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
+                    <Image
+                        src={imgAlternance1}
+                        alt="Interface de l'application BeeBox"
+                        class="rounded-xl w-full h-auto object-cover"
+                        format="png"
+                        width={900}
+                        height={500}
+                        loading="eager"
+                    />
+                </div>
             </div>
 
-            <!-- Réalisation 2 : API Users -->
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-purple-500 to-pink-600 mx-auto mb-6 shadow-lg">
-                    <Icon name="heroicons:user-group" class="w-10 h-10 text-white" />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
-                    Gestion Utilisateurs API
-                </h3>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Implémentation complète de la gestion des utilisateurs côté API avec <span class="font-semibold">typage de classes PHP</span> remplaçant les stdClass. Feature essentielle pour la V1.
+            <!-- MFA -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Authentification MFA</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                    Quand le superAdmin active le MFA pour toute la box, il doit d'abord configurer le sien pour prouver qu'il peut le faire. Ensuite, chaque utilisateur configure le sien à sa prochaine connexion.
                 </p>
+                <div class="grid md:grid-cols-3 gap-4">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-5 text-center">
+                        <Icon name="heroicons:adjustments-horizontal" class="w-10 h-10 text-blue-600 mx-auto mb-3" />
+                        <h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2 text-sm">1. Activation globale</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Le superAdmin active le MFA pour toute la box via la page d'administration</p>
+                    </div>
+                    <div class="bg-purple-50 dark:bg-purple-900/20 rounded-xl p-5 text-center">
+                        <Icon name="heroicons:device-phone-mobile" class="w-10 h-10 text-purple-600 mx-auto mb-3" />
+                        <h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2 text-sm">2. Vérification superAdmin</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Il configure son propre MFA (QR code, code TOTP) avant validation</p>
+                    </div>
+                    <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-5 text-center">
+                        <Icon name="heroicons:check-circle" class="w-10 h-10 text-green-600 mx-auto mb-3" />
+                        <h4 class="font-bold text-gray-900 dark:text-gray-100 mb-2 text-sm">3. Déploiement progressif</h4>
+                        <p class="text-xs text-gray-600 dark:text-gray-400">Chaque utilisateur configure son MFA à sa prochaine connexion</p>
+                    </div>
+                </div>
             </div>
 
-            <!-- Réalisation 3 : Documentation -->
-            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
-                <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 mx-auto mb-6 shadow-lg">
-                    <Icon name="heroicons:document-text" class="w-10 h-10 text-white" />
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 text-center">
-                    Documentation OpenAPI
-                </h3>
-                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
-                    Mise en place d'une documentation <span class="font-semibold">OpenAPI/Swagger</span> automatisée, intégrée dans la <span class="font-semibold">CI GitLab</span> pour mise à jour automatique.
+            <!-- Documentation Swagger -->
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">Documentation API automatisée</h3>
+                <p class="text-gray-600 dark:text-gray-400 text-sm mb-6">
+                    Pipeline GitLab CI qui génère la documentation Swagger à chaque push sur la branche dev et la publie automatiquement sur GitLab Pages.
                 </p>
+                <div class="bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden">
+                    <Image
+                        src={imgOpenapi}
+                        alt="Documentation OpenAPI générée automatiquement"
+                        class="rounded-xl w-full h-auto object-cover"
+                        format="png"
+                        width={900}
+                        height={500}
+                        loading="eager"
+                    />
+                </div>
             </div>
         </div>
     </ProjectSection>
 
+    <!-- Bilan -->
     <ProjectSection centered={true}>
-        <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 max-w-4xl mx-auto">
+        <div class="bg-gradient-to-br from-blue-500 to-purple-600 p-8 rounded-2xl text-white shadow-lg max-w-4xl mx-auto">
             <div class="text-center mb-8">
                 <div class="w-16 h-16 flex items-center justify-center rounded-2xl bg-white/20 mx-auto mb-4">
                     <Icon name="heroicons:academic-cap" class="w-10 h-10 text-white" />
                 </div>
-                <h2 class="font-monospace text-3xl lg:text-4xl mb-4">
-                    Bilan de l'Alternance
-                </h2>
+                <h2 class="font-monospace text-3xl mb-2">Bilan de la Mission 1</h2>
+                <div class="flex flex-wrap justify-center gap-4 mt-4">
+                    <a href="/Portfolio-BUT/projects/alternance-dockerisation" class="bg-white/20 hover:bg-white/30 transition px-5 py-2 rounded-xl text-sm font-semibold backdrop-blur-sm">
+                        Voir Mission 2 : Dockerisation →
+                    </a>
+                </div>
             </div>
-            <div class="space-y-6">
-                <p class="text-white/90 text-lg leading-relaxed">
-                    Cette alternance m'a permis de <span class="font-semibold text-white">découvrir le développement professionnel</span> d'un produit SaaS complexe, de la phase de tests à la sortie de la V1. J'ai pu monter en compétences sur le <span class="font-semibold text-white">développement d'APIs RESTful</span>, la <span class="font-semibold text-white">documentation technique</span> et l'intégration continue.
+            <div class="space-y-4">
+                <p class="text-white/90 leading-relaxed">
+                    Cette mission m'a fait vivre le cycle complet d'un projet logiciel professionnel : compréhension du métier par les tests, contribution aux fonctionnalités, pression de la deadline, sortie d'une V1. La phase de test intensive de novembre 2025 a été particulièrement formatrice : gérer des bugs critiques sous pression tout en maintenant la qualité, c'est une expérience qu'on n'apprend pas en cours.
                 </p>
-                <p class="text-white/90 text-lg leading-relaxed">
-                    Le passage des <span class="font-semibold text-white">stdClass PHP aux classes typées</span> m'a sensibilisé à l'importance de la <span class="font-semibold text-white">qualité du code</span> et de la maintenabilité. L'implémentation de la documentation OpenAPI automatisée et son intégration dans la CI/CD illustrent les <span class="font-semibold text-white">bonnes pratiques du développement moderne</span>.
+                <p class="text-white/90 leading-relaxed">
+                    La refonte de l'API m'a sensibilisé à l'importance de la <span class="font-semibold">qualité du code sur le long terme</span> : supprimer les stdClass, typer les retours, structurer les dossiers — ce sont des décisions qui semblent coûteuses à court terme mais qui ont rendu l'implémentation de la gestion des utilisateurs et du MFA beaucoup plus claire.
                 </p>
-                <div class="flex items-center justify-center mt-8 space-x-3">
-                    <div class="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
-                        <p class="text-sm text-white/80">Septembre 2025</p>
-                        <p class="font-bold text-white">Tests & Discovery</p>
+                <div class="grid grid-cols-3 gap-4 mt-6">
+                    <div class="text-center bg-white/10 rounded-xl p-4">
+                        <div class="text-2xl font-bold">4</div>
+                        <div class="text-xs text-white/80">Routes CRUD<br/>implémentées</div>
                     </div>
-                    <div class="text-white/60">→</div>
-                    <div class="px-4 py-2 bg-white/20 rounded-lg backdrop-blur-sm">
-                        <p class="text-sm text-white/80">Octobre - Janvier</p>
-                        <p class="font-bold text-white">Développement</p>
+                    <div class="text-center bg-white/10 rounded-xl p-4">
+                        <div class="text-2xl font-bold">16/03</div>
+                        <div class="text-xs text-white/80">V1 livrée</div>
                     </div>
-                    <div class="text-white/60">→</div>
-                    <div class="px-4 py-2 bg-white/30 rounded-lg backdrop-blur-sm border-2 border-white/50">
-                        <p class="text-sm text-white/80">Février 2026</p>
-                        <p class="font-bold text-white">V1 Release </p>
+                    <div class="text-center bg-white/10 rounded-xl p-4">
+                        <div class="text-2xl font-bold">6 mois</div>
+                        <div class="text-xs text-white/80">Septembre → Mars</div>
                     </div>
                 </div>
             </div>
         </div>
     </ProjectSection>
+
+    <ProjectCompetences
+        badge="Compétences"
+        badgeColor="blue"
+        title="Apprentissages Critiques"
+        subtitle='Compétence <span class="font-semibold text-blue-600">Réaliser</span> — Niveau 3 : Adapter des applications sur un ensemble de supports'
+        competences={competences}
+        accentColor="blue-500"
+    />
 </ProjectLayout>

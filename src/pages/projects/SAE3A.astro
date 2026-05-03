@@ -9,25 +9,25 @@ import image from '@assets/images/SAE3A.png';
 import image2 from '@assets/images/SAEA3-agregation.png';
 import { Image } from 'astro:assets';
 
-const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT'];
+const tags = ['Scrum Master', 'Gestion de projet', 'SAE 3A', 'IUT', 'PHP', 'PL/SQL', 'Oracle'];
 const actions = [
 	{
 		id: 'ac1',
-		title: "AC 1 : Élaborer et implémenter les spécifications fonctionnelles et non fonctionnelles",
-		description: "J'ai analysé les besoins des utilisateurs et défini les fonctionnalités principales du site web pour répondre à leurs attentes.",
-		icon: "clipboard-document-list"
+		title: "AC 1 : Choisir et implémenter les architectures adaptées",
+		description: "Conception d'une architecture PHP + base PL/SQL Oracle structurée selon les besoins fonctionnels identifiés avec les équipes enseignantes. Choix des technologies adaptées à l'hébergement et aux contraintes de l'IUT.",
+		icon: "squares-2x2"
 	},
 	{
 		id: 'ac2',
-		title: "AC 2 : Appliquer des principes d'accessibilité et d'ergonomie",
-		description: "J'ai organisé des daily meetings pour suivre l'avancement du projet, identifier les blocages et maintenir une dynamique de groupe positive.",
-		icon: "user-circle"
+		title: "AC 2 : Faire évoluer une application existante",
+		description: "En tant que Scrum Master, pilotage de l'évolution du projet sprint après sprint : priorisation du backlog, coordination de l'équipe, adaptation des fonctionnalités aux retours des utilisateurs tout au long du développement.",
+		icon: "arrow-path"
 	},
 	{
 		id: 'ac3',
-		title: "AC 3 : Adopter de bonnes pratiques de conception et de programmation",
-		description: "J'ai veillé à créer un environnement de travail collaboratif et à garantir que chaque membre ait un rôle clairement défini.",
-		icon: "bolt"
+		title: "AC 3 : Intégrer des solutions dans un environnement de production",
+		description: "Mise en ligne du site avec de vraies données étudiantes, validation fonctionnelle en conditions réelles et prise en compte des contraintes d'un système d'information universitaire.",
+		icon: "rocket-launch"
 	},
 ];
 ---
@@ -146,7 +146,7 @@ const actions = [
 		badge="Compétences acquises"
 		badgeColor="green"
 		title="Apprentissages Critiques"
-		subtitle='Compétence Réaliser️'
+		subtitle='Compétence <span class="font-semibold text-orange-500">Réaliser</span> — Niveau 3 : Adapter des applications sur un ensemble de supports'
 		competences={actions}
 		accentColor="orange-500"
 	/>

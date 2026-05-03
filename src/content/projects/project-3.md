@@ -1,5 +1,6 @@
 ---
 inProgress: false
+disabled: true
 title: NDI
 description: Participation à l'évènement de la Nuit De l'Info, projet web avec des défis à effectuer pendant une nuit complète.
 img_alt: project image alt text

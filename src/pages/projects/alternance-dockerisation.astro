@@ -1,0 +1,276 @@
+---
+import ProjectLayout from '@layouts/ProjectLayout.astro';
+import ProjectHero from '@components/project/ProjectHero.astro';
+import ProjectTags from '@components/project/ProjectTags.astro';
+import ProjectSection from '@components/project/ProjectSection.astro';
+import ProjectCompetences from '@components/project/ProjectCompetences.astro';
+import { Icon } from 'astro-icon/components';
+
+const tags = ['Docker', 'PHP 7.4', 'Apache', 'Linux', 'PostgreSQL', 'Debian 10', 'ProxyPass'];
+
+const problemes = [
+    {
+        num: 1,
+        titre: "Dépôt Sury inaccessible",
+        probleme: "Tentative d'installer PHP 7.4 via packages.sury.org — retourne une erreur 418 pour Debian 10 Buster (fin de support).",
+        solution: "Docker devient la seule voie viable. Abandon de l'installation native.",
+        icon: "x-circle",
+        color: "red"
+    },
+    {
+        num: 2,
+        titre: "Conflit de port 80",
+        probleme: "Le conteneur backend utilisait le port 80 par défaut, déjà occupé par Apache natif sur la box.",
+        solution: "Modification du ports.conf Apache interne via le Dockerfile pour écouter sur un port dédié.",
+        icon: "exclamation-triangle",
+        color: "orange"
+    },
+    {
+        num: 3,
+        titre: "Extensions PHP manquantes",
+        probleme: "L'image php:7.4-apache est minimaliste et manque de pdo_pgsql, pgsql et sockets nécessaires au projet.",
+        solution: "Installation dans le Dockerfile avec docker-php-ext-install pdo_pgsql pgsql sockets.",
+        icon: "puzzle-piece",
+        color: "green"
+    },
+    {
+        num: 4,
+        titre: "Isolation des processus",
+        probleme: "Le backend PHP utilise exec('ps aux') pour vérifier si le serveur tourne. Avec network_mode: host, les namespaces de processus restent isolés — le conteneur ne voit pas les processus de la box.",
+        solution: "Ajout de pid: host dans docker-compose.yml pour partager l'espace de processus de l'hôte.",
+        icon: "cpu-chip",
+        color: "teal"
+    },
+    {
+        num: 5,
+        titre: "Incompatibilité librairies système",
+        probleme: "Avec pid: host, le binaire ps du conteneur (Debian 11) cherche libprocps.so.7 alors que le conteneur n'a que libprocps.so.8.",
+        solution: "Création d'un lien symbolique dans le Dockerfile : ln -s libprocps.so.8 libprocps.so.7. (Le montage direct des libs de la box cassait Apache.)",
+        icon: "arrows-right-left",
+        color: "cyan"
+    }
+];
+
+const competences = [
+    {
+        id: 'ac1',
+        title: "AC 1 : Créer des processus de traitement automatisés",
+        description: "Mise en place d'un environnement Docker entièrement automatisé : Dockerfile paramétrable, docker-compose.yml, fichier .env dynamique récupérant l'UID de l'utilisateur système. Le déploiement sur une nouvelle box est reproductible sans intervention manuelle — cas concret de déploiement continu sur contraintes matérielles réelles.",
+        icon: "cog-8-tooth"
+    },
+    {
+        id: 'ac2',
+        title: "AC 2 : Configurer un système (performance, sécurité, compatibilité)",
+        description: "Configuration d'une architecture multi-couches (Apache natif → Docker → services natifs) en gérant les contraintes de compatibilité : librairies système entre distributions, authentification, isolation des processus. Chaque paramètre de configuration a été justifié pour garantir la stabilité en production.",
+        icon: "wrench-screwdriver"
+    }
+];
+---
+
+<ProjectLayout title="Dockerisation BeeBox | Portfolio">
+    <ProjectHero
+        icon="cube"
+        badge="Mission Technique • Alternance 2026"
+        badgeColor="cyan"
+        title="Dockerisation "
+        titleHighlight="PHP 7.4 sur Debian 10"
+        titleHighlightColor="text-cyan-500 dark:text-cyan-400"
+        description="Migration du backend PHP d'une box de sauvegarde dans un conteneur Docker, sur une Debian 10 qui ne supporte nativement que PHP 7.3. Plusieurs problèmes techniques identifiés et résolus."
+    />
+
+    <ProjectTags tags={tags} />
+
+    <ProjectSection
+        badge="Contexte"
+        badgeColor="blue"
+        title="Pourquoi Dockeriser ?"
+        centered={true}
+    >
+        <div class="grid lg:grid-cols-2 gap-10">
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-5">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-red-100 dark:bg-red-900/30 mr-4">
+                        <Icon name="heroicons:exclamation-triangle" class="w-7 h-7 text-red-600 dark:text-red-400" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">Le problème</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Les <span class="font-semibold text-red-600">BeeBox</span> tournent sous <span class="font-semibold">Debian 10 Buster</span>, qui ne fournit nativement que <span class="font-semibold text-red-600">PHP 7.3</span> dans ses dépôts officiels.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Or le site backend de la box nécessite <span class="font-semibold text-orange-600">PHP 7.4 minimum</span> (contrainte Composer). L'installation via le dépôt Sury est impossible : le dépôt retourne une erreur <code class="bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded text-sm">418</code> pour Debian 10, confirmant la fin de support.
+                </p>
+            </div>
+
+            <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="flex items-center mb-5">
+                    <div class="w-12 h-12 flex items-center justify-center rounded-lg bg-green-100 dark:bg-green-900/30 mr-4">
+                        <Icon name="heroicons:check-badge" class="w-7 h-7 text-green-600 dark:text-green-400" />
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">La solution retenue</h3>
+                </div>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Dockeriser un environnement PHP 7.4 <span class="font-semibold text-green-600">sans toucher à l'installation native</span> de la box.
+                </p>
+                <p class="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    L'objectif : préserver l'intégrité de l'infrastructure (Apache, PostgreSQL, serveur de sauvegarde) tout en faisant tourner le backend PHP dans un conteneur isolé. La mise à jour se fait simplement en <span class="font-semibold">rebuilant l'image Docker</span>.
+                </p>
+            </div>
+        </div>
+    </ProjectSection>
+
+    <ProjectSection
+        badge="Architecture"
+        badgeColor="purple"
+        title="Schéma de la solution"
+        centered={true}
+    >
+        <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg max-w-4xl mx-auto">
+            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-8 text-center">Flux des requêtes</h3>
+
+            <div class="flex flex-col items-center space-y-2">
+                <!-- Navigateur -->
+                <div class="bg-blue-100 dark:bg-blue-900/40 border-2 border-blue-400 rounded-xl px-8 py-4 text-center w-64">
+                    <Icon name="heroicons:globe-alt" class="w-8 h-8 text-blue-600 dark:text-blue-400 mx-auto mb-1" />
+                    <p class="font-bold text-blue-800 dark:text-blue-200">Navigateur client</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-0.5 h-6 bg-gray-400"></div>
+                    <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">HTTPS</span>
+                    <div class="w-0.5 h-6 bg-gray-400"></div>
+                </div>
+
+                <!-- Apache natif -->
+                <div class="bg-orange-100 dark:bg-orange-900/40 border-2 border-orange-400 rounded-xl px-8 py-4 text-center w-64">
+                    <Icon name="heroicons:server-stack" class="w-8 h-8 text-orange-600 dark:text-orange-400 mx-auto mb-1" />
+                    <p class="font-bold text-orange-800 dark:text-orange-200">Apache natif</p>
+                    <p class="text-xs text-orange-600 dark:text-orange-400">SSL terminaison + ProxyPass</p>
+                </div>
+
+                <div class="flex flex-col items-center">
+                    <div class="w-0.5 h-6 bg-gray-400"></div>
+                    <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">ProxyPass</span>
+                    <div class="w-0.5 h-6 bg-gray-400"></div>
+                </div>
+
+                <!-- Docker container -->
+                <div class="bg-cyan-100 dark:bg-cyan-900/40 border-2 border-cyan-400 rounded-xl px-8 py-5 text-center w-80">
+                    <div class="flex items-center justify-center mb-2">
+                        <Icon name="heroicons:cube" class="w-8 h-8 text-cyan-600 dark:text-cyan-400 mr-2" />
+                        <div>
+                            <p class="font-bold text-cyan-800 dark:text-cyan-200">Conteneur Docker</p>
+                            <p class="text-xs text-cyan-600 dark:text-cyan-400">PHP 7.4 + Apache</p>
+                        </div>
+                    </div>
+                    <div class="mt-3 flex flex-wrap gap-2 justify-center">
+                        <span class="bg-cyan-200 dark:bg-cyan-800 text-cyan-800 dark:text-cyan-200 text-xs px-2 py-1 rounded-full">network_mode: host</span>
+                        <span class="bg-cyan-200 dark:bg-cyan-800 text-cyan-800 dark:text-cyan-200 text-xs px-2 py-1 rounded-full">pid: host</span>
+                    </div>
+                </div>
+
+                <div class="flex gap-16 mt-2">
+                    <div class="flex flex-col items-center">
+                        <div class="w-0.5 h-6 bg-gray-400"></div>
+                        <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">TCP</span>
+                        <div class="w-0.5 h-6 bg-gray-400"></div>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <div class="w-0.5 h-6 bg-gray-400"></div>
+                        <span class="text-xs text-gray-500 bg-gray-100 dark:bg-gray-700 px-2 py-0.5 rounded">Unix socket</span>
+                        <div class="w-0.5 h-6 bg-gray-400"></div>
+                    </div>
+                </div>
+
+                <div class="flex gap-8">
+                    <div class="bg-green-100 dark:bg-green-900/40 border-2 border-green-400 rounded-xl px-6 py-4 text-center">
+                        <Icon name="heroicons:server-stack" class="w-7 h-7 text-green-600 dark:text-green-400 mx-auto mb-1" />
+                        <p class="font-bold text-green-800 dark:text-green-200 text-sm">Serveur de sauvegarde</p>
+                    </div>
+                    <div class="bg-indigo-100 dark:bg-indigo-900/40 border-2 border-indigo-400 rounded-xl px-6 py-4 text-center">
+                        <Icon name="heroicons:circle-stack" class="w-7 h-7 text-indigo-600 dark:text-indigo-400 mx-auto mb-1" />
+                        <p class="font-bold text-indigo-800 dark:text-indigo-200 text-sm">PostgreSQL</p>
+                        <p class="text-xs text-indigo-600 dark:text-indigo-400">socket Unix</p>
+                    </div>
+                </div>
+            </div>
+
+            <p class="text-center text-sm text-gray-500 dark:text-gray-400 mt-6 italic">
+                Architecture conservant l'infrastructure native tout en isolant PHP 7.4 dans Docker
+            </p>
+        </div>
+    </ProjectSection>
+
+    <ProjectSection
+        badge="Obstacles résolus"
+        badgeColor="red"
+        title="Obstacles & Solutions"
+        centered={true}
+    >
+        <div class="space-y-4 max-w-5xl mx-auto">
+            {problemes.map((p) => (
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow hover:shadow-lg transition-all duration-300">
+                    <div class="flex items-start gap-4">
+                        <div class="flex-shrink-0 w-10 h-10 bg-gray-100 dark:bg-gray-700 rounded-full flex items-center justify-center font-bold text-gray-700 dark:text-gray-300">
+                            {p.num}
+                        </div>
+                        <div class="flex-1">
+                            <h4 class="text-lg font-bold text-gray-900 dark:text-gray-100 mb-3">{p.titre}</h4>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <div class="bg-red-50 dark:bg-red-900/20 rounded-xl p-4">
+                                    <p class="text-xs font-semibold text-red-600 dark:text-red-400 mb-1 uppercase tracking-wide">Problème</p>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{p.probleme}</p>
+                                </div>
+                                <div class="bg-green-50 dark:bg-green-900/20 rounded-xl p-4">
+                                    <p class="text-xs font-semibold text-green-600 dark:text-green-400 mb-1 uppercase tracking-wide">Solution</p>
+                                    <p class="text-gray-700 dark:text-gray-300 text-sm leading-relaxed">{p.solution}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </ProjectSection>
+
+    <ProjectSection
+        badge="Résultat"
+        badgeColor="green"
+        title="Bilan technique"
+        centered={true}
+    >
+        <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-10">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="text-4xl font-bold text-cyan-500 mb-2">5</div>
+                <p class="text-gray-700 dark:text-gray-300 font-medium">Obstacles techniques<br/>identifiés et résolus</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="text-4xl font-bold text-green-500 mb-2">100%</div>
+                <p class="text-gray-700 dark:text-gray-300 font-medium">Infrastructure native<br/>préservée</p>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow text-center hover:shadow-xl transition-all duration-300 hover:scale-105">
+                <div class="text-4xl font-bold text-purple-500 mb-2">Auto</div>
+                <p class="text-gray-700 dark:text-gray-300 font-medium">Déploiement automatisé<br/>via .env</p>
+            </div>
+        </div>
+
+        <div class="bg-gradient-to-br from-cyan-500 to-blue-600 p-8 rounded-2xl text-white shadow-lg max-w-4xl mx-auto">
+            <h3 class="text-2xl font-bold mb-4">Ce que j'ai appris</h3>
+            <p class="text-white/90 leading-relaxed mb-4">
+                Cette tâche m'a confronté à des problèmes que l'on ne rencontre pas en développement d'application classique : <span class="font-semibold">isolation des namespaces Linux</span>, <span class="font-semibold">incompatibilité de librairies entre distributions</span>, <span class="font-semibold">gestion des extensions PHP dans une image minimaliste</span>. Chaque blocage m'a obligé à comprendre les couches basses du système (réseau, processus, système de fichiers).
+            </p>
+            <p class="text-white/90 leading-relaxed">
+                Le défi principal était de respecter une contrainte forte : <span class="font-semibold">ne rien casser de l'existant</span>. Cela m'a forcé à chercher des solutions non intrusives plutôt que de simplement modifier l'infrastructure en place — une discipline essentielle en environnement de production.
+            </p>
+        </div>
+    </ProjectSection>
+
+    <ProjectCompetences
+        badge="Compétences"
+        badgeColor="cyan"
+        title="Apprentissages Critiques"
+        subtitle='Compétence <span class="font-semibold text-cyan-600">Administrer</span> — Niveau 3 : Faire évoluer et maintenir un système'
+        competences={competences}
+        accentColor="cyan-500"
+    />
+</ProjectLayout>

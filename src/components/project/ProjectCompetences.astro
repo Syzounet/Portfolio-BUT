@@ -10,7 +10,7 @@ export interface Competence {
 
 export interface Props {
 	badge?: string;
-	badgeColor?: 'orange' | 'green' | 'blue' | 'purple' | 'red' | 'indigo';
+	badgeColor?: 'orange' | 'green' | 'blue' | 'purple' | 'red' | 'indigo' | 'cyan';
 	title: string;
 	subtitle?: string;
 	competences: Competence[];
@@ -48,9 +48,7 @@ const badgeColors = {
 			</h2>
 			<div class="w-20 h-1 bg-gradient-to-r from-green-500 to-purple-600 mx-auto rounded-full"></div>
 			{subtitle && (
-				<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto">
-					{subtitle}
-				</p>
+				<p class="text-xl text-gray-700 dark:text-gray-300 mt-6 max-w-3xl mx-auto" set:html={subtitle} />
 			)}
 		</div>
 

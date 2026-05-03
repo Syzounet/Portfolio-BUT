@@ -1,488 +1,283 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { Image } from 'astro:assets';
-
 import Contact from '@components/Contact.astro';
 import BackToTop from '@components/ui/BackToTop.astro';
+
+const niveaux = {
+    acquis:   { label: 'Acquis',    color: 'bg-green-500',  text: 'text-green-700 dark:text-green-300',  bg: 'bg-green-50 dark:bg-green-900/20',  border: 'border-green-200 dark:border-green-800' },
+    enCours:  { label: 'En cours',  color: 'bg-yellow-500', text: 'text-yellow-700 dark:text-yellow-300', bg: 'bg-yellow-50 dark:bg-yellow-900/20', border: 'border-yellow-200 dark:border-yellow-800' },
+    debutant: { label: 'Débutant',  color: 'bg-red-400',    text: 'text-red-700 dark:text-red-300',      bg: 'bg-red-50 dark:bg-red-900/20',      border: 'border-red-200 dark:border-red-800' },
+};
+
+const competences = [
+    {
+        num: 1,
+        nom: "Réaliser",
+        niveau: "Niveau 3 — Adapter des applications sur un ensemble de supports (embarqué, web, mobile, IoT...)",
+        color: "orange",
+        badgeClass: "bg-orange-500 dark:bg-orange-600",
+        borderClass: "border-orange-400",
+        acs: [
+            {
+                id: "AC31.01",
+                titre: "Choisir et implémenter les architectures adaptées",
+                niveau: niveaux.acquis,
+                description: "J'ai choisi et mis en place toute la structure du code, en restructurant complètement les dossiers et en implémentant les namespaces pour organiser le projet de manière claire et maintenable. J'ai également implémenté le MFA et intégré le front avec Vue.js.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC31.02",
+                titre: "Faire évoluer une application existante",
+                niveau: niveaux.acquis,
+                description: "J'ai ajouté des fonctionnalités au site existant, corrigé des bugs et refactorisé le code pour améliorer la qualité et la maintenance. J'ai créé des services dédiés (UtilisateurService) pour isoler la logique métier. Sur le stage, j'ai amélioré un site de réservation en production en préservant les fonctionnalités existantes.",
+                projets: [
+                    { label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" },
+                    { label: "Stage WebMinit34", url: "/Portfolio-BUT/projects/stage" },
+                ]
+            },
+            {
+                id: "AC31.03",
+                titre: "Intégrer des solutions dans un environnement de production",
+                niveau: niveaux.enCours,
+                description: "J'ai participé au déploiement et utilisé Git et CI/CD pour préparer les mises en production. J'ai appris à adapter le code aux contraintes réelles (performance, sécurité, compatibilité). Déploiement supervisé sur serveur OVH lors du stage.",
+                projets: [
+                    { label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" },
+                    { label: "Stage WebMinit34", url: "/Portfolio-BUT/projects/stage" },
+                ]
+            },
+        ]
+    },
+    {
+        num: 2,
+        nom: "Optimiser",
+        niveau: "Niveau 3 — Analyser et optimiser des applications",
+        color: "blue",
+        badgeClass: "bg-blue-600 dark:bg-blue-700",
+        borderClass: "border-blue-400",
+        acs: [
+            {
+                id: "AC32.01",
+                titre: "Anticiper les résultats de diverses métriques",
+                niveau: niveaux.debutant,
+                description: "Compétence peu développée dans mes projets actuels. L'analyse de métriques (temps d'instruction, occupation mémoire) n'a pas encore été un axe central de mes réalisations.",
+                projets: []
+            },
+            {
+                id: "AC32.02",
+                titre: "Profiler, analyser et justifier le comportement d'un code exécutant",
+                niveau: niveaux.enCours,
+                description: "Lors de l'alternance, participation à une campagne de tests Valgrind sur le serveur de sauvegarde pour détecter les fuites mémoire. Analyse de comportements inattendus côté frontend Vue.js (watch manquant, v-if absent) lors de la correction de régressions.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC32.03",
+                titre: "Choisir et utiliser des bibliothèques et méthodes dédiées",
+                niveau: niveaux.enCours,
+                description: "Compétence en cours de développement. Utilisation de bibliothèques existantes (Composer, OpenAPI) sans avoir encore mené d'analyse comparative approfondie des alternatives.",
+                projets: []
+            },
+        ]
+    },
+    {
+        num: 3,
+        nom: "Administrer",
+        niveau: "Niveau 3 — Faire évoluer et maintenir un système",
+        color: "cyan",
+        badgeClass: "bg-cyan-600 dark:bg-cyan-700",
+        borderClass: "border-cyan-400",
+        acs: [
+            {
+                id: "AC33.01",
+                titre: "Créer des processus de traitement automatisés",
+                niveau: niveaux.acquis,
+                description: "Mise en place d'un environnement Docker entièrement automatisé pour déployer PHP 7.4 sur Debian 10 : Dockerfile paramétrable, docker-compose.yml, fichier .env dynamique. Le déploiement sur une nouvelle box est reproductible sans intervention manuelle. CI GitLab pour la génération et publication automatique de la documentation Swagger.",
+                projets: [
+                    { label: "Alternance Dockerisation", url: "/Portfolio-BUT/projects/alternance-dockerisation" },
+                    { label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" },
+                ]
+            },
+            {
+                id: "AC33.02",
+                titre: "Configurer un système (performance, sécurité, compatibilité)",
+                niveau: niveaux.enCours,
+                description: "Configuration d'une architecture multi-couches (Apache natif → Docker → services natifs) avec gestion des contraintes de compatibilité librairies entre distributions Linux. Résolution de 5 problèmes de configuration et de compatibilité système.",
+                projets: [{ label: "Alternance Dockerisation", url: "/Portfolio-BUT/projects/alternance-dockerisation" }]
+            },
+        ]
+    },
+    {
+        num: 4,
+        nom: "Conduire",
+        niveau: "Niveau 3 — Participer à la conception et à la mise en œuvre d'un projet système d'information",
+        color: "purple",
+        badgeClass: "bg-purple-600 dark:bg-purple-700",
+        borderClass: "border-purple-400",
+        acs: [
+            {
+                id: "AC34.01",
+                titre: "Mesurer les impacts économiques, sociétaux et technologiques d'un projet informatique",
+                niveau: niveaux.enCours,
+                description: "En alternance, prise de conscience des impacts d'une V1 sur les clients (box livrées, données sauvegardées). Formation SMSI MOOC ANSSI sur les enjeux de la sécurité de l'information dans les organisations.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC34.02",
+                titre: "Savoir intégrer un projet informatique dans le système d'information d'une organisation",
+                niveau: niveaux.acquis,
+                description: "Sur la SAE3A, intégration d'une plateforme dans le SI de l'IUT. Sur le stage, intégration d'un système de réservation dans l'organisation d'écoles privées. Dans les deux cas, compréhension des processus métier existants avant de développer.",
+                projets: [
+                    { label: "SAE3A", url: "/Portfolio-BUT/projects/SAE3A" },
+                    { label: "Stage WebMinit34", url: "/Portfolio-BUT/projects/stage" },
+                ]
+            },
+            {
+                id: "AC34.03",
+                titre: "Savoir adapter un système d'information",
+                niveau: niveaux.enCours,
+                description: "En alternance, adaptation continue de l'API et de l'interface en fonction des évolutions du serveur de sauvegarde et des besoins des clients. Refonte de l'architecture pour faciliter les futures évolutions.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+        ]
+    },
+    {
+        num: 5,
+        nom: "Collaborer",
+        niveau: "Niveau 3 — Manager une équipe informatique",
+        color: "green",
+        badgeClass: "bg-green-600 dark:bg-green-700",
+        borderClass: "border-green-400",
+        acs: [
+            {
+                id: "AC35.01",
+                titre: "Organiser et partager une veille numérique",
+                niveau: niveaux.enCours,
+                description: "En alternance, présentation régulière de design patterns à l'équipe chaque vendredi (Factory, Prototype, Iterator). Partage structuré des connaissances techniques avec démonstration d'implémentation dans le code existant.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC35.02",
+                titre: "Identifier les enjeux de l'économie de l'innovation numérique",
+                niveau: niveaux.enCours,
+                description: "Formation SMSI MOOC ANSSI sur les enjeux de la sécurité et de la gouvernance numérique. Compréhension des problématiques de conformité et de protection des données dans un contexte professionnel.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC35.03",
+                titre: "Guider la conduite du changement informatique au sein d'une organisation",
+                niveau: niveaux.enCours,
+                description: "Participation à l'introduction de nouvelles normes de code dans l'équipe (remplacement des stdClass, nouveaux namespaces, documentation automatisée). Accompagnement de l'équipe dans l'adoption de ces pratiques.",
+                projets: [{ label: "Alternance Mission 1", url: "/Portfolio-BUT/projects/alternance" }]
+            },
+            {
+                id: "AC35.04",
+                titre: "Accompagner le management de projet informatique",
+                niveau: niveaux.acquis,
+                description: "En tant que Scrum Master sur la SAE3A, organisation des sprints, facilitation des daily meetings, gestion des blocages et maintien de la dynamique d'équipe. Application concrète des pratiques agiles sur un projet universitaire.",
+                projets: [{ label: "SAE3A", url: "/Portfolio-BUT/projects/SAE3A" }]
+            },
+        ]
+    },
+];
+
+const colorMap: Record<string, string> = {
+    orange: 'text-orange-600 dark:text-orange-400',
+    blue:   'text-blue-600 dark:text-blue-400',
+    cyan:   'text-cyan-600 dark:text-cyan-400',
+    purple: 'text-purple-600 dark:text-purple-400',
+    green:  'text-green-600 dark:text-green-400',
+};
 ---
 
 <Layout>
-    <main class="min-h-screen border-2 border-gray-600 rounded-2xl ">
+    <main class="min-h-screen border-2 border-gray-600 rounded-2xl">
 
-        <!-- Hero Section -->
+        <!-- Hero -->
         <section class="relative py-20 px-4 text-center">
             <div class="relative mx-auto rounded-2xl shadow-lg pt-5 pb-5 dark:bg-gray-800">
                 <div class="text-6xl mb-6">📚</div>
                 <h1 class="font-monospace text-4xl lg:text-6xl text-gray-900 dark:text-gray-100 mb-6">
-                    Mes Apprentissages <span class="text-transparent text-red-500 dark:text-red-500">Critiques</span>
+                    Apprentissages <span class="text-red-500 dark:text-red-400">Critiques</span>
                 </h1>
                 <p class="text-xl text-gray-700 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed">
-                    Découvrez mes compétences techniques et projets développés au cours de ma formation,
-                    organisés par domaines d'expertise et niveaux de maîtrise.
+                    Compétences BUT Informatique — Niveau 3. Bilan de mes acquisitions à travers mes projets universitaires et mon alternance.
                 </p>
             </div>
         </section>
 
-        <!-- Légende des niveaux -->
-        <section class="py-8 px-4">
-            <div class="max-w-4xl mx-auto">
-                <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg">
-                    <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100 mb-4 text-center">Légende des niveaux de maîtrise</h3>
-                    <div class="grid md:grid-cols-4 gap-4">
-                        <div class="flex items-center space-x-2">
-                            <span class="w-4 h-4 bg-red-500 rounded-full"></span>
-                            <span class="text-sm text-gray-700 dark:text-gray-300">Débutant</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-4 h-4 bg-yellow-500 rounded-full"></span>
-                            <span class="text-sm text-gray-700 dark:text-gray-300">En cours</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-4 h-4 bg-blue-500 rounded-full"></span>
-                            <span class="text-sm text-gray-700 dark:text-gray-300">Acquis</span>
-                        </div>
-                        <div class="flex items-center space-x-2">
-                            <span class="w-4 h-4 bg-green-500 rounded-full"></span>
-                            <span class="text-sm text-gray-700 dark:text-gray-300">Maîtrisé</span>
-                        </div>
+        <!-- Légende -->
+        <section class="py-6 px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 p-5 rounded-2xl shadow flex flex-wrap gap-6 justify-center">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Acquis — sait faire</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">En cours d'acquisition</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                        <span class="text-sm text-gray-700 dark:text-gray-300 font-medium">Débutant — ne sait pas encore faire</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Compétence 3 Section -->
-        <section id="competence3" class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-					<span class="inline-block bg-orange-500 dark:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-						Compétence 3
-					</span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Administrer des systèmes informatiques communicants complexes
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-orange-500 to-blue-600 mx-auto rounded-full"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">
-                        Niveau 2 : Déployer des services dans une architecture réseau
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-3 gap-8">
-                    <!-- AC 3.1 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Acquis</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">🔗</span>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.1</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3 text-orange-600 dark:text-orange-400">
-                            Applications communicantes
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Concevoir et développer des applications communicantes utilisant des protocoles réseau
-                            et des API pour l'échange de données.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-blue-500 h-2 rounded-full" style="width: 100%"></div>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% maîtrisé</p>
-                        </div>
-
-                        <a href="/Portfolio-BUT/projects/NDI" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-orange-400 to-orange-600 text-white rounded-lg hover:from-orange-500 hover:to-orange-700 transition-colors duration-300">
-                            <span class="mr-2">💬</span>
-                            Voir le projet Chat App
-                        </a>
+        <!-- Les 5 compétences -->
+        {competences.map((comp) => (
+            <section class="py-14 px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Header compétence -->
+                    <div class="text-center mb-12">
+                        <span class={`inline-block ${comp.badgeClass} text-white px-4 py-2 rounded-full text-sm font-medium mb-4`}>
+                            Compétence {comp.num}
+                        </span>
+                        <h2 class={`font-monospace text-3xl lg:text-4xl text-gray-900 dark:text-gray-100 mb-3 ${colorMap[comp.color]}`}>
+                            {comp.nom}
+                        </h2>
+                        <p class="text-gray-500 dark:text-gray-400 text-base max-w-2xl mx-auto">{comp.niveau}</p>
+                        <div class="w-20 h-1 bg-gradient-to-r from-gray-300 to-gray-500 mx-auto rounded-full mt-4"></div>
                     </div>
 
-                    <!-- AC 3.2 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Maîtrisé</span>
+                    <!-- Cards AC -->
+                    <div class={`grid gap-6 ${comp.acs.length === 2 ? 'md:grid-cols-2 max-w-3xl mx-auto' : 'md:grid-cols-2 lg:grid-cols-3'}`}>
+                        {comp.acs.map((ac) => (
+                            <div class={`bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-7 border-t-4 ${comp.borderClass} relative hover:shadow-xl transition-all duration-300`}>
+                                <!-- Badge niveau -->
+                                <div class="absolute -top-3 right-4">
+                                    <span class={`${ac.niveau.color} text-white text-xs font-semibold px-3 py-1 rounded-full shadow`}>
+                                        {ac.niveau.label}
+                                    </span>
+                                </div>
+
+                                <p class="text-xs font-mono text-gray-400 dark:text-gray-500 mb-2">{ac.id}</p>
+                                <h3 class={`text-base font-bold mb-3 ${colorMap[comp.color]}`}>{ac.titre}</h3>
+                                <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-5">{ac.description}</p>
+
+                                {ac.projets.length > 0 && (
+                                    <div class="flex flex-wrap gap-2">
+                                        {ac.projets.map((p) => (
+                                            <a
+                                                href={p.url}
+                                                class={`text-xs font-medium px-3 py-1.5 rounded-full border ${ac.niveau.bg} ${ac.niveau.border} ${ac.niveau.text} hover:opacity-80 transition-opacity`}
+                                            >
+                                                {p.label} →
+                                            </a>
+                                        ))}
+                                    </div>
+                                )}
+                                {ac.projets.length === 0 && (
+                                    <p class="text-xs text-gray-400 dark:text-gray-500 italic">Aucun projet dédié pour l'instant</p>
+                                )}
                             </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">🖥️</span>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.2</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3 text-blue-600 dark:text-blue-400">
-                            Configuration réseau
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Configurer un poste de travail dans un réseau d'entreprise avec gestion des droits
-                            et sécurisation des accès.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-yellow-500 h-2 rounded-full" style="width: 70%"></div>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">70% maîtrisé</p>
-                        </div>
-
-                        <a href="" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-400 to-blue-600 text-white rounded-lg hover:from-blue-500 hover:to-blue-700 transition-colors duration-300">
-                            <span class="mr-2">🌐</span>
-                            Aucun projet spécifique
-                        </a>
-                    </div>
-
-                    <!-- AC 3.3 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-green-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Maîtrisé</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">⚙️</span>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 3.3</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3 text-purple-600 dark:text-purple-400">
-                            Déploiement de services
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Déployer des services dans une architecture réseau avec conteneurisation
-                            et orchestration des applications.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 90%"></div>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">90% maîtrisé</p>
-                        </div>
-
-                        <a href="" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-purple-400 to-purple-600 text-white rounded-lg hover:from-purple-500 hover:to-purple-700 transition-colors duration-300">
-                            <span class="mr-2">🐳</span>
-                            Aucun projet spécifique
-                        </a>
+                        ))}
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        ))}
 
-        <!-- Compétence 4 Section -->
-        <section id="competence4" class="py-16 px-4 ">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-					<span class="inline-block bg-blue-600 dark:bg-blue-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-						Compétence 4
-					</span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Gérer des données de l'information
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto rounded-full"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">
-                        Niveau 2 : Optimiser une base de données, interagir avec une application et mettre en œuvre la sécurité
-                    </p>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-8 mb-8">
-                    <!-- AC 4.1 -->
-                    <div class="bg-gradient-to-br from-green-500 to-teal-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Acquis</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">📊</span>
-                            <h3 class="text-xl font-bold">AC 4.1</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3">Optimisation des modèles de données</h4>
-                        <p class="text-white/90 leading-relaxed mb-4">
-                            Optimiser les modèles de données de l'entreprise par la normalisation,
-                            l'indexation et l'analyse des performances.
-                        </p>
-
-                        <!-- Barre de progression (style white pour contraste) -->
-                        <div class="mb-4">
-                            <div class="w-full bg-white/30 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 90%"></div>
-                            </div>
-                            <p class="text-xs text-white/80 mt-1">90% maîtrisé</p>
-                        </div>
-
-                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
-                            <span class="mr-2">🗄️</span>
-                            Voir SAE 3A
-                        </a>
-                    </div>
-
-                    <!-- AC 4.2 -->
-                    <div class="bg-gradient-to-br from-red-500 to-pink-600 p-8 rounded-2xl text-white shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-yellow-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>En cours</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">🔒</span>
-                            <h3 class="text-xl font-bold">AC 4.2</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3">Confidentialité des données</h4>
-                        <p class="text-white/90 leading-relaxed mb-4">
-                            Assurer la confidentialité des données par le chiffrement,
-                            la gestion des accès et la mise en place de protocoles de sécurité.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-white/30 rounded-full h-2">
-                                <div class="bg-white h-2 rounded-full" style="width: 65%"></div>
-                            </div>
-                            <p class="text-xs text-white/80 mt-1">65% maîtrisé</p>
-                        </div>
-
-                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg hover:bg-white/30 transition-colors duration-300">
-                            <span class="mr-2">🛡️</span>
-                            Voir SAE 3A
-                        </a>
-                    </div>
-                </div>
-
-                <div class="grid lg:grid-cols-2 gap-8">
-                    <!-- AC 4.3 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Acquis</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">📈</span>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 4.3</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3 text-indigo-600 dark:text-indigo-400">
-                            Restitution de données
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Organiser la restitution de données à travers la programmation
-                            et la visualisation avec des dashboards interactifs.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-green-500 h-2 rounded-full" style="width: 100%"></div>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% acquis</p>
-                        </div>
-
-                        <a href="/Portfolio-BUT/projects/stage" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-indigo-400 to-indigo-600 text-white rounded-lg hover:from-indigo-500 hover:to-indigo-700 transition-colors duration-300">
-                            <span class="mr-2">📊</span>
-                            Voir Stage
-                        </a>
-                    </div>
-
-                    <!-- AC 4.4 -->
-                    <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 relative">
-                        <!-- Badge de niveau -->
-                        <div class="absolute -top-3 -right-3">
-                            <div class="bg-blue-500 text-white px-3 py-1 rounded-full text-xs font-semibold flex items-center space-x-1">
-                                <span class="w-2 h-2 bg-white rounded-full"></span>
-                                <span>Acquis</span>
-                            </div>
-                        </div>
-
-                        <div class="flex items-center mb-4">
-                            <span class="text-3xl mr-4">🔄</span>
-                            <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">AC 4.4</h3>
-                        </div>
-                        <h4 class="font-semibold text-lg mb-3 text-teal-600 dark:text-teal-400">
-                            Données hétérogènes
-                        </h4>
-                        <p class="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
-                            Manipuler des données hétérogènes provenant de sources diverses
-                            avec transformation et intégration automatisées.
-                        </p>
-
-                        <!-- Barre de progression -->
-                        <div class="mb-4">
-                            <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                                <div class="bg-red-500 h-2 rounded-full" style="width: 100%"></div>
-                            </div>
-                            <p class="text-xs text-gray-500 dark:text-gray-400 mt-1">100% Acquis</p>
-                        </div>
-
-                        <a href="/Portfolio-BUT/projects/SAE3A" class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-teal-400 to-teal-600 text-white rounded-lg hover:from-teal-500 hover:to-teal-700 transition-colors duration-300">
-                            <span class="mr-2">🔧</span>
-                            Voir SAE 3A
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Compétence 5 Section -->
-        <section id="competence5" class="py-16 px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-16">
-					<span class="inline-block bg-purple-600 dark:bg-purple-700 text-white px-4 py-2 rounded-full text-sm font-medium mb-4">
-						Compétence 5
-					</span>
-                    <h2 class="font-monospace text-3xl lg:text-5xl text-gray-900 dark:text-gray-100 mb-4">
-                        Conduire un projet
-                    </h2>
-                    <div class="w-20 h-1 bg-gradient-to-r from-purple-600 to-pink-600 mx-auto rounded-full"></div>
-                    <p class="text-lg text-gray-600 dark:text-gray-400 mt-4">
-                        Niveau 2 : Appliquer une démarche de suivi de projet en fonction des besoins métiers
-                    </p>
-                </div>
-
-                <div class="bg-gradient-to-br from-purple-600 to-pink-600 dark:from-pink-700 dark:to-red-700 p-8 rounded-2xl text-white shadow-lg mb-8">
-                    <h3 class="text-2xl font-bold mb-6 text-center">Gestion de projet complète</h3>
-                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- AC 5.1 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
-                            <!-- Badge de niveau -->
-                            <div class="absolute -top-2 -right-2">
-                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                                    Acquis
-                                </div>
-                            </div>
-
-                            <div class="flex items-center mb-3">
-                                <span class="text-2xl mr-3">🏢</span>
-                                <h4 class="font-semibold">AC 5.1</h4>
-                            </div>
-                            <p class="text-sm text-white/90 mb-3">
-                                Identifier les processus présents dans une organisation en vue d'améliorer les systèmes d'information
-                            </p>
-
-                            <!-- Mini barre de progression -->
-                            <div class="mb-3">
-                                <div class="w-full bg-white/30 rounded-full h-1">
-                                    <div class="bg-white h-1 rounded-full" style="width: 95%"></div>
-                                </div>
-                            </div>
-
-                            <a href="/Portfolio-BUT/projects/stage" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Stage
-                            </a>
-                        </div>
-
-                        <!-- AC 5.2 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
-                            <!-- Badge de niveau -->
-                            <div class="absolute -top-2 -right-2">
-                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                                    Acquis
-                                </div>
-                            </div>
-
-                            <div class="flex items-center mb-3">
-                                <span class="text-2xl mr-3">📝</span>
-                                <h4 class="font-semibold">AC 5.2</h4>
-                            </div>
-                            <p class="text-sm text-white/90 mb-3">
-                                Formaliser les besoins du client et de l'utilisateur par des cahiers des charges détaillés
-                            </p>
-
-                            <!-- Mini barre de progression -->
-                            <div class="mb-3">
-                                <div class="w-full bg-white/30 rounded-full h-1">
-                                    <div class="bg-white h-1 rounded-full" style="width: 90%"></div>
-                                </div>
-                            </div>
-
-                            <a href="/Portfolio-BUT/projects/stage" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Stage
-                            </a>
-                        </div>
-
-                        <!-- AC 5.3 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
-                            <!-- Badge de niveau -->
-                            <div class="absolute -top-2 -right-2">
-                                <div class="bg-yellow-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                                    En cours
-                                </div>
-                            </div>
-
-                            <div class="flex items-center mb-3">
-                                <span class="text-2xl mr-3">⚖️</span>
-                                <h4 class="font-semibold">AC 5.3</h4>
-                            </div>
-                            <p class="text-sm text-white/90 mb-3">
-                                Identifier les critères de faisabilité d'un projet informatique avec analyse des risques
-                            </p>
-
-                            <!-- Mini barre de progression -->
-                            <div class="mb-3">
-                                <div class="w-full bg-white/30 rounded-full h-1">
-                                    <div class="bg-white h-1 rounded-full" style="width: 70%"></div>
-                                </div>
-                            </div>
-
-                            <a href="/Portfolio-BUT/projects/NDI" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                Nuit de l'info
-                            </a>
-                        </div>
-
-                        <!-- AC 5.4 -->
-                        <div class="bg-white/20 backdrop-blur-sm p-6 rounded-xl relative">
-                            <!-- Badge de niveau -->
-                            <div class="absolute -top-2 -right-2">
-                                <div class="bg-blue-400 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                                    Acquis
-                                </div>
-                            </div>
-
-                            <div class="flex items-center mb-3">
-                                <span class="text-2xl mr-3">📊</span>
-                                <h4 class="font-semibold">AC 5.4</h4>
-                            </div>
-                            <p class="text-sm text-white/90 mb-3">
-                                Définir et mettre en œuvre une démarche de suivi de projet avec méthodes agiles
-                            </p>
-
-                            <!-- Mini barre de progression -->
-                            <div class="mb-3">
-                                <div class="w-full bg-white/30 rounded-full h-1">
-                                    <div class="bg-white h-1 rounded-full" style="width: 80%"></div>
-                                </div>
-                            </div>
-
-                            <a href="/Portfolio-BUT/projects/SAE3A" class="text-xs bg-white/30 px-3 py-1 rounded-full hover:bg-white/40 transition-colors duration-300">
-                                SAE 3A
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
         <Contact />
-
         <BackToTop />
-
     </main>
 </Layout>
